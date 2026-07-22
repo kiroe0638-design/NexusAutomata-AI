@@ -5,25 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NexusAutomata AI (NAI)</title>
     <style>
-        body { background-color: #0b0b0b; color: #ffffff; font-family: 'Segoe UI', sans-serif; text-align: center; padding: 50px 20px; margin: 0; }
+        body { background-color: #0b0b0b; color: #ffffff; font-family: 'Segoe UI', sans-serif; text-align: center; padding: 50px 20px; margin: 0; direction: rtl; }
         h1 { color: #00ffcc; font-size: 3rem; margin-bottom: 10px; font-weight: 800; }
         p { color: #a0a0a0; font-size: 1.2rem; margin-bottom: 40px; }
-        .pricing-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; margin-bottom: 50px; }
-        .card { background: #141414; border: 1px solid #222; border-radius: 12px; padding: 30px; width: 280px; transition: 0.3s; }
+        .pricing-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; margin-bottom: 50px; direction: ltr; }
+        .card { background: #141414; border: 1px solid #222; border-radius: 12px; padding: 30px; width: 280px; transition: 0.3s; text-align: center; }
         .card:hover { border-color: #00ffcc; transform: translateY(-5px); }
         .card h3 { color: #00ffcc; font-size: 1.5rem; }
         .price { font-size: 2rem; font-weight: bold; margin: 20px 0; color: #fff; }
         
-        /* Premium Embedded Chatbot Section */
-        .chat-section { max-width: 800px; margin: 50px auto; background: #141414; border: 2px solid #00ffcc; border-radius: 16px; padding: 10px; box-shadow: 0 10px 30px rgba(0,255,204,0.1); overflow: hidden; }
-        .chat-section h2 { color: #00ffcc; font-size: 1.5rem; margin-bottom: 15px; }
+        /* Premium Floating Customization Integration Style */
+        #dify-chatbot-bubble-button { background-color: #00ffcc !important; }
     </style>
 </head>
 <body>
     <h1>NexusAutomata AI</h1>
     <p>Intelligent 24/7 AI-Powered Missed-Call & Automation Solutions for Real Estate Ecosystems</p>
     
-    <!-- Pricing Cards -->
+    <!-- Pricing Core -->
     <div class="pricing-container">
         <div class="card">
             <h3>Starter Node</h3>
@@ -42,15 +41,17 @@
         </div>
     </div>
 
-    <!-- Live Premium Real Estate Chatbot Portal -->
-    <div class="chat-section">
-        <h2>🤖 NAI Broker Core (Live Enterprise Demo)</h2>
-        <iframe
-         src="https://udify.app/chatbot/AlytJyGr9oVTQcna"
-         style="width: 100%; height: 550px; border-radius: 12px;"
-         frameborder="0"
-         allow="microphone">
-        </iframe [١]>
-    </div>
+    <!-- Official Real Estate Embedded Live Script (Dify Core Backend Link) -->
+    <script>
+      window.difyChatbotConfig = {
+        token: 'AlytJyGr9oVTQcna',
+        baseUrl: 'https://dify.ai'
+      }
+    </script>
+    <script
+      src="https://dify.ai/embed.min.js"
+      id="AlytJyGr9oVTQcna"
+      defer>
+    </script>
 </body>
 </html>
