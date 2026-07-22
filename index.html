@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NexusAutomata AI (NAI)</title>
     
-    <!-- AOS Library for modern scroll animations -->
+    <!-- AOS Library for luxury scroll trigger behaviors -->
     <link href="https://unpkg.com" rel="stylesheet">
     
     <style>
@@ -117,6 +117,7 @@
             width: 100%;
             text-align: center;
             transition: 0.3s;
+            pointer-events: none;
         }
         .card:hover .btn-select-tier, .card.selected-plan .btn-select-tier {
             background: var(--primary);
@@ -277,8 +278,6 @@
         Intelligent 24/7 AI-Powered Missed-Call & Automation Solutions for Real Estate Ecosystems
     </p>
     
-    <!-- Step 1: Fully Restored Three-Tier Pricing Matrix Cards -->
+    <!-- Step 1: Clickable Pricing Cards Matrix -->
     <div class="pricing-container" data-aos="fade-up" data-aos-delay="200">
         <!-- Card 1: Starter Node -->
-        <div class="card" id="card-starter" onclick="selectPlanView('starter', 599, 'Starter Node')">
-            <div>
