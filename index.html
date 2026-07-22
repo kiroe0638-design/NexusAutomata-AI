@@ -4,16 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NexusAutomata AI (NAI)</title>
-    
-    <!-- AOS Library for smooth scroll animations -->
-    <link href="https://unpkg.com" rel="stylesheet">
-    
     <style>
-        /* Modern Premium Cyberpunk Core Theme */
+        /* Modern Premium Cyberpunk Theme - Pure CSS Core */
         :root {
             --bg-color: #0b0b0b;
             --card-bg: #141414;
-            --card-bg-active: #1a1a26;
             --primary: #00ffcc;
             --primary-hover: #00ccaa;
             --text-main: #ffffff;
@@ -55,7 +50,7 @@
             line-height: 1.7;
         }
 
-        /* 3D Pricing Grid Matrix */
+        /* 3D Pricing Grid Matrix (Always Intact & Visible) */
         .pricing-container { 
             display: flex; 
             justify-content: center; 
@@ -72,21 +67,23 @@
             border-radius: 12px; 
             padding: 35px 25px; 
             width: 300px; 
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
             text-align: left;
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            cursor: pointer;
+            transition: 0.3s ease;
         }
         
-        .card:hover, .card.selected-plan { 
+        .card:hover { 
             border-color: var(--primary); 
-            transform: translateY(-10px) scale(1.02); 
-            box-shadow: 0 15px 30px rgba(0, 255, 204, 0.15);
-            background: var(--card-bg-active);
+            transform: translateY(-5px); 
+            box-shadow: 0 15px 30px rgba(0, 255, 204, 0.1);
+        }
+
+        .card.featured {
+            border-color: var(--primary);
         }
 
         .card.featured::before {
@@ -116,24 +113,25 @@
             font-weight: bold;
             width: 100%;
             text-align: center;
+            cursor: pointer;
             transition: 0.3s;
-            pointer-events: none;
+            text-decoration: none;
         }
-        .card:hover .btn-select-tier, .card.selected-plan .btn-select-tier {
+        .card:hover .btn-select-tier, .card.featured .btn-select-tier {
             background: var(--primary);
             color: #000;
         }
 
-        /* Fixed Active Checkout and Features Workspace Panel */
+        /* Fixed Configuration & Checkout Matrix Section (Always Intact & Visible) */
         .workspace-section {
             max-width: 900px;
-            margin: 40px auto;
+            margin: 60px auto;
             background: var(--card-bg);
             border: 2px solid var(--primary);
             border-radius: 16px;
             padding: 35px;
             text-align: left;
-            box-shadow: 0 15px 40px rgba(0, 255, 204, 0.1);
+            box-shadow: 0 15px 40px rgba(0, 255, 204, 0.05);
         }
 
         .features-headline {
@@ -258,20 +256,22 @@
         Intelligent 24/7 AI-Powered Missed-Call & Automation Solutions for Real Estate Ecosystems
     </p>
     
-    <!-- Step 1: Three-Tier Pricing Matrix Cards (Always Visible) -->
+    <!-- Step 1: Three-Tier Pricing Matrix Cards (Hardcoded, Always Intact) -->
     <div class="pricing-container">
         <!-- Card 1: Starter Node -->
-        <div class="card" id="card-starter" onclick="selectPlanView('starter', 599, 'Starter Node')">
+        <div class="card" id="card-starter">
             <div>
                 <h3>Starter Node</h3>
                 <div class="price">$599<span style="font-size:1rem; color:var(--text-muted);">/mo</span></div>
                 <p>Instant missed-call text-back deployment 24/7 via WhatsApp & SMS. Automatically captures critical lead data to Google Sheets.</p>
             </div>
-            <button class="btn-select-tier">Configure Node</button>
+            <a href="#setup-workspace" class="btn-select-tier" onclick="updateWorkspace('starter', 599, 'Starter Node')">Configure Plan</a>
         </div>
         
         <!-- Card 2: Cortex Pro -->
-        <div class="card featured" id="card-cortex" onclick="selectPlanView('cortex', 1199, 'Cortex Pro')">
+        <div class="card featured" id="card-cortex">
             <div>
                 <h3>Cortex Pro</h3>
                 <div class="price">$1,199<span style="font-size:1rem; color:var(--text-muted);">/mo</span></div>
+                <p>Includes Starter Node features + complete interactive bilingual AI assistant (Ar/En) to answer pricing/locations + automated calendar booking.</p>
+            </div>
