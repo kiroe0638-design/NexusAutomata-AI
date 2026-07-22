@@ -14,25 +14,16 @@
         .card h3 { color: #00ffcc; font-size: 1.5rem; }
         .price { font-size: 2rem; font-weight: bold; margin: 20px 0; color: #fff; }
         
-        /* Premium Embedded Chatbot Layout */
-        .chat-section { max-width: 700px; margin: 50px auto; background: #111111; border: 2px solid #222; border-radius: 16px; padding: 0; box-shadow: 0 10px 40px rgba(0,255,204,0.05); overflow: hidden; text-align: right; }
-        .chat-header { background: #161616; color: #00ffcc; padding: 15px; font-weight: bold; border-bottom: 1px solid #222; font-size: 1rem; display: flex; align-items: center; gap: 10px; }
-        .chat-body { height: 350px; padding: 20px; overflow-y: auto; font-size: 0.95rem; color: #e0e0e0; display: flex; flex-direction: column; gap: 15px; background: #0c0c0c; }
-        .msg { padding: 12px 16px; border-radius: 12px; max-width: 80%; line-height: 1.5; font-weight: 400; }
-        .bot-msg { background: #161616; align-self: flex-start; border-right: 3px solid #00ffcc; color: #ffffff; text-align: right; }
-        .user-msg { background: #00ffcc; color: #000000; align-self: flex-end; font-weight: 600; text-align: right; }
-        .chat-footer { padding: 15px; display: flex; gap: 10px; background: #111111; border-top: 1px solid #222; }
-        .chat-input { flex: 1; background: #161616; border: 1px solid #222; color: #fff; padding: 12px; border-radius: 8px; outline: none; font-size: 0.95rem; }
-        .chat-input:focus { border-color: #00ffcc; }
-        .chat-btn { background: #00ffcc; color: #000; border: none; padding: 12px 24px; font-weight: bold; border-radius: 8px; cursor: pointer; font-size: 0.95rem; transition: 0.2s; }
-        .chat-btn:hover { background: #00cc99; }
+        /* Premium Embedded Chatbot Section */
+        .chat-section { max-width: 800px; margin: 50px auto; background: #141414; border: 2px solid #222; border-radius: 16px; padding: 10px; box-shadow: 0 10px 30px rgba(0,255,204,0.05); overflow: hidden; }
+        .chat-section h2 { color: #00ffcc; font-size: 1.5rem; margin-bottom: 15px; }
     </style>
 </head>
 <body>
     <h1>NexusAutomata AI</h1>
     <p>Intelligent 24/7 AI-Powered Missed-Call & Automation Solutions for Real Estate Ecosystems</p>
     
-    <!-- Pricing Core -->
+    <!-- Pricing Cards -->
     <div class="pricing-container">
         <div class="card">
             <h3>Starter Node</h3>
@@ -51,96 +42,15 @@
         </div>
     </div>
 
-    <!-- Live Premium Interactive Real Estate B2B Portal -->
+    <!-- Live Premium Real Estate Chatbot Portal (Dify Integration) -->
     <div class="chat-section">
-        <div class="chat-header">🤖 [المساعد الذكي لشركة: اسم الشركة]</div>
-        <div class="chat-body" id="chatBody">
-            <div class="msg bot-msg">يرحب بسيادتكم في البوابة الرقمية للنظام العقاري الذكي التابع لشركة [اسم الشركة]. فريق المستشارين لدينا في معاينات خارجية حالياً وتأميناً لطلب سيادتكم أنا في المساعدة فيما تحتاج.</div>
-            <div class="msg bot-msg">هل تتطلع اليوم لشراء، بيع، أم استئجار عقار، لجدولة موعد رسمي لسيادتكم؟</div>
-        </div>
-        <div class="chat-footer">
-            <input type="text" id="chatInput" class="chat-input" placeholder="اكتب ردك هنا..." onkeypress="handleKey(event)">
-            <button class="chat-btn" onclick="sendMsg()">إرسال</button>
-        </div>
+        <h2>🤖 NAI Broker Core (Live Enterprise Demo)</h2>
+        <iframe
+         src="https://udify.app"
+         style="width: 100%; height: 600px; border-radius: 12px;"
+         frameborder="0"
+         allow="microphone">
+        </iframe>
     </div>
-
-    <script>
-        let step = 1;
-        function handleKey(e) { if(e.key === 'Enter') sendMsg(); }
-        
-        function sendMsg() {
-            let input = document.getElementById('chatInput');
-            let body = document.getElementById('chatBody');
-            if(input.value.trim() === "") return;
-            
-            let userText = input.value;
-            
-            let userDiv = document.createElement('div');
-            userDiv.className = "msg user-msg";
-            userDiv.innerText = userText;
-            body.appendChild(userDiv);
-            
-            input.value = "";
-            body.scrollTop = body.scrollHeight;
-
-            setTimeout(() => {
-                let botDiv = document.createElement('div');
-                botDiv.className = "msg bot-msg";
-                let cleanText = userText.toLowerCase();
-
-                // 1. Guardrail for Fallback / Out of bounds questions
-                if(cleanText.includes("أمريكا") || cleanText.includes("امريكا") || cleanText.includes("تكساس") || cleanText.includes("الكويت") || cleanText.includes("كام") || cleanText.includes("سعر")) {
-                    botDiv.innerText = "نعتذر منك، فريقنا العقاري البشري في معاينات ميدانية خارجية حالياً، ولا يمكنني إعطاء أسعار أو تفاصيل غير محدثة حتى لا نقع في خطأ قانوني مع سيادتكم.";
-                    body.appendChild(botDiv);
-                    
-                    setTimeout(() => {
-                        let remindDiv = document.createElement('div');
-                        remindDiv.className = "msg bot-msg";
-                        if(step === 1) remindDiv.innerText = "برجاء تحديد: هل تتطلع اليوم لشراء، بيع، أم استئجار عقار؟";
-                        else if(step === 2) remindDiv.innerText = "ما هي المنطقة أو المدينة المفضلة لسيادتكم؟";
-                        else if(step === 3) remindDiv.innerText = "ما هي الميزانية التقريبية التي رصدتها سيادتكم؟";
-                        body.appendChild(remindDiv);
-                        body.scrollTop = body.scrollHeight;
-                    }, 1500);
-                    return;
-                }
-
-                // 2. Smart Security & Cancellation Handlers (Anti-Loop Guardrails)
-                if(cleanText.includes("تتسرق") || cleanText.includes("تسرق") || cleanText.includes("خايف") || cleanText.includes("مضمونة") || cleanText.includes("امان") || cleanText.includes("أمان")) {
-                    botDiv.innerText = "تأميناً لسيادتكم، كافة البيانات المدخلة مشفرة بالكامل بنظام تشفير End-to-End المتوافق مع معايير أمن البيانات العالمية لشركة NexusAutomata. بياناتك آمنة تماماً ولن يتم مشاركتها مطلقاً.";
-                    body.appendChild(botDiv);
-                    body.scrollTop = body.scrollHeight;
-                    return;
-                }
-                
-                if(cleanText.includes("الغي") || cleanText.includes("ألغي") || cleanText.includes("الغاء") || cleanText.includes("حذف")) {
-                    botDiv.innerText = "مفهوم تماماً لسيادتكم. تم إلغاء طلب الموعد بنجاح وحذف تفضيلاتك من أنظمتنا فوراً بناءً على رغبتك. في خدمتكم دائماً.";
-                    step = 5; 
-                    body.appendChild(botDiv);
-                    body.scrollTop = body.scrollHeight;
-                    return;
-                }
-
-                // 3. Normal Flow Logic
-                if(step === 1) {
-                    botDiv.innerText = "ممتاز جداً، تم تسجيل طبيعة الطلب. ما هي المنطقة أو المدينة المفضلة لسيادتكم؟";
-                    step = 2;
-                } else if(step === 2) {
-                    botDiv.innerText = "مفهوم تماماً، تم تدوين الموقع المفضّل. ما هي الميزانية التقريبية التي رصدتها سيادتكم؟";
-                    step = 3;
-                } else if(step === 3) {
-                    botDiv.innerText = "لتأكيد حجز موعد مكالمة مدتها 10 دقائق مع المستشار العقاري البشري لعرض المشاريع والأسعار الحقيقية، يرجى كتابة رقم الواتساب الخاص بك فوراً.";
-                    step = 4;
-                } else if(step === 4) {
-                    botDiv.innerText = "شكراً لسيادتكم! تم حفظ وتأمين بياناتك بنجاح في أنظمة NexusAutomata المشفرة. سيتواصل معك أحد مستشارينا العقاريين قريباً جداً لتأكيد الموعد.";
-                    step = 5; // Advance to prevent looping the confirmation phrase!
-                } else {
-                    botDiv.innerText = "مرحباً بسيادتكم مجدداً، طلبكم قيد المعالجة الآن وسيتواصل معكم المستشار البشري قريباً. هل هناك أي استفسار آخر بخصوص أمن النظام؟";
-                }
-                body.appendChild(botDiv);
-                body.scrollTop = body.scrollHeight;
-            }, 1000);
-        }
-    </script>
 </body>
 </html>
