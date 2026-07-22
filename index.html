@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NexusAutomata AI (NAI)</title>
+    
+    <!-- AOS Library for luxury scroll trigger behaviors -->
+    <link href="https://unpkg.com" rel="stylesheet">
+    
     <style>
-        /* Modern Premium Cyberpunk Theme - Pure CSS Core */
+        /* Modern Premium Cyberpunk Core Theme */
         :root {
             --bg-color: #0b0b0b;
             --card-bg: #141414;
@@ -15,7 +19,6 @@
             --text-muted: #a0a0a0;
             --border: #222;
             --gradient: linear-gradient(135deg, #00ffcc 0%, #0077ff 100%);
-            --accent-orange: #ffaa00;
         }
 
         body { 
@@ -50,14 +53,14 @@
             line-height: 1.7;
         }
 
-        /* 3D Pricing Grid Matrix (Always Intact & Visible) */
+        /* 3D Pricing Grid Matrix */
         .pricing-container { 
             display: flex; 
             justify-content: center; 
             gap: 25px; 
             flex-wrap: wrap; 
             margin-top: 20px; 
-            margin-bottom: 40px; 
+            margin-bottom: 60px; 
             direction: ltr;
         }
         
@@ -67,23 +70,19 @@
             border-radius: 12px; 
             padding: 35px 25px; 
             width: 300px; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
             text-align: left;
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: 0.3s ease;
         }
         
         .card:hover { 
             border-color: var(--primary); 
-            transform: translateY(-5px); 
-            box-shadow: 0 15px 30px rgba(0, 255, 204, 0.1);
-        }
-
-        .card.featured {
-            border-color: var(--primary);
+            transform: translateY(-10px) scale(1.02); 
+            box-shadow: 0 15px 30px rgba(0, 255, 204, 0.15);
         }
 
         .card.featured::before {
@@ -101,9 +100,10 @@
         
         .card h3 { color: var(--primary); font-size: 1.5rem; margin-top: 0; font-weight: 700; text-align: center; }
         .price { font-size: 2.3rem; font-weight: bold; margin: 20px 0; color: #fff; text-align: center; }
-        .card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px; min-height: 60px; }
+        .card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px; min-height: 100px; }
 
-        .btn-select-tier {
+        /* Dynamic Active Action Buttons directing to sub-pages */
+        .btn-action {
             background: transparent;
             border: 2px solid var(--primary);
             color: var(--primary);
@@ -111,124 +111,32 @@
             border-radius: 8px;
             font-size: 1rem;
             font-weight: bold;
-            width: 100%;
-            text-align: center;
-            cursor: pointer;
-            transition: 0.3s;
-            text-decoration: none;
-        }
-        .card:hover .btn-select-tier, .card.featured .btn-select-tier {
-            background: var(--primary);
-            color: #000;
-        }
-
-        /* Fixed Configuration & Checkout Matrix Section (Always Intact & Visible) */
-        .workspace-section {
-            max-width: 900px;
-            margin: 60px auto;
-            background: var(--card-bg);
-            border: 2px solid var(--primary);
-            border-radius: 16px;
-            padding: 35px;
-            text-align: left;
-            box-shadow: 0 15px 40px rgba(0, 255, 204, 0.05);
-        }
-
-        .features-headline {
-            color: var(--primary);
-            font-size: 1.6rem;
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-        .features-cost-badge {
-            display: inline-block;
-            background: rgba(0, 255, 204, 0.1);
-            color: var(--primary);
-            padding: 6px 14px;
-            border-radius: 6px;
-            font-weight: bold;
-            margin-bottom: 25px;
-            font-size: 1rem;
-        }
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-bottom: 35px;
-        }
-        .feature-item {
-            background: #0b0b0b;
-            border: 1px solid #222;
-            padding: 15px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--text-main);
-        }
-        .feature-item span.icon { color: var(--primary); font-weight: bold; font-size: 1.2rem; }
-
-        /* Integrated Workflow Interactive Forms Styling */
-        .interactive-form-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 25px;
-        }
-        .form-group { text-align: left; margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 8px; color: var(--text-muted); font-size: 0.9rem; }
-        .form-group input, .form-group select {
-            width: 100%; padding: 14px; border-radius: 8px;
-            border: 1px solid #333; background: #0b0b0b;
-            color: #fff; font-size: 1rem; box-sizing: border-box;
-            transition: 0.3s;
-        }
-        .form-group input:focus, .form-group select:focus { border-color: var(--primary); outline: none; }
-
-        .billing-infobox {
-            background: #0b0b0b;
-            border-left: 4px solid var(--primary);
-            padding: 15px;
-            border-radius: 6px;
-            margin-bottom: 25px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        .promo-block {
-            display: flex; gap: 10px; margin-bottom: 10px; max-width: 400px;
-        }
-        .btn-promo-apply {
-            background: #222; color: var(--primary); border: 1px solid #333;
-            padding: 0 25px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s;
-        }
-        .btn-promo-apply:hover { border-color: var(--primary); background: #1a1a26; }
-        .promo-alert-msg { font-size: 0.85rem; font-weight: 600; margin-bottom: 25px; display: none; }
-
-        .btn-master-submit {
-            background: var(--gradient);
-            color: #000;
-            border: none;
-            padding: 16px 40px;
-            font-size: 1.1rem;
-            font-weight: 800;
-            border-radius: 8px;
             cursor: pointer;
             width: 100%;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 255, 204, 0.2);
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            box-sizing: border-box;
         }
-        .btn-master-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(0, 255, 204, 0.4);
+        .btn-action:hover {
+            background: var(--primary);
+            color: #000;
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+        }
+        .card.featured .btn-action {
+            background: var(--primary);
+            color: #000;
+        }
+        .card.featured .btn-action:hover {
+            background: #00ccaa;
+            border-color: #00ccaa;
         }
 
         /* Live Preview System Frame */
         .chat-section { 
             max-width: 900px; 
-            margin: 60px auto; 
+            margin: 40px auto; 
             background: var(--card-bg); 
             border: 2px solid var(--primary); 
             border-radius: 12px; 
@@ -251,27 +159,67 @@
 <body>
 
     <!-- Main Branding Headers -->
-    <h1>NexusAutomata AI (NAI)</h1>
-    <p class="main-subtitle">
+    <h1 data-aos="fade-down" data-aos-duration="1000">NexusAutomata AI (NAI)</h1>
+    <p class="main-subtitle" data-aos="fade-up" data-aos-duration="1200">
         Intelligent 24/7 AI-Powered Missed-Call & Automation Solutions for Real Estate Ecosystems
     </p>
     
-    <!-- Step 1: Three-Tier Pricing Matrix Cards (Hardcoded, Always Intact) -->
-    <div class="pricing-container">
+    <!-- Three-Tier Matrix Plan Structure -->
+    <div class="pricing-container" data-aos="fade-up" data-aos-delay="200">
         <!-- Card 1: Starter Node -->
-        <div class="card" id="card-starter">
+        <div class="card">
             <div>
                 <h3>Starter Node</h3>
                 <div class="price">$599<span style="font-size:1rem; color:var(--text-muted);">/mo</span></div>
-                <p>Instant missed-call text-back deployment 24/7 via WhatsApp & SMS. Automatically captures critical lead data to Google Sheets.</p>
+                <p>Instant missed-call text-back deployment 24/7 via WhatsApp & SMS. Automatically captures critical lead data and syncs directly to your internal Google Sheets infrastructure.</p>
             </div>
-            <a href="#setup-workspace" class="btn-select-tier" onclick="updateWorkspace('starter', 599, 'Starter Node')">Configure Plan</a>
+            <a href="checkout-starter.html" class="btn-action">Configure Node</a>
         </div>
         
         <!-- Card 2: Cortex Pro -->
-        <div class="card featured" id="card-cortex">
+        <div class="card featured">
             <div>
                 <h3>Cortex Pro</h3>
                 <div class="price">$1,199<span style="font-size:1rem; color:var(--text-muted);">/mo</span></div>
-                <p>Includes Starter Node features + complete interactive bilingual AI assistant (Ar/En) to answer pricing/locations + automated calendar booking.</p>
+                <p>Includes Starter Node features + complete interactive bilingual AI assistant (Ar/En) to answer pricing/locations + automated calendar booking systems.</p>
             </div>
+            <a href="checkout-cortex.html" class="btn-action">Configure Node</a>
+        </div>
+        
+        <!-- Card 3: Nexus Enterprise -->
+        <div class="card">
+            <div>
+                <h3>Nexus Enterprise</h3>
+                <div class="price">$2,999<span style="font-size:1rem; color:var(--text-muted);">/mo</span></div>
+                <p>Custom deep infrastructure bridging to major enterprise CRMs (HubSpot/Salesforce) + adaptive autonomous multi-day operational follow-up funnels.</p>
+            </div>
+            <a href="checkout-nexus.html" class="btn-action">Configure Node</a>
+        </div>
+    </div>
+
+    <!-- Production Dify Hub Integration Section -->
+    <div class="chat-section" data-aos="fade-up" data-aos-offset="150">
+        <div class="chat-title-container">
+            <h2>🤖 NAI Broker Agent (Live Production Web-App)</h2>
+            <span class="demo-badge">LIVE ENTERPRISE ENVIRONMENT</span>
+        </div>
+        
+        <iframe
+         src="https://udify.app"
+         style="width: 100%; height: 100%; min-height: 700px"
+         frameborder="0"
+         loading="lazy"
+         allow="microphone">
+        </iframe>
+    </div>
+
+    <!-- Script Architecture -->
+    <script src="https://unpkg.com"></script>
+    <script>
+        window.scrollTo(0, 0);
+        window.onload = function() {
+            AOS.init({ once: false, mirror: true, offset: 100, duration: 1000 });
+        };
+    </script>
+</body>
+</html>
