@@ -5,22 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NexusAutomata AI (NAI)</title>
     <style>
-        body { background-color: #0b0b0b; color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; padding: 50px 20px; }
+        body { background-color: #0b0b0b; color: #ffffff; font-family: 'Segoe UI', sans-serif; text-align: center; padding: 50px 20px; margin: 0; }
         h1 { color: #00ffcc; font-size: 3rem; margin-bottom: 10px; font-weight: 800; }
         p { color: #a0a0a0; font-size: 1.2rem; margin-bottom: 40px; }
-        .pricing-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+        .pricing-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; margin-bottom: 50px; }
         .card { background: #141414; border: 1px solid #222; border-radius: 12px; padding: 30px; width: 280px; transition: 0.3s; }
         .card:hover { border-color: #00ffcc; transform: translateY(-5px); }
         .card h3 { color: #00ffcc; font-size: 1.5rem; }
         .price { font-size: 2rem; font-weight: bold; margin: 20px 0; color: #fff; }
-        .btn { background: #00ffcc; color: #000; padding: 12px 25px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-block; margin-top: 20px; }
-        .btn:hover { background: #00cc99; }
+        
+        /* Premium Embedded Chatbot Section */
+        .chat-section { max-width: 800px; margin: 50px auto; background: #141414; border: 2px solid #00ffcc; border-radius: 16px; padding: 10px; box-shadow: 0 10px 30px rgba(0,255,204,0.1); overflow: hidden; }
+        .chat-section h2 { color: #00ffcc; font-size: 1.5rem; margin-bottom: 15px; }
     </style>
 </head>
 <body>
     <h1>NexusAutomata AI</h1>
     <p>Intelligent 24/7 AI-Powered Missed-Call & Automation Solutions for Real Estate Ecosystems</p>
     
+    <!-- Pricing Cards -->
     <div class="pricing-container">
         <div class="card">
             <h3>Starter Node</h3>
@@ -39,52 +42,15 @@
         </div>
     </div>
 
-    <    <!-- Live Interactive Demo Chatbot Window -->
-    <div class="chat-widget">
-        <div class="chat-header">🤖 NAI Broker Agent (Live Demo)</div>
-        <div class="chat-body" id="chatBody">
-            <div class="bot-msg">مرحباً بك في نظام NexusAutomata العقاري الذكي. فريق المستشارين لدينا في معاينات خارجية حالياً. أنا هنا لمساعدتك فوراً وحجز موعدك.</div>
-            <div class="bot-msg">هل تبحث عن (شراء - إيجار - بيع) عقار حالياً؟</div>
-        </div>
-        <div class="chat-footer">
-            <input type="text" id="chatInput" class="chat-input" placeholder="اكتب ردك هنا...">
-            <button class="chat-btn" onclick="sendMsg()">إرسال</button>
-        </div>
+    <!-- Live Premium Real Estate Chatbot Portal -->
+    <div class="chat-section">
+        <h2>🤖 NAI Broker Core (Live Enterprise Demo)</h2>
+        <iframe
+         src="https://udify.app/chatbot/AlytJyGr9oVTQcna"
+         style="width: 100%; height: 550px; border-radius: 12px;"
+         frameborder="0"
+         allow="microphone">
+        </iframe [١]>
     </div>
-
-    <script>
-        let step = 1;
-        function sendMsg() {
-            let input = document.getElementById('chatInput');
-            let body = document.getElementById('chatBody');
-            if(input.value.trim() === "") return;
-            
-            let userDiv = document.createElement('div');
-            userDiv.style = "background: #00ffcc; color: #000; padding: 8px 12px; border-radius: 8px; align-self: flex-end; max-width: 80%; font-weight: 500;";
-            userDiv.innerText = input.value;
-            body.appendChild(userDiv);
-            
-            input.value = "";
-            body.scrollTop = body.scrollHeight;
-
-            setTimeout(() => {
-                let botDiv = document.createElement('div');
-                botDiv.className = "bot-msg";
-                if(step === 1) {
-                    botDiv.innerText = "ممتاز جداً. ما هي المنطقة المفضلة التي تبحث عنها، وما هي ميزانيتك التقريبية بالدولار؟";
-                    step = 2;
-                } else if(step === 2) {
-                    botDiv.innerText = "رائع، تم تسجيل تفضيلاتك. يرجى كتابة رقم الواتساب أو الإيميل الخاص بك لتأكيد حجز مكالمة مدتها 10 دقائق مع المستشار العقاري البشري لعرض الخيارات المتاحة.";
-                    step = 3;
-                } else {
-                    botDiv.innerText = "شكراً لك! تم حفظ بياناتك بنجاح في نظام NexusAutomata المتطور. سيتواصل معك أحد مستشارينا العقاريين قريباً لتأكيد الموعد.";
-                }
-                body.appendChild(botDiv);
-                body.scrollTop = body.scrollHeight;
-            }, 1000);
-        }
-    </script>
->
-    
 </body>
 </html>
