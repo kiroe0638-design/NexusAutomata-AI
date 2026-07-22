@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configure Platform Integration | NexusAutomata AI</title>
+    <style>
+        /* Modern Premium Cyberpunk Core Theme */
+        :root {
+            --bg-color: #0b0b0b;
+            --card-bg: #141414;
+            --primary: #00ffcc;
+            --primary-hover: #00ccaa;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --border: #222;
+            --gradient: linear-gradient(135deg, #00ffcc 0%, #0077ff 100%);
+            --accent-orange: #ffaa00;
+        }
+
+        body { 
+            background-color: var(--bg-color); 
+            color: var(--text-main); 
+            font-family: 'Segoe UI', sans-serif; 
+            padding: 40px 20px; 
+            margin: 0; 
+            box-sizing: border-box;
+        }
+
+        .back-nav {
+            max-width: 750px;
+            margin: 0 auto 20px auto;
+            text-align: left;
+        }
+
+        .back-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+        .back-link:hover { color: var(--primary-hover); }
+
+        /* Integrated Workspace Panel Container */
+        .workspace-section {
+            max-width: 750px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border: 2px solid var(--primary);
+            border-radius: 16px;
+            padding: 35px;
+            text-align: left;
+            box-shadow: 0 15px 40px rgba(0, 255, 204, 0.1);
+        }
+
+        .features-headline {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .features-cost-badge {
+            display: inline-block;
+            background: rgba(0, 255, 204, 0.1);
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+
+        .feature-item {
+            background: #0b0b0b;
+            border: 1px solid #222;
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-main);
+        }
+        .feature-item span.icon { color: var(--primary); font-weight: bold; font-size: 1.2rem; }
+
+        /* Form Controls Framework */
+        .interactive-form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        .form-group { text-align: left; margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-muted); font-size: 0.9rem; }
+        .form-group input, .form-group select {
+            width: 100%; padding: 14px; border-radius: 8px;
+            border: 1px solid #333; background: #0b0b0b;
+            color: #fff; font-size: 1rem; box-sizing: border-box;
+            transition: 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus { border-color: var(--primary); outline: none; }
+
+        .billing-infobox {
+            background: #0b0b0b;
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .promo-block {
+            display: flex; gap: 10px; margin-bottom: 10px; max-width: 400px;
+        }
+        .btn-promo-apply {
+            background: #222; color: var(--primary); border: 1px solid #333;
+            padding: 0 25px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s;
+        }
+        .btn-promo-apply:hover { border-color: var(--primary); background: #1a1a26; }
+        .promo-alert-msg { font-size: 0.85rem; font-weight: 600; margin-bottom: 25px; display: none; }
+
+        .btn-master-submit {
+            background: var(--gradient);
+            color: #000;
+            border: none;
+            padding: 16px 40px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 255, 204, 0.2);
+        }
+        .btn-master-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 255, 204, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Upper Navigation Row -->
+    <div class="back-nav">
+        <a href="index.html" class="back-link">← Return to Plans</a>
+    </div>
+
+    <!-- Active Architecture Workspace -->
+    <div class="workspace-section" id="integration-workspace">
+        <h3 class="features-headline" id="active-title">Configuring Core Node Architecture</h3>
+        <div class="features-cost-badge" id="active-cost-badge">Loading Account Parameters...</div>
+        
+        <!-- Checklist Blueprints Matrix Layer -->
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">1. Operational Capability Features Blueprint</p>
+        <div class="feature-grid" id="feature-items-wrapper">
+            <!-- Programmatically initialized securely on page routing -->
+            <div class="feature-item"><span class="icon">✓</span><div id="feat-1">Deploying server structures...</div></div>
+            <div class="feature-item"><span class="icon">✓</span><div id="feat-2">Compiling pipeline parameters...</div></div>
+            <div class="feature-item"><span class="icon">✓</span><div id="feat-3">Validating network architecture...</div></div>
+            <div class="feature-item"><span class="icon">✓</span><div id="feat-4">Securing environment keys...</div></div>
+        </div>
+
+        <!-- B2B Account Configuration Setup Input Fields -->
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">2. Strategic Infrastructure Deployment Form</p>
+        <form onsubmit="handleFormSubmissionPipeline(event)">
+            <div class="interactive-form-grid">
+                <div class="form-group">
+                    <label>Company / Full Name</label>
+                    <input type="text" id="form-name" required placeholder="e.g., Prime Realty Group">
+                </div>
+                <div class="form-group">
+                    <label>Corporate Domain Email</label>
+                    <input type="email" id="form-email" required placeholder="info@company.com">
+                </div>
+                <div class="form-group">
+                    <label>WhatsApp Connected Business Phone</label>
+                    <input type="tel" id="form-phone" required placeholder="+1 234 567 8900">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Platform Node Subscription Deployment Model</label>
+                <select id="form-billing-model" onchange="recalculateFormPricingStructure()">
+                    <option value="corporate">Direct Corporate Link (Secure company card attached directly to system accounts)</option>
+                    <option value="all_inclusive">All-Inclusive Bundled Invoice (We manage platform costs + overhead markup)</option>
+                </select>
+            </div>
+            
+            <div class="billing-infobox" id="form-billing-desc-info">
+                <!-- Swapped dynamic descriptive strings -->
+            </div>
+
+            <!-- Coupon Execution Trigger Block -->
+            <div id="promo-form-block-wrapper" style="display: none; border-top: 1px dashed #333; padding-top: 20px; margin-top: 20px;">
+                <div class="form-group">
+                    <label style="color: var(--primary); font-weight: bold;">Founding Partner Validation Coupon (Exclusive to Cortex Pro)</label>
+                    <div class="promo-block">
+                        <input type="text" id="form-promo-input" placeholder="Enter secret code sequence">
+                        <button type="button" class="btn-promo-apply" onclick="validatePromoCodeSequence()">Apply</button>
+                    </div>
+                    <div id="form-promo-msg" class="promo-alert-msg"></div>
+                </div>
+            </div>
+
+            <!-- Primary Global Trigger Action Button -->
+            <button type="submit" class="btn-master-submit" id="form-submit-trigger-btn">Initialize Pipeline Framework</button>
+        </form>
+    </div>
+
+    <!-- Script Handling Variable Runtime Tracking Objects -->
+    <script>
+        // Central blueprints dictionary
+        const BLUEPRINTS_DATA_STORE = {
+            starter: {
+                title: "Starter Node Infrastructure Architecture",
+                price: 599,
+                label: "Starter Node Pipeline",
+                f1: "24/7 Automated Intercept for Missed-Calls",
+                f2: "Instant Text-Back Deployments via WhatsApp Business API",
+                f3: "Backup SMS Delivery Failure Switching Engines",
+                f4: "Lead Data Extraction & Google Sheets Synchronization"
+            },
+            cortex: {
+                title: "Cortex Pro Infrastructure Architecture",
+                price: 1199,
+                label: "Cortex Pro Pipeline",
+                f1: "All Starter Node Infrastructure Frameworks included",
+f2: "Advanced LLM Core Processing Engine (Bilingual Arabic/English)",f3: "Instant Inquiries resolution (Pricing, Square footage, Maps)",f4: "Autonomous Calendar Booking integrations for real estate viewings"},nexus: {title: "Nexus Enterprise Infrastructure Architecture",price: 2999,label: "Nexus Enterprise Pipeline",f1: "Tailored Core Infrastructure Architecture Fine-Tuning",f2: "Direct Pipelines synchronization with premier CRMs (Salesforce/HubSpot)",f3: "Multi-day Sequential AI Follow-up loops to capture warm prospects",f4: "Dedicated Enterprise Operational Monitoring Dashboards"}};/ Execution stateslet activePlanKey = "starter";let activeBasePrice = 599;let activePlanLabelName = "Starter Node";let activeDiscountStateApplied = false;// Catch incoming URL query constraints on boot sequence executionfunction initializeCheckoutView() {const urlParams = new URLSearchParams(window.location.search);const queryPlan = urlParams.get('plan');/ Fallback to starter node parameters if query structure is missing or incorrectif (queryPlan && BLUEPRINTS_DATA_STORE[queryPlan]) {activePlanKey = queryPlan;} else {activePlanKey = "starter";}const targetBlueprintData = BLUEPRINTS_DATA_STORE[activePlanKey];activeBasePrice = targetBlueprintData.price;activePlanLabelName = targetBlueprintData.label;// Apply hard strings smoothly across structural labelsdocument.title = Configure ${targetBlueprintData.label} | NexusAutomata AI;document.getElementById('active-title').innerText = targetBlueprintData.title;document.getElementById('feat-1').innerText = targetBlueprintData.f1;document.getElementById('feat-2').innerText = targetBlueprintData.f2;document.getElementById('feat-3').innerText = targetBlueprintData.f3;document.getElementById('feat-4').innerText = targetBlueprintData.f4/ Activate promotion coupon fields selectively during cortex interactionsconst couponWrapperBlock = document.getElementById('promo-form-block-wrapper');if (activePlanKey === 'cortex') {couponWrapperBlock.style.display = "block";} else {couponWrapperBlock.style.display = "none";}recalculateFormPricingStructure();}function recalculateFormPricingStructure() {let selectedBillingOption = document.getElementById('form-billing-model').value;let targetDescriptionArea = document.getElementById('form-billing-desc-info');let computationPrice = activeDiscountStateApplied ? 599 : activeBasePrice;if (selectedBillingOption === "corporate") {targetDescriptionArea.innerHTML = <strong>💡 Managed Corporate Protocol Enabled:</strong> We engineer Make nodes and production WhatsApp accounts matching your corporate domain email. Your team mounts your secure corporate credit line straight inside platform server bills for seamless recurring system uptimes.;targetDescriptionArea.style.color = "#a0a0a0";} else {computationPrice += 26;targetDescriptionArea.innerHTML = <strong>⚠️ Managed Unified Invoicing Protocol Enabled:</strong> Our payment terminals absorb platform costs directly. Overhead runtime metrics (+ $26 platform service processing fees) are neatly appended straight into your comprehensive monthly corporate invoice.;targetDescriptionArea.style.color = "var(--accent-orange)";}let costBadgeLabel = activeDiscountStateApplied && selectedBillingOption === "corporate"? Retainer Balance: $599 / mo (Strategic Founder Discount Verified - 50% Lifetime reduction): activeDiscountStateApplied && selectedBillingOption === "all_inclusive"? Retainer Balance: $625 / mo ($599 Base + $26 Platform Overhead Fees): Retainer Balance: $${computationPrice} / mo;document.getElementById('active-cost-badge').innerHTML = costBadgeLabel;document.getElementById('form-submit-trigger-btn').innerText = Initialize ${activePlanLabelName} ($${computationPrice}/mo);}function validatePromoCodeSequence() {let inputCode = document.getElementById('form-promo-input').value.trim().toUpperCase();let alertMsgArea = document.getElementById('form-promo-msg');if (inputCode === "FOUNDER50" && activePlanKey === "cortex") {activeDiscountStateApplied = true;alertMsgArea.innerText = "✅ Promo code verified! Founding Partner lifetime tier unlocked at $599/mo in exchange for an active corporate case study.";alertMsgArea.style.color = "var(--primary)";alertMsgArea.style.display = "block";recalculateFormPricingStructure();} else {alertMsgArea.innerText = "❌ Invalid sequence variant or code parameters are unassigned to this architectural tier node.";alertMsgArea.style.color = "#ff3333";alertMsgArea.style.display = "block";}}function handleFormSubmissionPipeline(e) {e.preventDefault();let billingOptionSelected = document.getElementById('form-billing-model').value;let targetCorporateMail = document.getElementById('form-email').value;let actualCalculatedPrice = activeDiscountStateApplied ? 599 : activeBasePrice;if (billingOptionSelected === "all_inclusive") { actualCalculatedPrice += 26; }let operationalLogReport = (billingOptionSelected === "corporate")? \n- Link Type: Direct Corporate Billing Link (Prepare corporate cards for terminal pairing syncs via Zoom).: \n- Link Type: Managed All-Inclusive Bundled Statement (Platform operational markups included). Recuring invoice set to $${actualCalculatedPrice}/mo.;alert(Initialization Confirmed!\n\nArchitecture Tier: ${activePlanLabelName}\nDeployment Node: ${targetCorporateMail}${operationalLogReport}\n\nA NexusAutomata engineer will message your verified WhatsApp channel within minutes to finalize corporate agreements and trigger production loops!);}// Fire parsing loop immediately on document layout arrivalinitializeCheckoutView();
+f3: "Instant Inquiries resolution (Pricing, Square footage, Maps)",f4: "Autonomous Calendar Booking integrations for real estate viewings"},nexus: {title: "Nexus Enterprise Infrastructure Architecture",price: 2999,label: "Nexus Enterprise Pipeline",f1: "Tailored Core Infrastructure Architecture Fine-Tuning",f2: "Direct Pipelines synchronization with premier CRMs (Salesforce/HubSpot)",f3: "Multi-day Sequential AI Follow-up loops to capture warm prospects",f4: "Dedicated Enterprise Operational Monitoring Dashboards"}};/ Execution stateslet activePlanKey = "starter";let activeBasePrice = 599;let activePlanLabelName = "Starter Node";let activeDiscountStateApplied = false;// Catch incoming URL query constraints on boot sequence executionfunction initializeCheckoutView() {const urlParams = new URLSearchParams(window.location.search);const queryPlan = urlParams.get('plan');/ Fallback to starter node parameters if query structure is missing or incorrectif (queryPlan && BLUEPRINTS_DATA_STORE[queryPlan]) {activePlanKey = queryPlan;} else {activePlanKey = "starter";}const targetBlueprintData = BLUEPRINTS_DATA_STORE[activePlanKey];activeBasePrice = targetBlueprintData.price;activePlanLabelName = targetBlueprintData.label;// Apply hard strings smoothly across structural labelsdocument.title = Configure ${targetBlueprintData.label} | NexusAutomata AI;document.getElementById('active-title').innerText = targetBlueprintData.title;document.getElementById('feat-1').innerText = targetBlueprintData.f1;document.getElementById('feat-2').innerText = targetBlueprintData.f2;document.getElementById('feat-3').innerText = targetBlueprintData.f3;document.getElementById('feat-4').innerText = targetBlueprintData.f4;/ Activate promotion coupon fields selectively during cortex interactionsconst couponWrapperBlock = document.getElementById('promo-form-block-wrapper');if (activePlanKey === 'cortex') {couponWrapperBlock.style.display = "block";} else {couponWrapperBlock.style.display = "none";}recalculateFormPricingStructure();}function recalculateFormPricingStructure() {let selectedBillingOption = document.getElementById('form-billing-model').value;let targetDescriptionArea = document.getElementById('form-billing-desc-info');let computationPrice = activeDiscountStateApplied ? 599 : activeBasePrice;if (selectedBillingOption === "corporate") {targetDescriptionArea.innerHTML = <strong>💡 Managed Corporate Protocol Enabled:</strong> We engineer Make nodes and production WhatsApp accounts matching your corporate domain email. Your team mounts your secure corporate credit line straight inside platform server bills for seamless recurring system uptimes.;targetDescriptionArea.style.color = "#a0a0a0";} else {computationPrice += 26;targetDescriptionArea.innerHTML = <strong>⚠️ Managed Unified Invoicing Protocol Enabled:</strong> Our payment terminals absorb platform costs directly. Overhead runtime metrics (+ $26 platform service processing fees) are neatly appended straight into your comprehensive monthly corporate invoice.;targetDescriptionArea.style.color = "var(--accent-orange)";}let costBadgeLabel = activeDiscountStateApplied && selectedBillingOption === "corporate"? Retainer Balance: $599 / mo (Strategic Founder Discount Verified - 50% Lifetime reduction): activeDiscountStateApplied && selectedBillingOption === "all_inclusive"? Retainer Balance: $625 / mo ($599 Base + $26 Platform Overhead Fees): Retainer Balance: $${computationPrice} / mo;document.getElementById('active-cost-badge').innerHTML = costBadgeLabel;document.getElementById('form-submit-trigger-btn').innerText = Initialize ${activePlanLabelName} ($${computationPrice}/mo);}function validatePromoCodeSequence() {let inputCode = document.getElementById('form-promo-input').value.trim().toUpperCase();let alertMsgArea = document.getElementById('form-promo-msg');if (inputCode === "FOUNDER50" && activePlanKey === "cortex") {activeDiscountStateApplied = true;alertMsgArea.innerText = "✅ Promo code verified! Founding Partner lifetime tier unlocked at $599/mo in exchange for an active corporate case study.";alertMsgArea.style.color = "var(--primary)";alertMsgArea.style.display = "block";recalculateFormPricingStructure();} else {alertMsgArea.innerText = "❌ Invalid sequence variant or code parameters are unassigned to this architectural tier node.";alertMsgArea.style.color = "#ff3333";alertMsgArea.style.display = "block";}}function handleFormSubmissionPipeline(e) {e.preventDefault();let billingOptionSelected = document.getElementById('form-billing-model').value;let targetCorporateMail = document.getElementById('form-email').value;let actualCalculatedPrice = activeDiscountStateApplied ? 599 : activeBasePrice;if (billingOptionSelected === "all_inclusive") { actualCalculatedPrice += 26; }let operationalLogReport = (billingOptionSelected === "corporate")? \n- Link Type: Direct Corporate Billing Link (Prepare corporate cards for terminal pairing syncs via Zoom).: \n- Link Type: Managed All-Inclusive Bundled Statement (Platform operational markups included). Recuring invoice set to $${actualCalculatedPrice}/mo.;alert(Initialization Confirmed!\n\nArchitecture Tier: ${activePlanLabelName}\nDeployment Node: ${targetCorporateMail}${operationalLogReport}\n\nA NexusAutomata engineer will message your verified WhatsApp channel within minutes to finalize corporate agreements and trigger production loops!);}// Fire parsing loop immediately on document layout arrivalinitializeCheckoutView();
+f4: "Autonomous Calendar Booking integrations for real estate viewings"},nexus: {title: "Nexus Enterprise Infrastructure Architecture",price: 2999,label: "Nexus Enterprise Pipeline",f1: "Tailored Core Infrastructure Architecture Fine-Tuning",f2: "Direct Pipelines synchronization with premier CRMs (Salesforce/HubSpot)",f3: "Multi-day Sequential AI Follow-up loops to capture warm prospects",f4: "Dedicated Enterprise Operational Monitoring Dashboards"}
+ };  Execution stateslet activePlanKey = "starter";let activeBasePrice = 599;let activePlanLabelName = "Starter Node";let activeDiscountStateApplied = false;/ Catch incoming URL query constraints on boot sequence executionfunction initializeCheckoutView() {const urlParams = new URLSearchParams(window.location.search);const queryPlan = urlParams.get('plan');// Fallback to starter node parameters if query structure is missing or incorrectif (queryPlan && BLUEPRINTS_DATA_STORE[queryPlan]) {activePlanKey = queryPlan;} else {activePlanKey = "starter";}const targetBlueprintData = BLUEPRINTS_DATA_STORE[activePlanKey];activeBasePrice = targetBlueprintData.price;activePlanLabelName = targetBlueprintData.label;/ Apply hard strings smoothly across structural labelsdocument.title = Configure ${targetBlueprintData.label} | NexusAutomata AI;document.getElementById('active-title').innerText = targetBlueprintData.title;document.getElementById('feat-1').innerText = targetBlueprintData.f1;document.getElementById('feat-2').innerText = targetBlueprintData.f2;document.getElementById('feat-3').innerText = targetBlueprintData.f3;document.getElementById('feat-4').innerText = targetBlueprintData.f4;// Activate promotion coupon fields selectively during cortex interactionsconst couponWrapperBlock = document.getElementById('promo-form-block-wrapper');if (activePlanKey === 'cortex') {couponWrapperBlock.style.display = "block";} else {couponWrapperBlock.style.display = "none";}recalculateFormPricingStructure();}function recalculateFormPricingStructure() {let selectedBillingOption = document.getElementById('form-billing-model').value;let targetDescriptionArea = document.getElementById('form-billing-desc-info');let computationPrice = activeDiscountStateApplied ? 599 : activeBasePrice;if (selectedBillingOption === "corporate") {targetDescriptionArea.innerHTML = <strong>💡 Managed Corporate Protocol Enabled:</strong> We engineer Make nodes and production WhatsApp accounts matching your corporate domain email. Your team mounts your secure corporate credit line straight inside platform server bills for seamless recurring system uptimes.;targetDescriptionArea.style.color = "#a0a0a0";} else {computationPrice += 26;targetDescriptionArea.innerHTML = <strong>⚠️ Managed Unified Invoicing Protocol Enabled:</strong> Our payment terminals absorb platform costs directly. Overhead runtime metrics (+ $26 platform service processing fees) are neatly appended straight into your comprehensive monthly corporate invoice.;targetDescriptionArea.style.color = "var(--accent-orange)";}let costBadgeLabel = activeDiscountStateApplied && selectedBillingOption === "corporate"? Retainer Balance: $599 / mo (Strategic Founder Discount Verified - 50% Lifetime reduction): activeDiscountStateApplied && selectedBillingOption === "all_inclusive"? Retainer Balance: $625 / mo ($599 Base + $26 Platform Overhead Fees): Retainer Balance: $${computationPrice} / mo;document.getElementById('active-cost-badge').innerHTML = costBadgeLabel;document.getElementById('form-submit-trigger-btn').innerText = Initialize ${activePlanLabelName} ($${computationPrice}/mo);}function validatePromoCodeSequence() {let inputCode = document.getElementById('form-promo-input').value.trim().toUpperCase();let alertMsgArea = document.getElementById('form-promo-msg');if (inputCode === "FOUNDER50" && activePlanKey === "cortex") {activeDiscountStateApplied = true;alertMsgArea.innerText = "✅ Promo code verified! Founding Partner lifetime tier unlocked at $599/mo in exchange for an active corporate case study.";alertMsgArea.style.color = "var(--primary)";alertMsgArea.style.display = "block";recalculateFormPricingStructure();} else {alertMsgArea.innerText = "❌ Invalid sequence variant or code parameters are unassigned to this architectural tier node.";alertMsgArea.style.color = "#ff3333";alertMsgArea.style.display = "block";}}function handleFormSubmissionPipeline(e) {e.preventDefault();let billingOptionSelected = document.getElementById('form-billing-model').value;let targetCorporateMail = document.getElementById('form-email').value;let actualCalculatedPrice = activeDiscountStateApplied ? 599 : activeBasePrice;if (billingOptionSelected === "all_inclusive") { actualCalculatedPrice += 26; }let operationalLogReport = (billingOptionSelected === "corporate")? \n- Link Type: Direct Corporate Billing Link (Prepare corporate cards for terminal pairing syncs via Zoom).: \n- Link Type: Managed All-Inclusive Bundled Statement (Platform operational markups included). Recuring invoice set to $${actualCalculatedPrice}/mo.;alert(Initialization Confirmed!\n\nArchitecture Tier: ${activePlanLabelName}\nDeployment Node: ${targetCorporateMail}${operationalLogReport}\n\nA NexusAutomata engineer will message your verified WhatsApp channel within minutes to finalize corporate agreements and trigger production loops!);}// Fire parsing loop immediately on document layout arrivalinitializeCheckoutView()/ Execution stateslet activePlanKey = "starter";let activeBasePrice = 599;let activePlanLabelName = "Starter Node";let activeDiscountStateApplied = false;/ Catch incoming URL query constraints on boot sequence executionfunction initializeCheckoutView() {const urlParams = new URLSearchParams(window.location.search);const queryPlan = urlParams.get('plan');// Fallback to starter node parameters if query structure is missing or incorrectif (queryPlan && BLUEPRINTS_DATA_STORE[queryPlan]) {activePlanKey = queryPlan;} else {activePlanKey = "starter";}const targetBlueprintData = BLUEPRINTS_DATA_STORE[activePlanKey];activeBasePrice = targetBlueprintData.price;activePlanLabelName = targetBlueprintData.label;/ Apply hard strings smoothly across structural labelsdocument.title = Configure ${targetBlueprintData.label} | NexusAutomata AI;document.getElementById('active-title').innerText = targetBlueprintData.title;document.getElementById('feat-1').innerText = targetBlueprintData.f1;document.getElementById('feat-2').innerText = targetBlueprintData.f2;document.getElementById('feat-3').innerText = targetBlueprintData.f3;document.getElementById('feat-4').innerText = targetBlueprintData.f4;// Activate promotion coupon fields selectively during cortex interactionsconst couponWrapperBlock = document.getElementById('promo-form-block-wrapper');if (activePlanKey === 'cortex') {couponWrapperBlock.style.display = "block";} else {couponWrapperBlock.style.display = "none";}recalculateFormPricingStructure();}function recalculateFormPricingStructure() {let selectedBillingOption = document.getElementById('form-billing-model').value;let targetDescriptionArea = document.getElementById('form-billing-desc-info');let computationPrice = activeDiscountStateApplied ? 599 : activeBasePrice;if (selectedBillingOption === "corporate") {targetDescriptionArea.innerHTML = <strong>💡 Managed Corporate Protocol Enabled:</strong> We engineer Make nodes and production WhatsApp accounts matching your corporate domain email. Your team mounts your secure corporate credit line straight inside platform server bills for seamless recurring system uptimes.;targetDescriptionArea.style.color = "#a0a0a0";} else {computationPrice += 26;targetDescriptionArea.innerHTML = <strong>⚠️ Managed Unified Invoicing Protocol Enabled:</strong> Our payment terminals absorb platform costs directly. Overhead runtime metrics (+ $26 platform service processing fees) are neatly appended straight into your comprehensive monthly corporate invoice.;targetDescriptionArea.style.color = "var(--accent-orange)";}let costBadgeLabel = activeDiscountStateApplied && selectedBillingOption === "corporate"? Retainer Balance: $599 / mo (Strategic Founder Discount Verified - 50% Lifetime reduction): activeDiscountStateApplied && selectedBillingOption === "all_inclusive"? Retainer Balance: $625 / mo ($599 Base + $26 Platform Overhead Fees): Retainer Balance: $${computationPrice} / mo;document.getElementById('active-cost-badge').innerHTML = costBadgeLabel;document.getElementById('form-submit-trigger-btn').innerText = Initialize ${activePlanLabelName} ($${computationPrice}/mo);}function validatePromoCodeSequence() {let inputCode = document.getElementById('form-promo-input').value.trim().toUpperCase();let alertMsgArea = document.getElementById('form-promo-msg');if (inputCode === "FOUNDER50" && activePlanKey === "cortex") {activeDiscountStateApplied = true;alertMsgArea.innerText = "✅ Promo code verified! Founding Partner lifetime tier unlocked at $599/mo in exchange for an active corporate case study.";alertMsgArea.style.color = "var(--primary)";alertMsgArea.style.display = "block";recalculateFormPricingStructure();} else {alertMsgArea.innerText = "❌ Invalid sequence variant or code parameters are unassigned to this architectural tier node.";alertMsgArea.style.color = "#ff3333";alertMsgArea.style.display = "block";}}function handleFormSubmissionPipeline(e) {e.preventDefault();let billingOptionSelected = document.getElementById('form-billing-model').value;let targetCorporateMail = document.getElementById('form-email').value;let actualCalculatedPrice = activeDiscountStateApplied ? 599 : activeBasePrice;if (billingOptionSelected === "all_inclusive") { actualCalculatedPrice += 26; }let operationalLogReport = (billingOptionSelected === "corporate")? \n- Link Type: Direct Corporate Billing Link (Prepare corporate cards for terminal pairing syncs via Zoom).: \n- Link Type: Managed All-Inclusive Bundled Statement (Platform operational markups included). Recuring invoice set to $${actualCalculatedPrice}/mo.;alert(Initialization Confirmed!\n\nArchitecture Tier: ${activePlanLabelName}\nDeployment Node: ${targetCorporateMail}${operationalLogReport}\n\nA NexusAutomata engineer will message your verified WhatsApp channel within minutes to finalize corporate agreements and trigger production loops!);}// Fire parsing loop immediately on document layout arrivalinitializeCheckoutView();
