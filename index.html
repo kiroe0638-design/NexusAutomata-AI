@@ -3,54 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexusAutomata AI (NAI)</title>
+    <title>NexusAutomata AI (NAI) | Enterprise Automation Core</title>
     <style>
-        body { background-color: #0b0b0b; color: #ffffff; font-family: 'Segoe UI', sans-serif; text-align: center; padding: 50px 20px; margin: 0; direction: rtl; }
-        h1 { color: #00ffcc; font-size: 3rem; margin-bottom: 10px; font-weight: 800; }
-        p { color: #a0a0a0; font-size: 1.2rem; margin-bottom: 40px; }
-        .pricing-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; margin-bottom: 50px; direction: ltr; }
-        .card { background: #141414; border: 1px solid #222; border-radius: 12px; padding: 30px; width: 280px; transition: 0.3s; text-align: center; }
-        .card:hover { border-color: #00ffcc; transform: translateY(-5px); }
-        .card h3 { color: #00ffcc; font-size: 1.5rem; }
-        .price { font-size: 2rem; font-weight: bold; margin: 20px 0; color: #fff; }
+        /* Modern Luxury Cyberpunk CSS Architecture */
+        :root {
+            --bg-color: #060608;
+            --card-bg: #0d0d12;
+            --primary: #00ffcc;
+            --primary-hover: #00ccaa;
+            --text-main: #ffffff;
+            --text-muted: #8f8f9d;
+            --border: #1a1a24;
+        }
         
-        /* Premium Embedded Chatbot Section */
-        .chat-section { max-width: 800px; margin: 50px auto; background: #141414; border: 2px solid #222; border-radius: 16px; padding: 10px; box-shadow: 0 10px 30px rgba(0,255,204,0.05); overflow: hidden; }
-        .chat-section h2 { color: #00ffcc; font-size: 1.5rem; margin-bottom: 15px; }
+        body { 
+            background-color: var(--bg-color); 
+            color: var(--text-main); 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            text-align: center; 
+            padding: 60px 20px; 
+            margin: 0; 
+            direction: rtl;
+            scroll-behavior: smooth;
+        }
+
+        /* Animated Glowing Header */
+        h1 { 
+            color: var(--primary); 
+            font-size: 3.5rem; 
+            margin-bottom: 5px; 
+            font-weight: 900; 
+            letter-spacing: -1px;
+            text-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        
+        .subtitle { 
+            color: var(--text-muted); 
+            font-size: 1.3rem; 
+            margin-bottom: 50px; 
+            font-weight: 400;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        /* Premium Tech Badges Section */
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            direction: ltr;
+        }
+        .badge {
+            background: #12121a;
+            border: 1px solid var(--border);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: 0.3s;
+        }
+        .badge:hover {
+            color: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.1);
+        }
+
+        /* Smooth Pricing Cards Layout */
+        .pricing-container { 
+            display: flex; 
+            justify-content: center; 
+            gap: 25px; 
+            flex-wrap: wrap; 
+            margin: 40px 0; 
+            direction: ltr; 
+        }
+        
+        .card { 
+            background: var(--card-bg); 
+            border: 1px solid var(--border); 
+            border-radius: 16px; 
+            padding: 40px 30px; 
+            width: 290px; 
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:hover { 
+            border-color: var(--primary); 
+            transform: translateY(-8px); 
+            box-shadow: 0 15px 35px rgba(0, 255, 204, 0.08);
+        }
+
+        .card.featured {
+            border-color: rgba(0, 255, 204, 0.4);
+        }
+        .card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: var(--primary);
+            color: #000;
+            font-size: 0.65rem;
+            font-weight: bold;
+            padding: 4px 30px;
+            transform: rotate(45deg);
+        }
+        
+        .card h3 { color: var(--primary); font-size: 1.6rem; margin-top: 0; font-weight: 700; }
+        .price { font-size: 2.3rem; font-weight: bold; margin: 25px 0; color: var(--text-main); }
+        .card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; text-align: center; }
+
+        /* Premium Floating Customization Portal */
+        .chat-section { 
+            max-width: 850px; 
+            margin: 60px auto; 
+            background: var(--card-bg); 
+            border: 1px solid var(--border); 
+            border-radius: 20px; 
+            padding: 20px; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3); 
+            transition: 0.3s;
+        }
+        .chat-section:hover {
+            border-color: rgba(0, 255, 204, 0.3);
+        }
+        
+        .chat-title-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 0 10px;
+        }
+        .chat-section h2 { color: var(--text-main); font-size: 1.3rem; margin: 0; font-weight: 600; }
+        .demo-badge { 
+            background: rgba(0, 255, 204, 0.1); 
+            color: var(--primary); 
+            font-size: 0.75rem; 
+            padding: 5px 12px; 
+            border-radius: 6px; 
+            font-weight: 700;
+            border: 1px solid rgba(0, 255, 204, 0.2);
+            letter-spacing: 0.5px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 600px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: #08080c;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
+
+    <!-- Main Branding Architecture -->
     <h1>NexusAutomata AI</h1>
-    <p>Intelligent 24/7 AI-Powered Missed-Call & Automation Solutions for Real Estate Ecosystems</p>
+    <p class="subtitle">Next-Generation 24/7 AI-Powered Missed-Call Systems & Full Operational Automation Architectures for Enterprise Real Estate Ecosystems.</p>
     
-    <!-- Pricing Cards -->
+    <!-- Enterprise Tech Stack Badges (JavaScript / Python / Java Architecture representation) -->
+    <div class="tech-stack">
+        <span class="badge">HTML5 / CSS3</span>
+        <span class="badge">JavaScript (ES6+)</span>
+        <span class="badge">Python Core (AI Engine)</span>
+        <span class="badge">Java Integration (Enterprise Data)</span>
+    </div>
+    
+    <!-- Pricing Grid Matrix -->
     <div class="pricing-container">
         <div class="card">
             <h3>Starter Node</h3>
-            <div class="price">$599<span style="font-size:1rem">/mo</span></div>
-            <p>Instant Missed-Call Text-Back via WhatsApp & SMS. Automated Lead Capture.</p>
+            <div class="price">$599<span style="font-size:1rem; color:var(--text-muted);">/mo</span></div>
+            <p>Instant Missed-Call Text-Back via WhatsApp & SMS. Automated Lead Capture & Google Sheets Integration.</p>
         </div>
-        <div class="card" style="border-color: #00ffcc;">
+        <div class="card featured">
             <h3>Cortex Pro</h3>
-            <div class="price">$1,199<span style="font-size:1rem">/mo</span></div>
-            <p>24/7 AI Real Estate Assistant. Bilingual (Ar/En). Automated Calendar Booking.</p>
+            <div class="price">$1,199<span style="font-size:1rem; color:var(--text-muted);">/mo</span></div>
+            <p>24/7 Contextual Real Estate AI Assistant. Full Bilingual Deployment (Ar/En). Autonomous Calendar Booking.</p>
         </div>
         <div class="card">
             <h3>Nexus Enterprise</h3>
-            <div class="price">$2,999<span style="font-size:1rem">/mo</span></div>
-            <p>Full CRM Integration. Advanced AI Follow-Up Funnels. Custom Dashboards.</p>
+            <div class="price">$2,999<span style="font-size:1rem; color:var(--text-muted);">/mo</span></div>
+            <p>Custom Enterprise LLM Fine-Tuning. Direct CRM Sync (HubSpot/Salesforce). Advanced AI Follow-Up Funnels.</p>
         </div>
     </div>
 
-    <!-- Live Premium Real Estate Chatbot Portal (Dify Integration) -->
+    <!-- Live Premium Interactive Real Estate B2B Portal (Dify Core Backend Link) -->
     <div class="chat-section">
-        <h2>🤖 NAI Broker Core (Live Enterprise Demo)</h2>
+        <div class="chat-title-container">
+            <h2>🤖 NAI Intelligent Broker Agent</h2>
+            <span class="demo-badge">بوابة المعاينة التجريبية الحية (ENTERPRISE DEMO)</span>
+        </div>
         <iframe
          src="https://udify.app"
-         style="width: 100%; height: 600px; border-radius: 12px;"
          frameborder="0"
          allow="microphone">
         </iframe>
     </div>
+
+    <!-- JavaScript Window Action Tracker -->
+    <script>
+        console.log("NexusAutomata Web Platform Active. Backend Node Connected via REST API.");
+    </script>
 </body>
 </html>
