@@ -14,7 +14,7 @@
         .card h3 { color: #00ffcc; font-size: 1.5rem; }
         .price { font-size: 2rem; font-weight: bold; margin: 20px 0; color: #fff; }
         
-        /* Premium Embedded Chatbot Layout (Dark Luxury Mode) */
+        /* Premium Embedded Chatbot Layout */
         .chat-section { max-width: 700px; margin: 50px auto; background: #111111; border: 2px solid #222; border-radius: 16px; padding: 0; box-shadow: 0 10px 40px rgba(0,255,204,0.05); overflow: hidden; text-align: right; }
         .chat-header { background: #161616; color: #00ffcc; padding: 15px; font-weight: bold; border-bottom: 1px solid #222; font-size: 1rem; display: flex; align-items: center; gap: 10px; }
         .chat-body { height: 350px; padding: 20px; overflow-y: auto; font-size: 0.95rem; color: #e0e0e0; display: flex; flex-direction: column; gap: 15px; background: #0c0c0c; }
@@ -86,9 +86,10 @@
             setTimeout(() => {
                 let botDiv = document.createElement('div');
                 botDiv.className = "msg bot-msg";
-                
-                let lowerText = userText.toLowerCase();
-                if(lowerText.includes("أمريكا") || lowerText.includes("امريكا") || lowerText.includes("تكساس") || lowerText.includes("الكويت") || lowerText.includes("كام") || lowerText.includes("سعر")) {
+                let cleanText = userText.toLowerCase();
+
+                // 1. Guardrail for Fallback / Out of bounds questions
+                if(cleanText.includes("أمريكا") || cleanText.includes("امريكا") || cleanText.includes("تكساس") || cleanText.includes("الكويت") || cleanText.includes("كام") || cleanText.includes("سعر")) {
                     botDiv.innerText = "نعتذر منك، فريقنا العقاري البشري في معاينات ميدانية خارجية حالياً، ولا يمكنني إعطاء أسعار أو تفاصيل غير محدثة حتى لا نقع في خطأ قانوني مع سيادتكم.";
                     body.appendChild(botDiv);
                     
@@ -101,11 +102,26 @@
                         body.appendChild(remindDiv);
                         body.scrollTop = body.scrollHeight;
                     }, 1500);
-                    
+                    return;
+                }
+
+                // 2. Smart Security & Cancellation Handlers (Anti-Loop Guardrails)
+                if(cleanText.includes("تتسرق") || cleanText.includes("تسرق") || cleanText.includes("خايف") || cleanText.includes("مضمونة") || cleanText.includes("امان") || cleanText.includes("أمان")) {
+                    botDiv.innerText = "تأميناً لسيادتكم، كافة البيانات المدخلة مشفرة بالكامل بنظام تشفير End-to-End المتوافق مع معايير أمن البيانات العالمية لشركة NexusAutomata. بياناتك آمنة تماماً ولن يتم مشاركتها مطلقاً.";
+                    body.appendChild(botDiv);
+                    body.scrollTop = body.scrollHeight;
+                    return;
+                }
+                
+                if(cleanText.includes("الغي") || cleanText.includes("ألغي") || cleanText.includes("الغاء") || cleanText.includes("حذف")) {
+                    botDiv.innerText = "مفهوم تماماً لسيادتكم. تم إلغاء طلب الموعد بنجاح وحذف تفضيلاتك من أنظمتنا فوراً بناءً على رغبتك. في خدمتكم دائماً.";
+                    step = 5; 
+                    body.appendChild(botDiv);
                     body.scrollTop = body.scrollHeight;
                     return;
                 }
 
+                // 3. Normal Flow Logic
                 if(step === 1) {
                     botDiv.innerText = "ممتاز جداً، تم تسجيل طبيعة الطلب. ما هي المنطقة أو المدينة المفضلة لسيادتكم؟";
                     step = 2;
@@ -115,8 +131,11 @@
                 } else if(step === 3) {
                     botDiv.innerText = "لتأكيد حجز موعد مكالمة مدتها 10 دقائق مع المستشار العقاري البشري لعرض المشاريع والأسعار الحقيقية، يرجى كتابة رقم الواتساب الخاص بك فوراً.";
                     step = 4;
-                } else {
+                } else if(step === 4) {
                     botDiv.innerText = "شكراً لسيادتكم! تم حفظ وتأمين بياناتك بنجاح في أنظمة NexusAutomata المشفرة. سيتواصل معك أحد مستشارينا العقاريين قريباً جداً لتأكيد الموعد.";
+                    step = 5; // Advance to prevent looping the confirmation phrase!
+                } else {
+                    botDiv.innerText = "مرحباً بسيادتكم مجدداً، طلبكم قيد المعالجة الآن وسيتواصل معكم المستشار البشري قريباً. هل هناك أي استفسار آخر بخصوص أمن النظام؟";
                 }
                 body.appendChild(botDiv);
                 body.scrollTop = body.scrollHeight;
