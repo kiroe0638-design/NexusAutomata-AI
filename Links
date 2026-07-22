@@ -1,0 +1,3 @@
+<a href="checkout.html?plan=starter" class="btn-action">Configure Node</a>
+<a href="checkout.html?plan=cortex" class="btn-action">Configure Node</a>
+<a href="checkout.html?plan=nexus" class="btn-action">Configure Node</a>
