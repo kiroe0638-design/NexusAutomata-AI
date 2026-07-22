@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NexusAutomata AI (NAI)</title>
     
-    <!-- AOS Library for luxury scroll trigger behaviors -->
+    <!-- AOS Library for smooth scroll animations -->
     <link href="https://unpkg.com" rel="stylesheet">
     
     <style>
@@ -124,36 +124,18 @@
             color: #000;
         }
 
-        /* Interactive Dynamic Automation Control Workspace Panel */
+        /* Fixed Active Checkout and Features Workspace Panel */
         .workspace-section {
             max-width: 900px;
             margin: 40px auto;
             background: var(--card-bg);
-            border: 2px solid var(--border);
+            border: 2px solid var(--primary);
             border-radius: 16px;
             padding: 35px;
             text-align: left;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            transition: all 0.5s ease-in-out;
-        }
-        
-        .workspace-section.active-glow {
-            border-color: var(--primary);
             box-shadow: 0 15px 40px rgba(0, 255, 204, 0.1);
         }
 
-        /* Smooth Tab Animation Steps Switching Components */
-        .dynamic-view {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.4s ease-in-out;
-        }
-        .dynamic-view.show {
-            display: block;
-            opacity: 1;
-        }
-
-        /* Feature Matrix Sub-lists CSS */
         .features-headline {
             color: var(--primary);
             font-size: 1.6rem;
@@ -217,7 +199,6 @@
             line-height: 1.5;
         }
 
-        /* Custom Promo Dynamic Code Blocks */
         .promo-block {
             display: flex; gap: 10px; margin-bottom: 10px; max-width: 400px;
         }
@@ -228,7 +209,6 @@
         .btn-promo-apply:hover { border-color: var(--primary); background: #1a1a26; }
         .promo-alert-msg { font-size: 0.85rem; font-weight: 600; margin-bottom: 25px; display: none; }
 
-        /* Master Enterprise Final Action Triggers */
         .btn-master-submit {
             background: var(--gradient);
             color: #000;
@@ -273,11 +253,25 @@
 <body>
 
     <!-- Main Branding Headers -->
-    <h1 data-aos="fade-down" data-aos-duration="1000">NexusAutomata AI (NAI)</h1>
-    <p class="main-subtitle" data-aos="fade-up" data-aos-duration="1200">
+    <h1>NexusAutomata AI (NAI)</h1>
+    <p class="main-subtitle">
         Intelligent 24/7 AI-Powered Missed-Call & Automation Solutions for Real Estate Ecosystems
     </p>
     
-    <!-- Step 1: Clickable Pricing Cards Matrix -->
-    <div class="pricing-container" data-aos="fade-up" data-aos-delay="200">
+    <!-- Step 1: Three-Tier Pricing Matrix Cards (Always Visible) -->
+    <div class="pricing-container">
         <!-- Card 1: Starter Node -->
+        <div class="card" id="card-starter" onclick="selectPlanView('starter', 599, 'Starter Node')">
+            <div>
+                <h3>Starter Node</h3>
+                <div class="price">$599<span style="font-size:1rem; color:var(--text-muted);">/mo</span></div>
+                <p>Instant missed-call text-back deployment 24/7 via WhatsApp & SMS. Automatically captures critical lead data to Google Sheets.</p>
+            </div>
+            <button class="btn-select-tier">Configure Node</button>
+        </div>
+        
+        <!-- Card 2: Cortex Pro -->
+        <div class="card featured" id="card-cortex" onclick="selectPlanView('cortex', 1199, 'Cortex Pro')">
+            <div>
+                <h3>Cortex Pro</h3>
+                <div class="price">$1,199<span style="font-size:1rem; color:var(--text-muted);">/mo</span></div>
