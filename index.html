@@ -88,5 +88,117 @@
             <a href="#pricing-section">Nodes // الباقات</a>
         </div>
     </nav>
+    <!-- SLIDE 3: Connected Pricing Hub -->
+    <section id="pricing-section">
+        <main class="pricing-container">
+            <!-- Card 1: Starter Node -->
+            <div class="card">
+                <div>
+                    <h3>Starter Node</h3><div class="price">$599<span style="font-size:1rem;color:var(--text-muted)">/mo</span></div>
+                    <p>Instant, 24/7 multi-channel missed-call text capture via WhatsApp Enterprise API and SMS networks [١].</p>
+                    <table class="card-spec-table">
+                        <tr><td>Intercept Latency</td><td class="val active">&lt; 1.5s</td></tr>
+                        <tr><td>Database Pipelines</td><td class="val">Google Sheets API</td></tr>
+                        <tr><td>Channel Sync</td><td class="val">WhatsApp + SMS</td></tr>
+                        <tr><td>Uptime Guarantee</td><td class="val active">99.99%</td></tr>
+                    </table>
+                </div>
+                <a href="./register.html?node=starter" class="btn-action">Examine Spec & Deploy</a>
+            </div>
+
+            <!-- Card 2: Cortex Pro -->
+            <div class="card" style="border-color: rgba(0,255,204,0.4);">
+                <div>
+                    <h3>Cortex Pro</h3><div class="price">$1,199<span style="font-size:1rem;color:var(--text-muted)">/mo</span></div>
+                    <p>Includes Starter Node frameworks + dual-language (Ar/En) cognitive AI brain for automated pricing, lead qualification, and calendar booking.</p>
+                    <table class="card-spec-table">
+                        <tr><td>Model Parameters</td><td class="val active">Gemini 1.5 Flash</td></tr>
+                        <tr><td>Language Matrix</td><td class="val">Dual (Ar/En)</td></tr>
+                        <tr><td>Scheduling Node</td><td class="val">Google Calendar API</td></tr>
+                        <tr><td>Context Memory</td><td class="val active">Unlimited History</td></tr>
+                    </table>
+                </div>
+                <a href="./register.html?node=cortex" class="btn-action">Examine Spec & Deploy</a>
+            </div>
+
+            <!-- Card 3: Nexus Enterprise -->
+            <div class="card">
+                <div>
+                    <h3>Nexus Enterprise</h3><div class="price">$2,999<span style="font-size:1rem;color:var(--text-muted)">/mo</span></div>
+                    <p>Deep integration pipelines for enterprise CRMs + sequential autonomous follow-up loops to guarantee transaction closure [١].</p>
+                    <table class="card-spec-table">
+                        <tr><td>CRM Direct Bridge</td><td class="val active">Direct API Sync</td></tr>
+                        <tr><td>Outreach Engine</td><td class="val">AI Follow-Up Loop</td></tr>
+                        <tr><td>SLA Guarantee</td><td class="val active">99.99% Node Uptime</td></tr>
+                        <tr><td>Custom Pipelines</td><td class="val">Full Integration</td></tr>
+                    </table>
+                </div>
+                <a href="./register.html?node=enterprise" class="btn-action">Examine Spec & Deploy</a>
+            </div>
+        </main>
+    </section>
+
+    <!-- Unified Institutional Footer Map -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Core Terminal</h4>
+                <ul>
+                    <li><a href="./index.html">Main Terminal</a></li>
+                    <li><a href="#about-section">About NexusAutomata</a></li>
+                    <li><a href="#pricing-section">Pricing Nodes</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Simulations</h4>
+                <ul>
+                    <li><a href="./demo.html" style="color: var(--primary); font-weight: bold;">⚡ Live AI System Demo // نسخة تجريبية</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Documentation</h4>
+                <ul>
+                    <li><a href="#">Architecture SLA</a></li>
+                    <li><a href="#">Security Protocols</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&copy; 2026 NexusAutomata AI Inc. All Nodes Operational.</div>
+            <div style="direction: rtl;">جميع الحقوق محفوظة. أتمتة مؤسسية مستقلة للمؤسس كيرلس البنا.</div>
+        </div>
+    </footer>
+
+    <!-- Graphics Control Engine (Canvas Particles) -->
+    <script>
+        const canvas = document.getElementById("particle-canvas");
+        const ctx = canvas.getContext("2d");
+        let particles = [];
+        function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        window.addEventListener("resize", resizeCanvas); resizeCanvas();
+        class Particle {
+            constructor() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.vx = (Math.random() - 0.5) * 0.5; this.vy = (Math.random() - 0.5) * 0.5; this.radius = Math.random() * 1.5 + 0.5; }
+            update() { this.x += this.vx; this.y += this.vy; if (this.x < 0 || this.x > canvas.width) this.vx *= -1; if (this.y < 0 || this.y > canvas.height) this.vy *= -1; }
+            draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2); ctx.fillStyle = "rgba(0, 255, 204, 0.4)"; ctx.fill(); }
+        }
+        for (let i = 0; i < 75; i++) particles.push(new Particle());
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach((p, idx) => {
+                p.update(); p.draw();
+                for (let j = idx + 1; j < particles.length; j++) {
+                    const dist = Math.hypot(p.x - particles[j].x, p.y - particles[j].y);
+                    if (dist < 130) {
+                        ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(0, 255, 204, ${1 - dist / 130 * 0.12})`; ctx.stroke();
+                    }
+                }
+            });
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
+</body>
+</html>
 
     
