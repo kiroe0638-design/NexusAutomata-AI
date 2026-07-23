@@ -5,16 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NAI | Cognitive Real Estate AI Live Demo</title>
     <style>
-        :root {
-            --bg-color: #020204;
-            --glass-bg: rgba(10, 10, 18, 0.6);
-            --glass-border: rgba(255, 255, 255, 0.05);
-            --primary: #00ffcc;
-            --wa-bg: #0b141a;
-            --wa-incoming: #202c33;
-            --wa-outgoing: #005c4b;
-            --gradient: linear-gradient(135deg, #00ffcc 0%, #0077ff 100%);
-        }
+        :root { --bg-color: #020204; --glass-bg: rgba(10, 10, 18, 0.6); --glass-border: rgba(255, 255, 255, 0.05); --primary: #00ffcc; --wa-bg: #0b141a; --wa-incoming: #202c33; --wa-outgoing: #005c4b; --gradient: linear-gradient(135deg, #00ffcc 0%, #0077ff 100%); }
         body { margin: 0; padding: 40px 20px; background-color: var(--bg-color); color: #fff; font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; box-sizing: border-box; }
         .demo-header { text-align: center; max-width: 700px; margin-bottom: 30px; }
         .demo-header h2 { font-size: 2.2rem; font-weight: 900; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0; }
@@ -41,12 +32,10 @@
     </style>
 </head>
 <body>
-
     <div class="demo-header">
         <h2>Cognitive Architecture Core Live Demo</h2>
         <p>قم ببدء تجربة حية ومحاكاة حقيقية لعقل الذكاء الاصطناعي لشركة NexusAutomata AI العقارية.</p>
     </div>
-
     <div class="phone-frame">
         <div class="chat-topbar">
             <div class="avatar">NAI</div>
@@ -55,25 +44,19 @@
                 <div class="bot-status"><span class="pulse"></span> CORTEX CORE // ONLINE</div>
             </div>
         </div>
-
         <div class="chat-body" id="chat-container">
             <div class="msg incoming">Hello! Welcome to NexusAutomata AI Simulator. How can I assist your property search today?</div>
             <div class="msg incoming" style="direction: rtl; text-align: right;">أهلاً بك في نظام المحاكاة الذكي لشركتكم العقارية. أنا العقل الرقمي المطور، كيف يمكنني مساعدتك في معرفة الأسعار، المساحات المتاحة، أو حجز موعد معاينة اليوم؟</div>
         </div>
-
         <div class="typing-indicator" id="typing-box">CORTEX IS THINKING...</div>
-
         <div class="chat-input-area">
             <input type="text" id="user-msg-input" class="chat-input" placeholder="Type your simulation request..." onkeypress="handleKey(event)">
             <button onclick="sendSimulatedMsg()" class="btn-send">➔</button>
         </div>
     </div>
-
     <a href="./index.html" class="back-nav">&lt; Return to Core Control Center</a>
-
     <script>
         function handleKey(e) { if(e.key === 'Enter') sendSimulatedMsg(); }
-
         function sendSimulatedMsg() {
             const input = document.getElementById("user-msg-input");
             const text = input.value.trim();
@@ -87,7 +70,6 @@
                 appendMessage(getDynamicAIResponse(text), 'incoming');
             }, 1200);
         }
-
         function appendMessage(text, side) {
             const container = document.getElementById("chat-container");
             const msgDiv = document.createElement("div");
@@ -98,64 +80,18 @@
             container.appendChild(msgDiv);
             container.scrollTop = container.scrollHeight;
         }
-
-        // --- Innovative & Interactive Dynamic AI Response Engine ---
         function getDynamicAIResponse(userText) {
             const t = userText.toLowerCase();
-            
-            const pricingIntro = [
-                "تمام، بخصوص الأسعار المتاحة حالياً في المشروع: ",
-                "يسعدني جداً توضيح خطة الأسعار لك؛ حالياً الأسعار كالتالي: ",
-                "أهلاً بك، بخصوص الجانب المالي وأنظمة السداد، تفاصيلنا هي: "
-            ];
+            const pricingIntro = ["تمام، بخصوص الأسعار المتاحة حالياً في المشروع: ", "يسعدني جداً توضيح خطة الأسعار لك؛ حالياً الأسعار كالتالي: ", "أهلاً بك، بخصوص الجانب المالي وأنظمة السداد، تفاصيلنا هي: "];
             const pricingDetails = "بدأ خطة الأسعار الحالية للوحدات السكنية الفاخرة من 4.5 مليون جنيه مصري، مع إمكانية دفع مقدم 10% فقط وتقسيط الباقي على مدار 7 سنوات بأقساط متساوية تماماً وبدون أي فوائد بنكية.";
-            const pricingOutro = [
-                " هل تحب أن نرسل لك كراسة الشروط الرسمية (البروشور) عبر الواتساب فوراً لمراجعة المخططات؟",
-                " هل تفضل أن يقوم أحد مستشارينا العقاريين بالتواصل معك لشرح أنظمة السداد بالتفصيل؟",
-                " ما هو النطاق السعري المناسب لميزانيتكم لكي أرشح لك الوحدة الأفضل؟"
-            ];
-
-            const spaceIntro = [
-                "بخصوص المساحات والهندسة المعمارية في المشروع, قمنا بتنويع الخيارات بشكل كبير: ",
-                "سؤال ممتاز! المساحات مصممة بذكاء واستغلال كامل للمساحات الداخلي، وهي كالتالي: ",
-                "لدينا مساحات ممتازة تناسب كافة الرغبات العائلية؛ "
-            ];
-            const spaceDetails = "تبدأ مساحات الشقق السكنية الأرضي والمتكرر من 120 متر مربع، وحصرياً قمنا بإطلاق مرحلة الفيلات المستقلة والتاون هاوس بمساحات فاخرة تبدأ من 250 متر مربع وحتى 450 متر مربع بكامل الخدمات.";
-            const spaceOutro = [
-                " ما هي المساحة التقريبية التي تراها مناسبة لمتطلبات عائلتك؟",
-                " هل تفضل الشقق السكنية المستقلة أم تبحث عن خصوصية الفيلات والتاون هاوس؟",
-                " يمكنني إرسال المخطط الهندسي الداخلي (Floor Plans) لأي مساحة تختارها الآن."
-            ];
-
-            const bookingIntro = [
-                "أهلاً بك، يسعدنا ويشرفنا ترتيب موعد لمعاينة أرض المشروع حياً! ",
-                "بكل تأكيد، المعاينة على أرض الواقع ستوضح لك دقة وجودة التنفيذ؛ ",
-                "خطوة ممتازة! نظام الجدولة الذكي لدينا مفتوح ومربوط بتقويم الشركة حالياً للترتيب: "
-            ];
-            const bookingOutro = [
-                " ما هو اليوم الأنسب لك للزيارة هذا الأسبوع (الخميس أم الجمعة) لكي أؤكد حجز تذكرتك تلقائياً؟",
-                " هل تفضل الفترة الصباحية أم المسائية للمعاينة؟ وسأقوم بجدولتها في تقويم سماسرتنا فوراً.",
-                " يرجى كتابة اليوم المفضل لك، وسأرسل لك لوكيشن الموقع وتفاصيل تصريح الدخول عبر رسالة فورية."
-            ];
-
-            if(t.includes("سعر") || t.includes("الاسعار") || t.includes("price") || t.includes("بكم") || t.includes("كم")) {
-                return pricingIntro[Math.floor(Math.random() * pricingIntro.length)] + pricingDetails + pricingOutro[Math.floor(Math.random() * pricingOutro.length)];
-            }
-            if(t.includes("مساحة") || t.includes("مساحات") || t.includes("space") || t.includes("area") || t.includes("كام متر")) {
-                return spaceIntro[Math.floor(Math.random() * spaceIntro.length)] + spaceDetails + spaceOutro[Math.floor(Math.random() * spaceOutro.length)];
-            }
-            if(t.includes("حجز") || t.includes("معاينة") || t.includes("book") || t.includes("visit") || t.includes("موعد") || t.includes("اشوف")) {
-            if(t.includes("حجز") || t.includes("معاينة") || t.includes("book") || t.includes("visit") || t.includes("موعد") || t.includes("اشوف")) {
-                return bookingIntro[Math.floor(Math.random() * bookingIntro.length)] + bookingOutro[Math.floor(Math.random() * bookingOutro.length)];
-            }
-            
-            const fallbacks = [
-                "تم استلام استفسارك بدقة عبر عقل الذكاء الاصطناعي. بصفتي المساعد الإدراكي، يمكنني الرد بمرونة تامة وبابتكار. جرب سؤالي الآن عن 'أسعار الوحدات' أو 'المساحات المتاحة' أو اكتب 'أريد حجز موعد معاينة' لترى كيف سأقوم بجدولتها لك فوراً.",
-                "أهلاً بك، أنا أتعلم وأفهم السياق بشكل تفاعلي حقيقي لتوفير وقت شركتكم العقارية. يمكنك نقاشي بجدية عن تفاصيل الأسعار، أنظمة السداد، مساحات الفيلات، أو ترتيب موعد للزيارة اليوم. بمَ ترغب أن نبدأ؟",
-                "مرحباً بك في النواة الإدراكية لـ NexusAutomata العقارية. أنا مصمم لأتعامل معك كخبير بشري حقيقي. يرجى سؤالي مباشرة عن 'أسعار وحدات المشروع' أو 'طلب حجز معاينة حية' لتجربة تدفق البيانات والجدولة التلقائية."
-            ];
-            return fallbacks[Math.floor(Math.random() * fallbacks.length)];
-        }
-    </script>
-</body>
-</html>
+            const pricingOutro = [" هل تحب أن نرسل لك كراسة الشروط الرسمية (البروشور) عبر الواتساب فوراً لمراجعة المخططات؟", " هل تفضل أن يقوم أحد مستشارينا العقاريين بالتواصل معك لشرح أنظمة السداد بالتفصيل؟", " ما هو النطاق السعري المناسب لميزانيتكم لكي أرشح لك الوحدة الأفضل؟"];
+            const spaceIntro = ["بخصوص المساحات والهندسة المعمارية في المشروع، قمنا بتنويع الخيارات بشكل كبير: ", "سؤال ممتاز! المساحات مصممة بذكاء واستغلال كامل للمساحات الداخلي، وهي كالتالي: ", "لدينا مساحات ممتازة تناسب كافة الرغبات العائلية؛ "];
+            const spaceDetails = "تبدأ مساحات الشقق السكنية الأرضي والمتكرر من 120 متر مربع، وحصرياً قمنا بإطلاق مرحلة الفيلات مستقلة والتاون هاوس بمساحات فاخرة تبدأ من 250 متر مربع وحتى 450 متر مربع بكامل الخدمات.";
+            const spaceOutro = [" ما هي المساحة التقريبية التي تراها مناسبة لمتطلبات عائلتك؟", " هل تفضل الشقق السكنية المستقلة أم تبحث عن خصوصية الفيلات والتاون هاوس؟", " يمكنني إرسال المخطط الهندسي الداخلي (Floor Plans) لأي مساحة تختارها الآن."];
+            const bookingIntro = ["أهلاً بك، يسعدنا ويشرفنا ترتيب موعد لمعاينة أرض المشروع حياً! ", "بكل تأكيد، المعاينة على أرض الواقع ستوضح لك دقة وجودة التنفيذ؛ ", "خطوة ممتازة! نظام الجدولة الذكي لدينا مفتوح ومربوط بتقويم الشركة حالياً للترتيب: "];
+            const bookingOutro = [" ما هو اليوم الأنسب لك للزيارة هذا الأسبوع (الخميس أم الجمعة) لكي أؤكد حجز تذكرتك تلقائياً؟", " هل تفضل الفترة الصباحية أم المسائية للمعاينة؟ وسأقوم بجدولتها في تقويم سماسرتنا فوراً.", " يرجى كتابة اليوم المفضل لك، وسأرسل لك لوكيشن الموقع وتفاصيل تصريح الدخول عبر رسالة فورية."];
+            if(t.includes("سعر") || t.includes("الاسعار") || t.includes("price") || t.includes("بكم") || t.includes("كم")) { return pricingIntro[Math.floor(Math.random() * pricingIntro.length)] + pricingDetails + pricingOutro[Math.floor(Math.random() * pricingOutro.length)]; }
+            if(t.includes("مساحة") || t.includes("مساحات") || t.includes("space") || t.includes("area") || t.includes("كام متر")) { return spaceIntro[Math.floor(Math.random() * spaceIntro.length)] + spaceDetails + spaceOutro[Math.floor(Math.random() * spaceOutro.length)]; }
+            if(t.includes("حجز") || t.includes("معاينة") || t.includes("book") || t.includes("visit") || t.includes("موعد") || t.includes("اشوف")) { return bookingIntro[Math.floor(Math.random() * bookingIntro.length)] + bookingOutro[Math.floor(Math.random() * bookingOutro.length)]; }
+            const fallbacks = ["تم استلام استفسارك بدقة عبر عقل الذكاء الاصطناعي. بصفتي المساعد الإدراكي، يمكنني الرد بمرونة تامة وبابتكار. جرب سؤالي الآن عن 'أسعار الوحدات' أو 'المساحات المتاحة' أو اكتب 'أريد حجز موعد معاينة' لترى كيف سأقوم بجدولتها لك فوراً.", "أهلاً بك، أنا أتعلم وأفهم السياق بشكل تفاعلي حقيقي لتوفير وقت شركتكم العقارية. يمكنك نقاشي بجدية عن تفاصيل الأسعار، أنظمة السداد، مساحات الفيلات، أو ترتيب موعد للزيارة اليوم. بمَ ترغب أن نبدأ؟", "مرحباً بك في النواة الإدراكية لـ NexusAutomata العقارية. أنا مصمم لأتعامل معك كخبير بشري حقيقي. يرجى سؤالي مباشرة عن 'أسعار وحدات المشروع' أو 'طلب حجز معاينة حية' لتجربة تدفق البيانات والجدولة التلقائية."];
+return fallbacks[Math.floor(Math.random() * fallbacks.length)];}
