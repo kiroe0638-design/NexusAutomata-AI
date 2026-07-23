@@ -102,7 +102,7 @@
         .price { font-size: 2.3rem; font-weight: bold; margin: 20px 0; color: #fff; text-align: center; }
         .card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px; min-height: 100px; }
 
-        /* Dynamic Active Action Buttons directing to sub-pages */
+        /* Dynamic Active Action Buttons routing to dynamic checkout system */
         .btn-action {
             background: transparent;
             border: 2px solid var(--primary);
@@ -133,26 +133,17 @@
             border-color: #00ccaa;
         }
 
-        /* Live Preview System Frame */
-        .chat-section { 
-            max-width: 900px; 
-            margin: 40px auto; 
-            background: var(--card-bg); 
-            border: 2px solid var(--primary); 
-            border-radius: 12px; 
-            padding: 20px; 
-            box-shadow: 0 10px 30px rgba(0,255,204,0.15);
+        /* Premium Floating Chatbot Custom CSS Brand Adjustments */
+        #dify-chatbot-bubble-button {
+            background-color: var(--primary) !important;
+            box-shadow: 0 4px 20px rgba(0, 255, 204, 0.3) !important;
         }
-        .chat-title-container { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; direction: ltr; }
-        .chat-section h2 { color: var(--text-main); font-size: 1.3rem; margin: 0; font-weight: 600; }
-        .demo-badge { background: rgba(0, 255, 204, 0.1); color: var(--primary); font-size: 0.75rem; padding: 5px 12px; border-radius: 6px; font-weight: bold; border: 1px solid rgba(0, 255, 204, 0.2); }
-        
-        iframe {
-            width: 100%;
-            height: 700px;
-            border-radius: 8px;
-            border: 1px solid #222;
-            background: #08080c;
+        #dify-chatbot-bubble-window {
+            width: 24rem !important;
+            height: 40rem !important;
+            border: 2px solid var(--primary) !important;
+            border-radius: 12px !important;
+            background-color: var(--card-bg) !important;
         }
     </style>
 </head>
@@ -164,7 +155,7 @@
         Intelligent 24/7 AI-Powered Missed-Call & Automation Solutions for Real Estate Ecosystems
     </p>
     
-    <!-- Three-Tier Matrix Plan Structure -->
+    <!-- Three-Tier Matrix Plan Structure with Connected Dynamic Links -->
     <div class="pricing-container" data-aos="fade-up" data-aos-delay="200">
         <!-- Card 1: Starter Node -->
         <div class="card">
@@ -173,7 +164,7 @@
                 <div class="price">$599<span style="font-size:1rem; color:var(--text-muted);">/mo</span></div>
                 <p>Instant missed-call text-back deployment 24/7 via WhatsApp & SMS. Automatically captures critical lead data and syncs directly to your internal Google Sheets infrastructure.</p>
             </div>
-            <a href="checkout-starter.html" class="btn-action">Configure Node</a>
+            <a href="checkout.html?plan=starter" class="btn-action">Configure Node</a>
         </div>
         
         <!-- Card 2: Cortex Pro -->
@@ -183,7 +174,7 @@
                 <div class="price">$1,199<span style="font-size:1rem; color:var(--text-muted);">/mo</span></div>
                 <p>Includes Starter Node features + complete interactive bilingual AI assistant (Ar/En) to answer pricing/locations + automated calendar booking systems.</p>
             </div>
-            <a href="checkout-cortex.html" class="btn-action">Configure Node</a>
+            <a href="checkout.html?plan=cortex" class="btn-action">Configure Node</a>
         </div>
         
         <!-- Card 3: Nexus Enterprise -->
@@ -193,27 +184,11 @@
                 <div class="price">$2,999<span style="font-size:1rem; color:var(--text-muted);">/mo</span></div>
                 <p>Custom deep infrastructure bridging to major enterprise CRMs (HubSpot/Salesforce) + adaptive autonomous multi-day operational follow-up funnels.</p>
             </div>
-            <a href="checkout-nexus.html" class="btn-action">Configure Node</a>
+            <a href="checkout.html?plan=nexus" class="btn-action">Configure Node</a>
         </div>
     </div>
 
-    <!-- Production Dify Hub Integration Section -->
-    <div class="chat-section" data-aos="fade-up" data-aos-offset="150">
-        <div class="chat-title-container">
-            <h2>🤖 NAI Broker Agent (Live Production Web-App)</h2>
-            <span class="demo-badge">LIVE ENTERPRISE ENVIRONMENT</span>
-        </div>
-        
-        <iframe
-         src="https://udify.app"
-         style="width: 100%; height: 100%; min-height: 700px"
-         frameborder="0"
-         loading="lazy"
-         allow="microphone">
-        </iframe>
-    </div>
-
-    <!-- Script Architecture -->
+    <!-- Script Architecture for Animations -->
     <script src="https://unpkg.com"></script>
     <script>
         window.scrollTo(0, 0);
@@ -221,5 +196,21 @@
             AOS.init({ once: false, mirror: true, offset: 100, duration: 1000 });
         };
     </script>
+
+    <!-- NAI Intelligent Broker Agent Native Connection Loops (Dify Widget Script) -->
+    <script>
+     window.difyChatbotConfig = {
+      token: 'AlytJyGr9oVTQcna',
+      inputs: {},
+      systemVariables: {},
+      userVariables: {},
+     }
+    </script>
+    <script
+     src="https://udify.app/embed.min.js"
+     id="AlytJyGr9oVTQcna"
+     defer>
+    </script>
+
 </body>
 </html>
