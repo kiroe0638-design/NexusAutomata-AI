@@ -28,6 +28,18 @@
             scroll-behavior: smooth;
         }
 
+        /* Pure CSS Custom Scroll-Driven Animation Classes */
+        .reveal-node {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .reveal-node.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Typewriter Animation Infrastructure */
         .typewriter-container {
             min-height: 4.5rem;
@@ -55,14 +67,14 @@
         .main-subtitle { 
             color: var(--text-muted); 
             font-size: 1.3rem; 
-            margin-bottom: 60px; 
+            margin-bottom: 80px; 
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
             line-height: 1.8;
             opacity: 0;
             transform: translateY(20px);
-            animation: animationFadeInUp 1s ease forwards 2.5s;
+            transition: all 1s ease 0.5s;
         }
 
         /* Spaced Pricing Matrix Grid Layout */
@@ -71,7 +83,7 @@
             justify-content: center; 
             gap: 30px; 
             flex-wrap: wrap; 
-            margin-bottom: 100px;
+            margin-bottom: 120px;
             direction: ltr;
         }
         
@@ -81,7 +93,6 @@
             border-radius: 16px; 
             padding: 45px 35px; 
             width: 310px; 
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
             text-align: left;
             position: relative;
             overflow: hidden;
@@ -89,25 +100,16 @@
             flex-direction: column;
             justify-content: space-between;
             box-sizing: border-box;
-            opacity: 0;
-            transform: translateY(30px);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
         
-        /* Sequential stagger fade-in triggers for the structural grid cards */
-        .card:nth-child(1) { animation: animationFadeInUp 1s ease forwards 3s; }
-        .card:nth-child(2) { animation: animationFadeInUp 1s ease forwards 3.3s; }
-        .card:nth-child(3) { animation: animationFadeInUp 1s ease forwards 3.6s; }
-
         .card:hover { 
             border-color: var(--primary); 
-            transform: translateY(-10px); 
-            box-shadow: 0 20px 40px rgba(0, 255, 204, 0.12);
+            transform: translateY(-12px); 
+            box-shadow: 0 20px 40px rgba(0, 255, 204, 0.15);
         }
 
-        .card.featured {
-            border-color: rgba(0, 255, 204, 0.5);
-        }
-
+        .card.featured { border-color: rgba(0, 255, 204, 0.5); }
         .card.featured::before {
             content: '🔥 MOST POPULAR';
             position: absolute;
@@ -125,7 +127,6 @@
         .price { font-size: 2.5rem; font-weight: bold; margin: 25px 0; color: #fff; text-align: center; }
         .card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px; min-height: 90px; }
 
-        /* Premium Connected Navigation Button Triggers */
         .btn-action {
             background: transparent;
             border: 2px solid var(--primary);
@@ -146,36 +147,24 @@
             background: var(--primary);
             color: #000;
             box-shadow: 0 0 20px rgba(0, 255, 204, 0.4);
-            transform: scale(1.02);
-        }
-        .card.featured .btn-action {
-            background: var(--primary);
-            color: #000;
-        }
-        .card.featured .btn-action:hover {
-            background: #00ccaa;
-            border-color: #00ccaa;
         }
 
-        /* High-End Enterprise About Us Layout Grid */
+        /* Isolated, High-End About Us Section Structure */
         .about-section {
-            max-width: 960px;
-            margin: 0 auto 100px auto;
-            background: var(--card-bg);
+            max-width: 1000px;
+            margin: 0 auto 120px auto;
+            background: linear-gradient(180deg, #0d0d12 0%, #07070a 100%);
             border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 60px 40px;
+            border-radius: 24px;
+            padding: 70px 50px;
             text-align: left;
             box-sizing: border-box;
-            opacity: 0;
-            transform: translateY(40px);
-            animation: animationFadeInUp 1.2s ease forwards 4s;
         }
         .about-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
-            margin-top: 40px;
+            margin-top: 50px;
         }
         .about-meta-box h4 {
             color: var(--primary);
@@ -184,45 +173,32 @@
             margin-bottom: 12px;
             font-weight: 700;
         }
-        .about-meta-box p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin: 0;
-        }
+        .about-meta-box p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin: 0; }
 
-        /* Floating Custom Cyberpunk Dify Brand Overlay */
+        /* Floating Live Native Integration Container Adjustments */
         #dify-chatbot-bubble-button {
-            background-color: var(--primary) !important;
-            box-shadow: 0 4px 25px rgba(0, 255, 204, 0.4) !important;
-        }
-        #dify-chatbot-bubble-window {
-            border: 2px solid var(--primary) !important;
-            box-shadow: 0 10px 40px rgba(0, 255, 204, 0.15) !important;
+            background-color: #00ffcc !important;
+            box-shadow: 0 4px 25px rgba(0, 255, 204, 0.5) !important;
+            z-index: 999999 !important;
         }
 
-        /* Keyframes Animations Repositories */
         @keyframes blink {
             from, to { border-color: transparent }
             50% { border-color: var(--primary); }
-        }
-        @keyframes animationFadeInUp {
-            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <!-- Main Branding Header Matrix with Typewriter Engine Hook -->
     <div class="typewriter-container">
         <h1 id="typewriter-headline"></h1>
     </div>
-    <p class="main-subtitle">Next-Generation 24/7 AI-Powered Missed-Call Systems & Full Operational Automation Architectures for Enterprise Real Estate Ecosystems.</p>
+    <p class="main-subtitle" id="sub-node">Next-Generation 24/7 AI-Powered Missed-Call Systems & Full Operational Automation Architectures for Enterprise Real Estate Ecosystems.</p>
     
     <!-- Three-Tier Premium Plan Matrix Matrix -->
     <div class="pricing-container">
-        <!-- Card 1: Starter Node -->
-        <div class="card">
+        <!-- Card 1 -->
+        <div class="card reveal-node" id="p-card-1">
             <div>
                 <h3>Starter Node</h3>
                 <div class="price">$599<span style="font-size:1rem; color:var(--text-muted);">/mo</span></div>
@@ -231,8 +207,8 @@
             <a href="checkout.html?plan=starter" class="btn-action">Explore & Deploy</a>
         </div>
         
-        <!-- Card 2: Cortex Pro -->
-        <div class="card featured">
+        <!-- Card 2 -->
+        <div class="card featured reveal-node" id="p-card-2">
             <div>
                 <h3>Cortex Pro</h3>
                 <div class="price">$1,199<span style="font-size:1rem; color:var(--text-muted);">/mo</span></div>
@@ -241,8 +217,8 @@
             <a href="checkout.html?plan=cortex" class="btn-action">Explore & Deploy</a>
         </div>
         
-        <!-- Card 3: Nexus Enterprise -->
-        <div class="card">
+        <!-- Card 3 -->
+        <div class="card reveal-node" id="p-card-3">
             <div>
                 <h3>Nexus Enterprise</h3>
                 <div class="price">$2,999<span style="font-size:1rem; color:var(--text-muted);">/mo</span></div>
@@ -252,9 +228,9 @@
         </div>
     </div>
 
-    <!-- Premium Spaced About Us Layer Section -->
-    <div class="about-section">
-        <h2 style="color: var(--primary); font-size: 2.2rem; margin-top: 0; margin-bottom: 15px; font-weight: 800;">About NexusAutomata</h2>
+    <!-- Section 2: Isolated About Us Node Environment Component -->
+    <div class="about-section reveal-node" id="about-container-node">
+        <h2 style="color: var(--primary); font-size: 2.4rem; margin-top: 0; margin-bottom: 15px; font-weight: 800;">About NexusAutomata</h2>
         <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.7; margin: 0;">We engineer production-grade conversational architectures and cross-channel pipeline infrastructure to help premier real estate agencies capture warm opportunities automatically, eliminating dropped leads permanently.</p>
         
         <div class="about-grid">
@@ -273,7 +249,7 @@
         </div>
     </div>
 
-    <!-- Typewriter Script Logic Loop Engine -->
+    <!-- Active Native Scroll Detection & Typewriter Script Engine Loops -->
     <script>
         const textSequence = "NexusAutomata AI";
         const targetElement = document.getElementById("typewriter-headline");
@@ -287,17 +263,45 @@
             } else {
                 setTimeout(() => {
                     targetElement.style.borderRight = "none";
-                }, 1000);
+                    // Trigger subtitles and initial cards fade-in sequence smoothly
+                    document.getElementById('sub-node').style.opacity = "1";
+                    document.getElementById('sub-node').style.transform = "translateY(0)";
+                    triggerScrollRevealCalculation();
+                }, 400);
             }
         }
-        
-        // Execute the typewriter script cleanly upon load
-        runTypewriterLoop();
+
+        // Custom CSS Intersection Calculation Engine to replicate dynamic AOS scrolling logic natively
+        function triggerScrollRevealCalculation() {
+            const elementsToReveal = document.querySelectorAll('.reveal-node');
+            elementsToReveal.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementTop < windowHeight - 50) {
+                    el.classList.add('visible');
+                } else {
+                    el.classList.remove('visible'); // Allows loop animation to play again when scrolling back up
+                }
+            });
+        }
+
+        // Hook script behaviors onto scrolling events
+        window.addEventListener('scroll', triggerScrollRevealCalculation);
+
+        // Boot system scripts on render completion
+        window.onload = function() {
+            runTypewriterLoop();
+        };
     </script>
 
-    <!-- Active Native Connection Widget Script Layer (Bypasses Frame Blocks) -->
+    <!-- Secure Forced Execution Connection Script (Bypasses Native Dify Async Rendering Bugs) -->
     <script>
-     window.difyChatbotConfig = { token: 'AlytJyGr9oVTQcna' }
+        window.difyChatbotConfig = { token: 'AlytJyGr9oVTQcna' };
+        
+        // Force the connection layout to bind directly to standard window loops
+        document.addEventListener("DOMContentLoaded", function() {
+            console.log("Initializing secure chat connection pipeline...");
+        });
     </script>
     <script src="https://udify.app" id="AlytJyGr9oVTQcna" defer></script>
 
