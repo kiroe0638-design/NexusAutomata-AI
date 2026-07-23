@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ae">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAI | Secure Payment Gateway Interface</title>
+    <style>
+        :root {
+            --bg-color: #020204;
+            --glass-bg: rgba(10, 10, 18, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --primary: #00ffcc;
+            --gradient: linear-gradient(135deg, #00ffcc 0%, #0077ff 100%);
+        }
+        body { margin: 0; padding: 40px 20px; background-color: var(--bg-color); color: #fff; font-family: 'Segoe UI', sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; box-sizing: border-box; }
+        .checkout-box { background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 24px; padding: 50px; max-width: 600px; width: 100%; text-align: center; box-shadow: 0 40px 80px rgba(0,0,0,0.5); }
+        h2 { font-size: 2rem; font-weight: 900; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-top: 0; }
+        p { color: #8f8f9d; font-size: 0.95rem; line-height: 1.6; margin-bottom: 35px; }
+        .payment-methods { text-align: left; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.03); padding: 30px; border-radius: 16px; margin-bottom: 35px; }
+        .method-title { font-size: 0.8rem; color: var(--primary); font-family: monospace; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 15px; }
+        .method-detail { font-size: 1.1rem; font-family: monospace; color: #fff; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; }
+        .method-detail span { color: #8f8f9d; }
+        .btn-paid { background: transparent; border: 1px solid var(--primary); color: var(--primary); width: 100%; padding: 16px; border-radius: 30px; font-size: 0.95rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 1.5px; transition: 0.3s; }
+        .btn-paid:hover { background: var(--gradient); color: #000; border-color: transparent; box-shadow: 0 0 25px rgba(0, 255, 204, 0.4); }
+    </style>
+</head>
+<body>
+
+    <div class="checkout-box">
+        <h2>Secure Settlement Gateway</h2>
+        <p>يرجى إتمام عملية التحويل المالي لقيمة الباقة المختارة عبر أحد القنوات المؤسسية المؤمنة المذكورة أدناه لتفعيل النود الخاص بكم فورا.</p>
+        
+        <div class="payment-methods">
+            <div class="method-title">Option 1: InstaPay Secure Sync</div>
+            <div class="method-detail">[Pending_InstaPay_Address] <span>// عنوان إنستا باي</span></div>
+
+            <div class="method-title">Option 2: Direct Bank Interconnect</div>
+            <div class="method-detail">Bank Account / IBAN: <span>[Pending_IBAN_Code]</span></div>
+            <div class="method-detail">Account Name: <span>[Pending_Name]</span></div>
+        </div>
+
+        <button onclick="window.location.href='success.html'" class="btn-paid">I Have Completed Payment // تم الدفع وتأكيد الاشتراك</button>
+    </div>
+
+</body>
+</html>
