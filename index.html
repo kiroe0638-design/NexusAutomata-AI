@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexusAutomata AI (NAI) | Automated Broker Agency Core</title>
+    <title>NexusAutomata AI (NAI) | Autonomous Real Estate Broker Architectures</title>
     <style>
         /* SpaceX & Tesla Inspired B2B Glassmorphism Instrumentation Theme */
         :root {
             --bg-color: #020204;
-            --glass-bg: rgba(13, 13, 20, 0.6);
+            --glass-bg: rgba(13, 13, 20, 0.65);
             --glass-border: rgba(255, 255, 255, 0.04);
             --primary: #00ffcc;
             --primary-hover: #00ccaa;
@@ -30,7 +30,6 @@
             margin: 0; 
             overflow-x: hidden;
             scroll-behavior: smooth;
-            /* Tesla Engineering Wireframe Backdrop grid */
             background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
             background-size: 40px 40px;
         }
@@ -73,13 +72,13 @@
 
         canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; opacity: 0.05; }
 
+        /* FIX: Enforced strict block isolation clear layout boundaries across sections */
         section {
+            width: 100%;
+            display: block;
+            clear: both;
+            float: none;
             padding: 120px 40px;
-            min-height: 90vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             box-sizing: border-box;
             border-bottom: 1px solid var(--glass-border);
         }
@@ -105,15 +104,15 @@
         /* Hero Headers Layout */
         .typewriter-box { min-height: 4.5rem; display: flex; justify-content: center; align-items: center; margin-top: 20px; }
         h1 { font-size: 4rem; font-weight: 900; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 40px rgba(0, 255, 204, 0.15); margin: 0; letter-spacing: -1px; }
-        .subtitle { color: var(--text-muted); font-size: 1.25rem; margin-top: 20px; max-width: 800px; line-height: 1.8; }
+        .subtitle { color: var(--text-muted); font-size: 1.25rem; margin-top: 20px; max-width: 850px; line-height: 1.8; margin-left: auto; margin-right: auto; }
 
         .scroll-down-btn {
-            margin-top: 30px; background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--primary); padding: 14px 35px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 0.9rem; transition: 0.3s; backdrop-filter: blur(8px); text-transform: uppercase; letter-spacing: 1px;
+            display: inline-block; margin-top: 30px; background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--primary); padding: 14px 35px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 0.9rem; transition: 0.3s; backdrop-filter: blur(8px); text-transform: uppercase; letter-spacing: 1px;
         }
         .scroll-down-btn:hover { background: var(--primary); color: #000; box-shadow: 0 0 25px rgba(0,255,204,0.4); }
 
         /* High-Density Structural Plan Layout Matrix */
-        .pricing-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 40px; width: 100%; max-width: 1200px; }
+        .pricing-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin: 40px auto; width: 100%; max-width: 1200px; }
         .card { background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 20px; padding: 45px 30px; width: 350px; text-align: left; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
         .card:hover { border-color: var(--primary); transform: translateY(-10px); box-shadow: 0 25px 60px rgba(0, 255, 204, 0.15); }
         .card h3 { color: var(--primary); font-size: 1.6rem; margin: 0; text-align: center; font-weight: 800; letter-spacing: -0.5px; }
@@ -129,7 +128,7 @@
         .btn-action { background: linear-gradient(90deg, rgba(0,255,204,0.05), rgba(0,119,255,0.05)); border: 1px solid var(--primary); color: var(--primary); padding: 15px; border-radius: 30px; font-size: 0.95rem; font-weight: 700; cursor: pointer; width: 100%; text-align: center; text-decoration: none; display: block; box-sizing: border-box; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
         .card:hover .btn-action { background: var(--gradient); color: #000; box-shadow: 0 0 25px rgba(0, 255, 204, 0.4); border-color: transparent; }
 
-        .workspace-section { max-width: 1000px; width: 100%; background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 2px solid var(--glass-border); border-radius: 24px; padding: 50px; text-align: left; box-shadow: 0 30px 60px rgba(0,0,0,0.5); box-sizing: border-box; }
+        .workspace-section { max-width: 1000px; width: 100%; background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 2px solid var(--glass-border); border-radius: 24px; padding: 50px; text-align: left; box-shadow: 0 30px 60px rgba(0,0,0,0.5); box-sizing: border-box; margin: 0 auto; }
         .workspace-section.active-glow { border-color: var(--primary); box-shadow: 0 0 40px rgba(0, 255, 204, 0.08); }
         .features-headline { color: var(--primary); font-size: 1.8rem; margin: 0 0 10px 0; font-weight: 800; }
         .features-cost-badge { display: inline-block; background: rgba(0, 255, 204, 0.1); border: 1px solid rgba(0,255,204,0.2); color: var(--primary); padding: 8px 16px; border-radius: 8px; font-weight: bold; margin-bottom: 30px; font-size: 1.05rem; }
@@ -145,7 +144,7 @@
         .btn-master-submit { background: var(--gradient); color: #000; border: none; padding: 18px; font-size: 1.1rem; font-weight: 800; border-radius: 10px; cursor: pointer; width: 100%; box-shadow: 0 5px 20px rgba(0, 255, 204, 0.2); transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
         .btn-master-submit:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0, 255, 204, 0.4); }
         
-        .about-section { max-width: 1100px; width: 100%; background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 24px; padding: 80px 60px; text-align: left; box-sizing: border-box; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .about-section { max-width: 1100px; width: 100%; background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 24px; padding: 80px 60px; text-align: left; box-sizing: border-box; box-shadow: 0 20px 50px rgba(0,0,0,0.5); margin: 0 auto; }
         .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; margin-top: 50px; }
         .about-box { background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); padding: 30px; border-radius: 16px; transition: 0.3s; }
         .about-box:hover { border-color: var(--primary); background: rgba(0,255,204,0.01); }
@@ -155,7 +154,7 @@
         .success-links { margin-top: 20px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
         .suc-link { display: inline-block; background: rgba(0,255,204,0.1); border: 1px solid var(--primary); color: var(--primary); padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 0.9rem; transition: 0.3s; }
         .suc-link:hover { background: var(--primary); color: #000; box-shadow: 0 0 15px rgba(0,255,204,0.3); }
-        .chat-section { max-width: 1100px; width: 100%; background: var(--glass-bg); border: 2px solid var(--primary); border-radius: 24px; padding: 25px; box-shadow: 0 20px 50px rgba(0,255,204,0.1); text-align: left; box-sizing: border-box; }
+        .chat-section { max-width: 1100px; width: 100%; background: var(--glass-bg); border: 2px solid var(--primary); border-radius: 24px; padding: 25px; box-shadow: 0 20px 50px rgba(0,255,204,0.1); text-align: left; box-sizing: border-box; margin: 0 auto; }
         iframe { width: 100%; height: 700px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); background: #040406; margin-top: 25px; box-shadow: 0 15px 40px rgba(0,0,0,0.5); }
     </style>
 </head>
@@ -175,7 +174,6 @@
         <div class="typewriter-box"><h1 id="typewriter-headline"></h1></div>
         <p class="subtitle">Next-Generation 24/7 AI-Powered Missed-Call Systems & Full Operational Automation Architectures for Enterprise Real Estate Ecosystems.</p>
         
-        <!-- SpaceX Style Live Telemetry Stream HUD -->
         <div class="telemetry-hud">
             <div class="hud-metric"><div class="hud-label">Core Status</div><div class="hud-value" style="color: #00ffcc;">ONLINE // NOMINAL</div></div>
             <div class="hud-metric"><div class="hud-label">Active Node Loads</div><div class="hud-value">4.02 Tflops</div></div>
@@ -196,7 +194,7 @@
             <div class="card" onclick="tab('starter',599,'Starter Node')">
                 <div>
                     <h3>Starter Node</h3><div class="price">$599<span style="font-size:1rem;color:var(--text-muted)">/mo</span></div>
-                    <p>Instant missed-call text-back deployment 24/7 via WhatsApp & SMS. Auto-sync data pipelines to Google Sheets channels.</p>
+                    <p>Instant multi-channel missed-call text interception deployment 24/7 via WhatsApp API & cellular routing networks.</p>
                     <table class="card-spec-table">
                         <tr><td>Intercept Latency</td><td class="val active">&lt; 1.5s</td></tr>
                         <tr><td>Database Pipelines</td><td class="val">Google Sheets API</td></tr>
@@ -210,7 +208,7 @@
             <div class="card featured" onclick="tab('cortex',1199,'Cortex Pro')">
                 <div>
                     <h3>Cortex Pro</h3><div class="price">$1,199<span style="font-size:1rem;color:var(--text-muted)">/mo</span></div>
-                    <p>Includes Starter Node features + complete bilingual real estate AI brain (Ar/En) + automated calendar viewings scheduling.</p>
+                    <p>Includes Starter Node frameworks + contextual cognitive real estate AI brain (Ar/En) + autonomous schedule booking.</p>
                     <table class="card-spec-table">
                         <tr><td>Model Parameters</td><td class="val active">Gemini 1.5 Flash</td></tr>
                         <tr><td>Language Matrix</td><td class="val">Dual (Arabic/English)</td></tr>
@@ -224,7 +222,7 @@
             <div class="card" onclick="tab('nexus',2999,'Nexus Enterprise')">
                 <div>
                     <h3>Nexus Enterprise</h3><div class="price">$2,999<span style="font-size:1rem;color:var(--text-muted)">/mo</span></div>
-                    <p>Deep bridging to corporate legacy CRMs (Salesforce/HubSpot) + multi-day automated parallel warm AI follow-up loops.</p>
+                    <p>Deep data abstraction bridging to legacy enterprise CRMs + sequential autonomous parallel follow-up outreach loops.</p>
 `html
     <!-- Section 3: High-Density Interactive Configuration Workspace -->
     <section id="integration-workspace">
@@ -260,7 +258,7 @@
                     <label style="font-size:0.9rem; color:var(--primary); font-weight:bold; display:block; margin-bottom:8px;">Founding Partner Validation Coupon (Exclusive to Cortex Pro)</label>
                     <div class="promo-block">
                         <input type="text" id="p-in" placeholder="FOUNDER50">
-                        <button type="button" onclick="promo()">Apply</button>
+                        <button type="button" class="btn-promo-apply" onclick="promo()">Apply</button>
                     </div>
                     <div id="p-msg" style="font-size:0.9rem; margin-top:8px; font-weight:bold;"></div>
                 </div>
@@ -293,7 +291,8 @@
                     <h4>Corporate System Protection</h4>
                     <p>Complete environment safety isolation. Every deployment mounts private dual-language layers (Arabic/English) constructed directly over Google and Meta developer portals. For emergency escalations and technical errors: <a href="mailto:Kiroe0638@gmail.com" style="color: var(--primary); text-decoration: none; font-weight: bold;">Kiroe0638@gmail.com</a>.</p>
                 </div>
-                <-- Expanded High-Density Executive Profile (Kyrillos STEM Credentials) -->
+                
+                <!-- Expanded High-Density Executive Profile (Kyrillos STEM Credentials) -->
                 <div class="about-box" style="border-color: var(--primary); background: linear-gradient(135deg, rgba(0,255,204,0.02) 0%, rgba(0,119,255,0.02) 100%);">
                     <h4>Executive Leadership</h4>
                     <p style="color: #fff; font-weight: bold; margin-bottom: 4px; font-size: 1.15rem;">Kyrillos El-Banna</p>
@@ -304,7 +303,7 @@
             </div>
         </div>
     </section>
-    <!-- Section 5: Production Embedded Sandbox Matrix Core App Section -->
+        <!-- Section 5: Production Embedded Sandbox Matrix Core App Section -->
     <section id="live-sandbox" style="padding-top: 20px;">
         <div class="chat-section">
             <div class="chat-title-container">
