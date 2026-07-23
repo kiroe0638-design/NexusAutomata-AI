@@ -217,3 +217,155 @@
     <script src="https://udify.app" id="AlytJyGr9oVTQcna" defer></script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusAutomata AI (NAI) | Enterprise Broker Architectures</title>
+    <style>
+        /* SpaceX & Tesla Inspired Luxury Dynamic Theme */
+        :root {
+            --bg-color: #020204;
+            --glass-bg: rgba(13, 13, 20, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --primary: #00ffcc;
+            --text-main: #ffffff;
+            --text-muted: #7c7c8c;
+            --gradient: linear-gradient(135deg, #00ffcc 0%, #0077ff 100%);
+            --grid-line: rgba(0, 255, 204, 0.02);
+        }
+
+        html, body {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            background-color: var(--bg-color); color: var(--text-main); 
+            font-family: 'Segoe UI', system-ui, sans-serif; overflow-x: hidden;
+            background-size: 40px 40px; 
+            background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+        }
+
+        canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; opacity: 0.06; }
+
+        header { padding: 80px 20px 40px 20px; box-sizing: border-box; }
+        .typewriter-box { min-height: 4.5rem; display: flex; justify-content: center; align-items: center; }
+        h1 { font-size: 4rem; font-weight: 900; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 40px rgba(0, 255, 204, 0.15); margin: 0; letter-spacing: -1px; }
+        .subtitle { color: var(--text-muted); font-size: 1.25rem; margin: 20px auto 0 auto; max-width: 850px; line-height: 1.8; text-align: center; }
+
+        /* SpaceX Telemetry HUD Strip */
+        .telemetry-hud {
+            display: flex; justify-content: center; gap: 40px; background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 15px 40px; border-radius: 12px; margin: 30px auto; max-width: 900px; box-sizing: border-box; direction: ltr; backdrop-filter: blur(12px);
+        }
+        .hud-metric { text-align: left; }
+        .hud-label { font-size: 0.75rem; color: var(--text-muted); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+        .hud-value { font-size: 1.1rem; color: var(--primary); font-family: monospace; font-weight: bold; margin-top: 4px; }
+
+        /* Spaced Pricing Matrix Grid Layout */
+        .pricing-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin: 60px auto; width: 100%; max-width: 1200px; padding: 0 20px; box-sizing: border-box; }
+        .card { background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 20px; padding: 45px 30px; width: 350px; text-align: left; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
+        .card:hover { border-color: var(--primary); transform: translateY(-10px); box-shadow: 0 25px 60px rgba(0, 255, 204, 0.15); }
+        .card h3 { color: var(--primary); font-size: 1.6rem; margin: 0; text-align: center; font-weight: 800; letter-spacing: -0.5px; }
+        .price { font-size: 2.6rem; font-weight: bold; margin: 20px 0; color: #fff; text-align: center; font-family: monospace; }
+        .card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; min-height: 70px; }
+
+        .card-spec-table { width: 100%; margin-bottom: 30px; border-collapse: collapse; font-size: 0.8rem; font-family: monospace; }
+        .card-spec-table tr { border-bottom: 1px solid rgba(255,255,255,0.03); }
+        .card-spec-table td { padding: 8px 0; color: var(--text-muted); }
+        .card-spec-table td.val { text-align: right; color: #fff; font-weight: bold; }
+        .card-spec-table td.val.active { color: var(--primary); }
+
+        /* Sleek Relational Navigation Hyperlink Buttons */
+        .btn-action { background: linear-gradient(90deg, rgba(0,255,204,0.05), rgba(0,119,255,0.05)); border: 1px solid var(--primary); color: var(--primary); padding: 15px; border-radius: 30px; font-size: 0.95rem; font-weight: 700; cursor: pointer; width: 100%; text-align: center; text-decoration: none; display: block; box-sizing: border-box; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+        .card:hover .btn-action { background: var(--gradient); color: #000; box-shadow: 0 0 25px rgba(0, 255, 204, 0.4); border-color: transparent; }
+    </style>
+</head>
+<body>
+
+    <canvas id="matrix-canvas"></canvas>
+
+    <header>
+        <div class="typewriter-box"><h1 id="typewriter-headline"></h1></div>
+        <p class="subtitle">Next-Generation 24/7 AI-Powered Missed-Call Systems & Full Operational Automation Architectures for Enterprise Real Estate Ecosystems.</p>
+        
+        <div class="telemetry-hud">
+            <div class="hud-metric"><div class="hud-label">Core Status</div><div class="hud-value" style="color: #00ffcc;">ONLINE // NOMINAL</div></div>
+            <div class="hud-metric"><div class="hud-label">Active Node Loads</div><div class="hud-value">4.02 Tflops</div></div>
+            <div class="hud-metric"><div class="hud-label">Memory Partition</div><div class="hud-value">98.4% Secure</div></div>
+            <div class="hud-metric"><div class="hud-label">Global Requests</div><div class="hud-value">2,514/sec</div></div>
+        </div>
+    </header>
+
+    <main class="pricing-container">
+        <!-- Card 1: Starter Node -->
+        <div class="card">
+            <div>
+                <h3>Starter Node</h3><div class="price">$599<span style="font-size:1rem;color:var(--text-muted)">/mo</span></div>
+                <p>Instant multi-channel missed-call text interception deployment 24/7 via WhatsApp API & cellular networks.</p>
+                <table class="card-spec-table">
+                    <tr><td>Intercept Latency</td><td class="val active">&lt; 1.5s</td></tr>
+                    <tr><td>Database Pipelines</td><td class="val">Google Sheets API</td></tr>
+                    <tr><td>Channel Sync</td><td class="val">WhatsApp + SMS</td></tr>
+                    <tr><td>Uptime Guarantee</td><td class="val active">99.99%</td></tr>
+                </table>
+            </div>
+            <!-- هايبرلينك يوجه لصفحة إعداد الباقة الأولى -->
+            <a href="starter-setup.html" class="btn-action">Examine Spec & Deploy</a>
+        </div>
+
+        <!-- Card 2: Cortex Pro -->
+        <div class="card" style="border-color: rgba(0,255,204,0.4);">
+            <div>
+                <h3>Cortex Pro</h3><div class="price">$1,199<span style="font-size:1rem;color:var(--text-muted)">/mo</span></div>
+                <p>Includes Starter Node frameworks + contextual cognitive real estate AI brain (Ar/En) + autonomous schedule booking.</p>
+                <table class="card-spec-table">
+                    <tr><td>Model Parameters</td><td class="val active">Gemini 1.5 Flash</td></tr>
+                    <tr><td>Language Matrix</td><td class="val">Dual (Ar/En)</td></tr>
+                    <tr><td>Scheduling Node</td><td class="val">Google Calendar API</td></tr>
+                    <tr><td>Context Memory</td><td class="val active">Unlimited History</td></tr>
+                </table>
+            </div>
+            <!-- هايبرلينك يوجه لصفحة إعداد الباقة الثانية -->
+            <a href="cortex-setup.html" class="btn-action">Examine Spec & Deploy</a>
+        </div>
+
+        <!-- Card 3: Nexus Enterprise -->
+        <div class="card">
+            <div>
+                <h3>Nexus Enterprise</h3><div class="price">$2,999<span style="font-size:1rem;color:var(--text-muted)">/mo</span></div>
+                <p>Deep data abstraction bridging to legacy enterprise CRMs + sequential autonomous parallel follow-up outreach loops.</p>
+                <table class="card-spec-table">
+                    <tr><td>CRM Direct Bridging</td><td class="val active">Salesforce / HubSpot</td></tr>
+                    <tr><td>Follow-Up Loops</td><td class="val">Multi-Day Contextual</td></tr>
+                    <tr><td>Data Isolation</td><td class="val">Private Endpoint Sync</td></tr>
+                    <tr><td>Custom Dashboards</td><td class="val active">Included (Dedicated)</td></tr>
+                </table>
+            </div>
+            <!-- هايبرلينك يوجه لصفحة إعداد الباقة الثالثة -->
+            <a href="enterprise-setup.html" class="btn-action">Examine Spec & Deploy</a>
+        </div>
+    </main>
+
+    <script>
+        // Matrix Falling Digital Rain Coding Canvas Engine
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+        const letters = '0123456789ABCDEF'.split('');
+        const fontSize = 14; const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(3, 3, 5, 0.05)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#00ffcc'; ctx.font = fontSize + 'px monospace';
+            drops.forEach((y, x) => {
+                const text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillText(text, x * fontSize, y * fontSize);
+                if (y * fontSize > canvas.height && Math.random() * 100 > 98) drops[x] = 0;
+                drops[x]++;
+            });
+        }
+        setInterval(drawMatrix, 33);
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+
+        // High-End Typewriter String Text Loop
+        const textStr = "NexusAutomata AI"; let charIdx = 0;
+        function type() {
+if (charIdx < textStr.length) { document.getElementById("typewriter-headline").innerHTML += textStr.charAt(charIdx); charIdx++; setTimeout(type, 120); }}type();
