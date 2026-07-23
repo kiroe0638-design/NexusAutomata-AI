@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ae">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAI | Node Initialization & Data Provision</title>
+    <style>
+        :root {
+            --bg-color: #020204;
+            --glass-bg: rgba(10, 10, 18, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --primary: #00ffcc;
+            --text-main: #ffffff;
+            --text-muted: #7e7e8c;
+            --gradient: linear-gradient(135deg, #00ffcc 0%, #0077ff 100%);
+        }
+        body { margin: 0; padding: 60px 20px; background-color: var(--bg-color); color: #fff; font-family: 'Segoe UI', sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; box-sizing: border-box; }
+        .register-container { background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 24px; padding: 45px; max-width: 900px; width: 100%; display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; box-shadow: 0 40px 80px rgba(0,0,0,0.5); }
+        .node-info h2 { font-size: 2rem; font-weight: 900; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-top: 0; }
+        .node-info p { color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; }
+        .spec-box { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; margin-top: 25px; }
+        .spec-box h4 { margin: 0 0 15px 0; color: var(--primary); font-family: monospace; text-transform: uppercase; letter-spacing: 1px; }
+        .spec-box ul { list-style: none; padding: 0; margin: 0; font-size: 0.85rem; color: var(--text-muted); font-family: monospace; }
+        .spec-box ul li { margin-bottom: 10px; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.02); padding-bottom: 5px; }
+        .form-box h3 { margin-top: 0; font-size: 1.5rem; font-weight: 800; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 15px; }
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; font-size: 0.75rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .input-group input { width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 14px; border-radius: 8px; color: #fff; font-size: 0.95rem; box-sizing: border-box; transition: 0.3s; }
+        .input-group input:focus { border-color: var(--primary); outline: none; background: rgba(0,255,204,0.02); }
+        .btn-submit { background: var(--gradient); border: none; color: #000; width: 100%; padding: 16px; border-radius: 30px; font-size: 0.95rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 1.5px; transition: 0.3s; box-shadow: 0 0 20px rgba(0, 255, 204, 0.2); }
+        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(0, 255, 204, 0.4); }
+        @media (max-width: 768px) { .register-container { grid-template-columns: 1fr; padding: 25px; } }
+    </style>
+</head>
+<body>
+
+    <div class="register-container">
+        <!-- Dynimc Spec Side -->
+        <div class="node-info">
+            <h2 id="node-title">Initializing...</h2>
+            <p id="node-desc">Verifying selected architectural layer parameters.</p>
+            <div class="spec-box">
+                <h4>Verified Pipeline Specs</h4>
+                <ul id="node-specs">
+                    <!-- Loaded via JS -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- Form Side -->
+        <div class="form-box">
+            <h3>Enterprise Deployment Form</h3>
+            <form action="checkout.html" method="GET">
+                <div class="input-group">
+                    <label>Full Name // الاسم بالكامل</label>
+                    <input type="text" required placeholder="Mr. John Doe">
+                </div>
+                <div class="input-group">
+                    <label>Corporate Entity Name // اسم شركة العقارات</label>
+                    <input type="text" required placeholder="Enterprise Properties">
+                </div>
+                <div class="input-group">
+                    <label>Official Email // البريد الإلكتروني الرسمي</label>
+                    <input type="email" required placeholder="ceo@company.com">
+                </div>
+                <div class="input-group">
+                    <label>Secure WhatsApp Contact // رقم الواتساب المربوط</label>
+                    <input type="tel" required placeholder="+20 123 456 7890">
+                </div>
+                <button type="submit" class="btn-submit">Proceed to Payment Gateway</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const nodeType = urlParams.get('node') || 'starter';
+
+        const nodeData = {
+            starter: {
+                title: "Starter Node",
+                desc: "Full automated missed-call 24/7 text interception loop connecting directly to Google Sheets database sync architecture.",
+                specs: "<li>Latency: <span>&lt; 1.5s</span></li><li>Database: <span>Google Sheets API</span></li><li>Matrix: <span>WhatsApp + SMS</span></li>"
+            },
+            cortex: {
+                title: "Cortex Pro",
+                desc: "Advanced multi-language cognitive AI layer for real-time customer qualification, price quoting, and autonomous scheduling sync.",
+                specs: "<li>Engine: <span>Gemini 1.5 Flash</span></li><li>Language: <span>Dual Arabic/English</span></li><li>Scheduling: <span>Google Calendar Sync</span></li>"
+            },
+            enterprise: {
+                title: "Nexus Enterprise",
+                desc: "Deep core enterprise legacy CRM integration pipelines with continuous sequential parallel autonomous outreach matrices.",
+                specs: "<li>CRM Sync: <span>Direct API Interconnect</span></li><li>Outreach: <span>Autonomous Follow-Up Loops</span></li><li>SLA Guarantee: <span>99.99% Node Uptime</span></li>"
+            }
+        };
+
+        document.getElementById("node-title").innerText = nodeData[nodeType].title;
+        document.getElementById("node-desc").innerText = nodeData[nodeType].desc;
+        document.getElementById("node-specs").innerHTML = nodeData[nodeType].specs;
+    </script>
+</body>
+</html>
