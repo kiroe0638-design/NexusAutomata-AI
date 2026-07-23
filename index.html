@@ -5,276 +5,220 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NexusAutomata AI (NAI) | Enterprise Automation Platform</title>
     <style>
-        :root {
-            --bg-color: #060608;
-            --card-bg: #0d0d12;
-            --primary: #00ffcc;
-            --text-main: #ffffff;
-            --text-muted: #8f8f9d;
-            --border: #1a1a24;
-            --gradient: linear-gradient(135deg, #00ffcc 0%, #0077ff 100%);
-            --accent-orange: #ffaa00;
+        :root { 
+            --bg: #060608; 
+            --card: #0d0d12; 
+            --primary: #00ffcc; 
+            --text: #ffffff; 
+            --muted: #8f8f9d; 
+            --border: #1a1a24; 
+            --gradient: linear-gradient(135deg, #00ffcc, #0077ff); 
+            --accent-orange: #ffaa00; 
         }
         body { 
-            background-color: var(--bg-color); 
-            color: var(--text-main); 
-            font-family: 'Segoe UI', sans-serif; 
-            text-align: center; 
-            padding: 60px 20px; 
+            background: var(--bg); 
+            color: var(--text); 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            padding: 40px 20px; 
             margin: 0; 
-            overflow-x: hidden;
-            scroll-behavior: smooth;
+            overflow-x: hidden; 
+            scroll-behavior: smooth; 
+            position: relative; 
         }
-        h1 { 
-            color: var(--primary); 
-            font-size: 3.5rem; 
-            font-weight: 900; 
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(0, 255, 204, 0.15);
-            margin-bottom: 15px;
-        }
-        .main-subtitle { 
-            color: var(--text-muted); 
-            font-size: 1.2rem; 
-            margin-bottom: 60px; 
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.8;
-        }
-        .pricing-container { 
-            display: flex; 
-            justify-content: center; 
-            gap: 25px; 
-            flex-wrap: wrap; 
-            margin-bottom: 80px;
-            direction: ltr;
-        }
-        .card { 
-            background: var(--card-bg); 
-            border: 1px solid var(--border); 
-            border-radius: 16px; 
-            padding: 45px 35px; 
-            width: 310px; 
-            text-align: left;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            box-sizing: border-box;
-            transition: 0.3s ease;
-        }
-        .card:hover { 
-            border-color: var(--primary); 
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 255, 204, 0.12);
-        }
-        .card.featured { border-color: rgba(0, 255, 204, 0.5); }
-        .card.featured::before {
-            content: '🔥 MOST POPULAR';
-            position: absolute;
-            top: 20px; right: -35px;
-            background: var(--primary); color: #000;
-            font-size: 0.7rem; font-weight: bold;
-            padding: 5px 35px; transform: rotate(45deg);
-        }
-        .card h3 { color: var(--primary); font-size: 1.5rem; margin-top: 0; font-weight: 700; text-align: center; }
-        .price { font-size: 2.3rem; font-weight: bold; margin: 25px 0; color: #fff; text-align: center; }
-        .card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px; min-height: 80px; }
-        .btn-action {
-            background: transparent; border: 2px solid var(--primary); color: var(--primary);
-            padding: 14px 30px; border-radius: 30px; font-size: 1rem; font-weight: 700;
-            cursor: pointer; width: 100%; text-align: center; text-decoration: none;
-            display: block; box-sizing: border-box; transition: 0.3s ease;
-        }
-        .card:hover .btn-action, .card.featured .btn-action { background: var(--primary); color: #000; }
-        .workspace-section {
-            max-width: 960px; margin: 60px auto; background: var(--card-bg);
-            border: 2px solid var(--border); border-radius: 16px; padding: 40px; text-align: left; box-sizing: border-box;
-        }
+        
+        /* Digital Coding Canvas Background Effect */
+        canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.15; }
+        
+        .typewriter-box { min-height: 4.5rem; display: flex; justify-content: center; align-items: center; margin-bottom: 10px; }
+        h1 { font-size: 3.5rem; font-weight: 900; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; border-right: 3px solid var(--primary); white-space: nowrap; overflow: hidden; animation: blink 0.75s step-end infinite; margin: 0; }
+        .subtitle { color: var(--muted); font-size: 1.2rem; margin-bottom: 50px; max-width: 800px; margin-left: auto; margin-right: auto; }
+        
+        /* 3D Dynamic Pricing Container */
+        .pricing-container { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-bottom: 60px; }
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 40px 30px; width: 300px; text-align: left; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); cursor: pointer; }
+        .card:hover { border-color: var(--primary); transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0, 255, 204, 0.15); }
+        .card h3 { color: var(--primary); font-size: 1.5rem; margin: 0; text-align: center; }
+        .price { font-size: 2.3rem; font-weight: bold; margin: 20px 0; color: #fff; text-align: center; }
+        .card p { color: var(--muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px; min-height: 80px; }
+        .btn-action { background: transparent; border: 2px solid var(--primary); color: var(--primary); padding: 12px; border-radius: 30px; font-size: 0.95rem; font-weight: 700; cursor: pointer; width: 100%; text-align: center; text-decoration: none; display: block; box-sizing: border-box; transition: 0.3s; }
+        .card:hover .btn-action { background: var(--primary); color: #000; box-shadow: 0 0 20px rgba(0, 255, 204, 0.4); }
+        
+        /* Interactive Control Workspace Panel */
+        .workspace-section { max-width: 900px; margin: 50px auto; background: var(--card); border: 2px solid var(--border); border-radius: 16px; padding: 35px; text-align: left; box-shadow: 0 15px 40px rgba(0,0,0,0.5); }
         .workspace-section.active-glow { border-color: var(--primary); box-shadow: 0 15px 40px rgba(0, 255, 204, 0.05); }
         .features-headline { color: var(--primary); font-size: 1.7rem; margin-top: 0; margin-bottom: 10px; font-weight: 700; }
         .features-cost-badge { display: inline-block; background: rgba(0, 255, 204, 0.1); color: var(--primary); padding: 6px 14px; border-radius: 6px; font-weight: bold; margin-bottom: 25px; font-size: 1rem; }
-        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin-bottom: 35px; }
-        .feature-item { background: #060608; border: 1px solid #1a1a24; padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 12px; color: var(--text-main); }
-        .feature-item span.icon { color: var(--primary); font-weight: bold; font-size: 1.2rem; }
-        .interactive-form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 25px; }
-        .form-group { text-align: left; margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 8px; color: var(--text-muted); font-size: 0.9rem; }
-        .form-group input, .form-group select { width: 100%; padding: 14px; border-radius: 8px; border: 1px solid #333; background: #060608; color: #fff; font-size: 1rem; box-sizing: border-box; }
-        .form-group input:focus, .form-group select:focus { border-color: var(--primary); outline: none; }
-        .billing-infobox { background: #060608; border-left: 4px solid var(--primary); padding: 15px; border-radius: 6px; margin-bottom: 25px; font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
-        .promo-block { display: flex; gap: 10px; margin-bottom: 10px; max-width: 400px; }
-        .btn-promo-apply { background: #1a1a24; color: var(--primary); border: 1px solid #333; padding: 0 25px; border-radius: 8px; cursor: pointer; font-weight: bold; }
-        .btn-master-submit { background: var(--gradient); color: #000; border: none; padding: 16px 40px; font-size: 1.1rem; font-weight: 800; border-radius: 8px; cursor: pointer; width: 100%; box-shadow: 0 4px 15px rgba(0, 255, 204, 0.2); transition: 0.3s ease; }
+        .f-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; margin-bottom: 30px; }
+        .f-item { background: #060608; border: 1px solid #1a1a24; padding: 14px; border-radius: 8px; font-size: 0.9rem; }
+        .f-item span { color: var(--primary); font-weight: bold; margin-right: 8px; }
+        .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
+        input, select { width: 100%; padding: 14px; border-radius: 8px; border: 1px solid #333; background: #060608; color: #fff; font-size: 0.95rem; box-sizing: border-box; }
+        input:focus, select:focus { border-color: var(--primary); outline: none; }
+        .infobox { background: #060608; border-left: 4px solid var(--primary); padding: 15px; border-radius: 6px; margin-bottom: 25px; font-size: 0.9rem; color: var(--muted); }
+        .btn-master-submit { background: var(--gradient); color: #000; border: none; padding: 16px; font-size: 1.1rem; font-weight: 800; border-radius: 8px; cursor: pointer; width: 100%; box-shadow: 0 4px 15px rgba(0, 255, 204, 0.2); transition: 0.3s; }
         .btn-master-submit:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(0, 255, 204, 0.4); }
-        .about-section { max-width: 960px; margin: 80px auto; background: linear-gradient(180deg, #0d0d12 0%, #07070a 100%); border: 1px solid var(--border); border-radius: 24px; padding: 60px 40px; text-align: left; box-sizing: border-box; }
-        .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin-top: 40px; }
-        .about-meta-box h4 { color: var(--primary); font-size: 1.3rem; margin-top: 0; margin-bottom: 12px; font-weight: 700; }
-        .about-meta-box p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin: 0; }
-        .chat-section { max-width: 960px; margin: 80px auto; background: var(--card-bg); border: 2px solid var(--primary); border-radius: 16px; padding: 20px; box-shadow: 0 10px 30px rgba(0,255,204,0.15); }
-        .chat-title-container { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; direction: ltr; }
-        .chat-section h2 { color: var(--text-main); font-size: 1.3rem; margin: 0; font-weight: 600; }
-        .demo-badge { background: rgba(0, 255, 204, 0.1); color: var(--primary); font-size: 0.75rem; padding: 5px 12px; border-radius: 6px; font-weight: bold; border: 1px solid rgba(0, 255, 204, 0.2); }
-        iframe { width: 100%; height: 700px; border-radius: 8px; border: 1px solid #222; background: #08080c; }
+        
+        /* Premium Isolated About Us Layer */
+        .about-section { max-width: 900px; margin: 60px auto; background: linear-gradient(180deg, #0d0d12, #07070a); border: 1px solid var(--border); border-radius: 20px; padding: 50px 40px; text-align: left; }
+        .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; margin-top: 30px; }
+        .about-box { background: #060608; border: 1px solid #1a1a24; padding: 20px; border-radius: 12px; }
+        .about-box h4 { color: var(--primary); font-size: 1.2rem; margin: 0 0 10px 0; }
+        .about-box p { color: var(--muted); font-size: 0.9rem; margin: 0; line-height: 1.5; }
+        
+        .chat-section { max-width: 900px; margin: 60px auto; background: var(--card); border: 2px solid var(--primary); border-radius: 16px; padding: 20px; box-shadow: 0 10px 30px rgba(0,255,204,0.15); text-align: left; }
+        iframe { width: 100%; height: 700px; border-radius: 12px; border: 1px solid #222; background: #08080c; margin-top: 20px; }
+        @keyframes blink { from, to { border-color: transparent } 50% { border-color: var(--primary); } }
     </style>
 </head>
 <body>
-    <h1>NexusAutomata AI</h1>
-    <p class="main-subtitle">Next-Generation 24/7 AI-Powered Missed-Call Systems & Full Operational Automation Architectures for Enterprise Real Estate Ecosystems.</p>
+
+    <canvas id="matrix-canvas"></canvas>
+
+    <div class="typewriter-box"><h1 id="typewriter-headline"></h1></div>
+    <p class="subtitle">Next-Generation 24/7 AI-Powered Missed-Call Systems & Full Operational Automation Architectures for Enterprise Real Estate Ecosystems.</p>
+    
     <div class="pricing-container">
-        <!-- Card 1: Starter Node -->
-        <div class="card" id="card-starter">
-            <div>
-                <h3>Starter Node</h3>
-                <div class="price">$599<span style="font-size:1rem; color:var(--text-muted);">/mo</span></div>
-                <p>Instant missed-call text-back deployment 24/7 via WhatsApp & SMS. Automatically captures critical lead data to Google Sheets.</p>
-            </div>
-            <a href="#setup-starter" class="btn-action">Configure Starter Node</a>
+        <div class="card" onclick="tab('starter',599,'Starter Node')">
+            <h3>Starter Node</h3><div class="price">$599<span style="font-size:1rem;color:var(--text-muted)">/mo</span></div>
+            <p>Instant missed-call text-back deployment 24/7 via WhatsApp & SMS. Auto-sync data pipelines to Google Sheets.</p>
+            <a href="#integration-workspace" class="btn-action">Configure Node</a>
         </div>
-        
-        <!-- Card 2: Cortex Pro -->
-        <div class="card featured" id="card-cortex">
-            <div>
-                <h3>Cortex Pro</h3>
-                <div class="price">$1,199<span style="font-size:1rem; color:var(--text-muted);">/mo</span></div>
-                <p>Includes Starter Node features + complete interactive bilingual AI assistant (Ar/En) to answer pricing/locations + automated calendar booking.</p>
-            </div>
-            <a href="#setup-cortex" class="btn-action">Configure Cortex Pro</a>
+        <div class="card" style="border-color: rgba(0,255,204,0.5);" onclick="tab('cortex',1199,'Cortex Pro')">
+            <h3>Cortex Pro</h3><div class="price">$1,199<span style="font-size:1rem;color:var(--text-muted)">/mo</span></div>
+            <p>Includes Starter Node features + bilingual conversational real estate AI core (Ar/En) + automated calendar booking.</p>
+            <a href="#integration-workspace" class="btn-action">Configure Node</a>
         </div>
-        
-        <!-- Card 3: Nexus Enterprise -->
-        <div class="card" id="card-nexus">
-            <div>
-                <h3>Nexus Enterprise</h3>
-                <div class="price">$2,999<span style="font-size:1rem; color:var(--text-muted);">/mo</span></div>
-                <p>Custom infrastructure deep bridging to major enterprise CRMs (HubSpot/Salesforce) + automated multi-day smart AI follow-up loops.</p>
-            </div>
-            <a href="#setup-enterprise" class="btn-action">Configure Enterprise Node</a>
+        <div class="card" onclick="tab('nexus',2999,'Nexus Enterprise')">
+            <h3>Nexus Enterprise</h3><div class="price">$2,999<span style="font-size:1rem;color:var(--text-muted)">/mo</span></div>
+            <p>Custom infrastructure deep bridging to corporate CRMs (Salesforce/HubSpot) + multi-day warm AI follow-up loops.</p>
+            <a href="#integration-workspace" class="btn-action">Configure Node</a>
         </div>
     </div>
-    <!-- Workspace 1: Starter Node -->
-    <div class="workspace-section active-glow" id="setup-starter">
-        <h3 class="features-headline">Starter Node Infrastructure Architecture</h3>
-        <div class="features-cost-badge">Retainer Balance: $599 / month</div>
-        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px; font-weight: 600;">1. Operational Capability Features Blueprint</p>
-        <div class="feature-grid">
-            <div class="feature-item"><span class="icon">✓</span><div>24/7 Automated Intercept for Missed-Calls</div></div>
-            <div class="feature-item"><span class="icon">✓</span><div>Instant Text-Back Deployments via WhatsApp Business API</div></div>
-            <div class="feature-item"><span class="icon">✓</span><div>Backup SMS Delivery Failure Switching Engines</div></div>
-            <div class="feature-item"><span class="icon">✓</span><div>Lead Data Extraction & Google Sheets Synchronization</div></div>
+    <!-- Connected Interactive Deployment Core Control Panel -->
+    <div class="workspace-section" id="integration-workspace">
+        <h3 class="features-headline" id="w-title">Starter Node Infrastructure Architecture</h3>
+        <div class="features-cost-badge" id="w-cost">Retainer Balance: $599 / mo</div>
+        
+        <p style="color:var(--muted); font-size:0.9rem; margin-bottom:15px; font-weight:600; text-transform:uppercase;">1. Operational Capability Features Blueprint</p>
+        <div class="f-grid">
+            <div class="f-item"><span>✓</span><span id="f1">24/7 Automated Intercept for Missed-Calls</span></div>
+            <div class="f-item"><span>✓</span><span id="f2">Instant Text-Back via WhatsApp Business API</span></div>
+            <div class="f-item"><span>✓</span><span id="f3">Backup SMS Delivery Failure Switching Engines</span></div>
+            <div class="f-item"><span>✓</span><span id="f4">Lead Data Extraction & Google Sheets Synchronization</span></div>
         </div>
-        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px; font-weight: 600;">2. Strategic Infrastructure Deployment Form</p>
-        <form onsubmit="alert('Starter Node Configured! We will contact your WhatsApp shortly.'); event.preventDefault();">
-            <div class="interactive-form-grid">
-                <div class="form-group"><label>Company Name</label><input type="text" required placeholder="e.g., Prime Realty Group"></div>
-                <div class="form-group"><label>Corporate Domain Email</label><input type="email" required placeholder="info@company.com"></div>
-                <div class="form-group"><label>WhatsApp Business Phone</label><input type="tel" required placeholder="+1 234 567 8900"></div>
-            </div>
-            <div class="billing-infobox"><strong>💡 Corporate Protocol:</strong> Accounts setup on your domain email. Card attached inside accounts line.</div>
-            <button type="submit" class="btn-master-submit">Initialize Starter Node ($599/mo)</button>
-        </form>
-    </div>
 
-    <!-- Workspace 2: Cortex Pro -->
-    <div class="workspace-section active-glow" id="setup-cortex">
-        <h3 class="features-headline">Cortex Pro Infrastructure Architecture</h3>
-        <div class="features-cost-badge" id="cortex-cost-badge">Retainer Balance: $1,199 / month</div>
-        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px; font-weight: 600;">1. Operational Capability Features Blueprint</p>
-        <div class="feature-grid">
-            <div class="feature-item"><span class="icon">✓</span><div>All Starter Node Intercept Layers Included</div></div>
-            <div class="feature-item"><span class="icon">✓</span><div>Advanced LLM Processing Core (Arabic/English Bilingual)</div></div>
-            <div class="feature-item"><span class="icon">✓</span><div>Instant Property Inquiries Resolution (Pricing, Layouts, Maps)</div></div>
-            <div class="feature-item"><span class="icon">✓</span><div>Autonomous Calendar Booking Systems for Viewings</div></div>
-        </div>
-        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px; font-weight: 600;">2. Strategic Infrastructure Deployment Form</p>
-        <form onsubmit="alert('Cortex Pro Configured! We will contact your WhatsApp shortly.'); event.preventDefault();">
-            <div class="interactive-form-grid">
-                <div class="form-group"><label>Company Name</label><input type="text" required placeholder="e.g., Prime Realty Group"></div>
-                <div class="form-group"><label>Corporate Domain Email</label><input type="email" required placeholder="info@company.com"></div>
-                <div class="form-group"><label>WhatsApp Business Phone</label><input type="tel" required placeholder="+1 234 567 8900"></div>
+        <p style="color:var(--muted); font-size:0.9rem; margin-bottom:15px; font-weight:600; text-transform:uppercase;">2. Strategic Infrastructure Deployment Form</p>
+        <form onsubmit="alert('Configuration Initialized! A NexusAutomata engineer will WhatsApp your team shortly.'); event.preventDefault();">
+            <div class="form-grid">
+                <div class="form-group"><label style="font-size:0.8rem;color:var(--muted)">Company Name</label><input type="text" required placeholder="e.g., Prime Realty Group"></div>
+                <div class="form-group"><label style="font-size:0.8rem;color:var(--muted)">Corporate Email</label><input type="email" required placeholder="info@company.com"></div>
+                <div class="form-group"><label style="font-size:0.8rem;color:var(--muted)">WhatsApp Phone</label><input type="tel" required placeholder="+1 234 567 8900"></div>
             </div>
-            <div class="billing-infobox"><strong>💡 Corporate Protocol:</strong> Accounts setup on your domain email. Card attached inside accounts line.</div>
-            <div style="margin-bottom: 20px; border-top: 1px dashed #333; padding-top: 15px;">
-                <label style="color: var(--primary); font-weight: bold; display: block; margin-bottom: 8px;">Founding Partner Validation Coupon</label>
+            <div style="margin-bottom:15px;">
+                <label style="font-size:0.8rem;color:var(--muted)">Deployment Billing Model</label>
+                <select id="b-model" onchange="calc()">
+                    <option value="corp">Direct Corporate Link (Secure company card attached directly to system accounts)</option>
+                    <option value="all">All-Inclusive Bundled Invoice (We manage platform costs + overhead markup)</option>
+                </select>
+            </div>
+            <div class="infobox" id="b-desc">💡 <b>Corporate Link:</b> Tools setup on your domain email. Card attached inside accounts line securely.</div>
+            
+            <div id="p-zone" style="display:none; margin-bottom:20px; border-top:1px dashed #333; padding-top:15px;">
+                <label style="font-size:0.8rem; color:var(--primary); font-weight:bold;">Founding Partner Validation Coupon</label>
                 <div class="promo-block">
-                    <input type="text" id="cortex-promo-input" placeholder="FOUNDER50">
-                    <button type="button" class="btn-promo-apply" onclick="applyCortexDiscount()">Apply</button>
+                    <input type="text" id="p-in" placeholder="FOUNDER50">
+                    <button type="button" class="btn-promo-apply" onclick="promo()">Apply</button>
                 </div>
-                <p id="cortex-promo-msg" style="font-size: 0.9rem; font-weight: bold; margin-top: 8px; display: none;"></p>
+                <div id="p-msg" style="font-size:0.85rem; margin-top:5px; font-weight:bold;"></div>
             </div>
-            <button type="submit" class="btn-master-submit" id="cortex-submit-btn">Initialize Cortex Pro ($1,199/mo)</button>
+            <button type="submit" class="btn-master-submit" id="s-btn">Initialize Starter Node Pipeline ($599/mo)</button>
         </form>
     </div>
 
-    <!-- Workspace 3: Nexus Enterprise -->
-    <div class="workspace-section active-glow" id="setup-enterprise">
-        <h3 class="features-headline">Nexus Enterprise Infrastructure Architecture</h3>
-        <div class="features-cost-badge">Retainer Balance: $2,999 / month</div>
-        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px; font-weight: 600;">1. Operational Capability Features Blueprint</p>
-        <div class="feature-grid">
-            <div class="feature-item"><span class="icon">✓</span><div>Custom Enterprise LLM Fine-Tuning & Data Isolation</div></div>
-            <div class="feature-item"><span class="icon">✓</span><div>Direct Deep Sync Syncing to Corporate CRMs (Salesforce/HubSpot)</div></div>
-            <div class="feature-item"><span class="icon">✓</span><div>Autonomous Multi-Day Warm Prospect Follow-Up AI Funnels</div></div>
-            <div class="feature-item"><span class="icon">✓</span><div>Dedicated Uptime Performance & Conversion Dashboards</div></div>
-        </div>
-        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px; font-weight: 600;">2. Strategic Infrastructure Deployment Form</p>
-        <form onsubmit="alert('Enterprise Request Received! We will contact your WhatsApp shortly.'); event.preventDefault();">
-            <div class="interactive-form-grid">
-                <div class="form-group"><label>Company Name</label><input type="text" required placeholder="e.g., Prime Realty Group"></div>
-                <div class="form-group"><label>Corporate Domain Email</label><input type="email" required placeholder="info@company.com"></div>
-                <div class="form-group"><label>WhatsApp Business Phone</label><input type="tel" required placeholder="+1 234 567 8900"></div>
-            </div>
-            <div class="billing-infobox"><strong>💡 Enterprise Protocol:</strong> Deep bridging configurations mapping metrics back into localized corporate databases.</div>
-            <button type="submit" class="btn-master-submit">Submit Enterprise Request ($2,999/mo)</button>
-        </form>
-    </div>
-    <!-- Section: About Us Component -->
-    <div class="about-section" id="about-us">
-        <h2 style="color: var(--primary); font-size: 2.4rem; margin-top: 0; margin-bottom: 15px; font-weight: 800;">About NexusAutomata</h2>
-        <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.7; margin: 0;">We engineer production-grade conversational architectures and cross-channel pipeline infrastructure to help premier real estate agencies capture warm opportunities automatically, eliminating dropped leads permanently.</p>
+    <!-- Standalone Corporate About Us Component Section -->
+    <div class="about-section">
+        <h2 style="color:var(--primary); font-size:2rem; margin:0 0 10px 0; text-align: center;">About NexusAutomata</h2>
+        <p style="color:var(--muted); font-size:1rem; line-height:1.6; text-align: center; margin-bottom: 30px;">We engineer production-grade conversational architectures and cross-channel pipeline infrastructure to help premier real estate agencies capture warm opportunities automatically.</p>
         <div class="about-grid">
-            <div class="about-meta-box">
-                <h4>Autonomous Intercepts</h4>
-                <p>Our algorithms track system lines 24/7, spinning up automated context loops on preferred client messaging spaces the instant a line drops.</p>
-            </div>
-            <div class="about-meta-box">
-                <h4>Bilingual Intelligence</h4>
-                <p>Engineered via custom LLM parameters to handle intricate dual-language property, layout, pricing, and viewing scheduling transactions natively.</p>
-            </div>
-            <div class="about-meta-box">
-                <h4>Enterprise Core Bridging</h4>
-                <p>Clean database alignments mapping customer interaction objects cleanly back into localized corporate databases or global CRMs.</p>
-            </div>
+            <div class="about-box"><h4>Autonomous Intercepts</h4><p>Tracking system lines 24/7, spinning up context loops on client messaging spaces the instant a line drops.</p></div>
+            <div class="about-box"><h4>Bilingual Intelligence</h4><p>Engineered via custom LLM parameters to handle intricate dual-language property transactions natively.</p></div>
+            <div class="about-box"><h4>Enterprise Bridging</h4><p>Clean database alignments mapping customer interactions back into corporate sheets or CRMs.</p></div>
         </div>
     </div>
 
-    <!-- Section: Live Chatbot Sandbox Environment -->
+    <!-- Deep Sandbox Live Environment Iframe Window -->
     <div class="chat-section">
         <div class="chat-title-container">
             <h2>🤖 NAI Broker Agent (Live Production Web-App Sandbox)</h2>
-            <span class="demo-badge">LIVE ENTERPRISE ENVIRONMENT</span>
+            <span class="demo-badge" style="background: rgba(0, 255, 204, 0.1); color: var(--primary); font-size: 0.75rem; padding: 5px 12px; border-radius: 6px; font-weight: bold; border: 1px solid rgba(0, 255, 204, 0.2);">LIVE ENTERPRISE ENVIRONMENT</span>
         </div>
         <iframe src="https://udify.app" frameborder="0" allow="microphone"></iframe>
     </div>
 
-    <!-- Unbreakable Static Logical Verification Code -->
     <script>
-        function applyCortexDiscount() {
-            let inputVal = document.getElementById('cortex-promo-input').value.trim().toUpperCase();
-            let msgArea = document.getElementById('cortex-promo-msg');
-            if (inputVal === "FOUNDER50") {
-                msgArea.innerText = "✅ Promo code verified! Founding Partner lifetime tier unlocked at $599/mo.";
-                msgArea.style.color = "#00ffcc"; msgArea.style.display = "block";
-                document.getElementById('cortex-cost-badge').innerText = "Retainer Balance: $599 / month (Lifetime Discount Applied)";
-                document.getElementById('cortex-submit-btn').innerText = "Initialize Cortex Pro Pipeline ($599/mo)";
+        // Matrix Rain Background Logic Engine
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+        const letters = '0123456789ABCDEF'.split('');
+        const fontSize = 14; const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(6, 6, 8, 0.05)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#00ffcc'; ctx.font = fontSize + 'px monospace';
+            drops.forEach((y, x) => {
+                const text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillText(text, x * fontSize, y * fontSize);
+                if (y * fontSize > canvas.height && Math.random() * 100 > 97.5) drops[x] = 0;
+                drops[x]++;
+            });
+        }
+        setInterval(drawMatrix, 33);
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+
+        // Typewriter Effect System Loop
+        const textStr = "NexusAutomata AI"; let charIdx = 0;
+        function type() {
+            if (charIdx < textStr.length) { document.getElementById("typewriter-headline").innerHTML += textStr.charAt(charIdx); charIdx++; setTimeout(type, 120); }
+            else { setTimeout(() => { document.getElementById("typewriter-headline").style.borderRight = "none"; }, 1000); }
+        }
+        type();
+
+        // Relational Component Views Repositories Data
+        const DB = {
+            starter: { t:"Starter Node", p:599, f1:"24/7 Automated Intercept for Missed-Calls", f2:"Instant Text-Back via WhatsApp Business API", f3:"Backup SMS Failure Switching Engines", f4:"Lead Data Extraction & Google Sheets Synchronization" },
+            cortex: { t:"Cortex Pro", p:1199, f1:"All Starter Node features included", f2:"Advanced Bilingual LLM Core Engine (Ar/En)", f3:"Instant Property Inquiries Resolution (Pricing, Maps)", f4:"Autonomous Calendar Booking for Real Estate Viewings" },
+            nexus: { t:"Nexus Enterprise", p:2999, f1:"Tailored Core Infrastructure Architecture Fine-Tuning", f2:"Direct CRM Pipelines Sync (Salesforce/HubSpot)", f3:"Multi-day Sequential Warm AI Follow-up loops", f4:"Dedicated Enterprise Operational Monitoring Dashboards" }
+        };
+        let pKey="starter", bPrice=599, pLabel="Starter Node", discount=false;
+
+        function tab(k, p, l) {
+            pKey=k; bPrice=p; pLabel=l; discount=false;
+            document.getElementById('w-title').innerText = DB[k].t + " Infrastructure Architecture";
+            document.getElementById('f1').innerText = DB[k].f1; document.getElementById('f2').innerText = DB[k].f2; document.getElementById('f3').innerText = DB[k].f3; document.getElementById('f4').innerText = DB[k].f4;
+            document.getElementById('p-zone').style.display = (k==='cortex')?'block':'none';
+            document.getElementById('p-in').value=""; document.getElementById('p-msg').style.display="none";
+            document.getElementById('b-model').value="corp"; calc();
+            document.getElementById('integration-workspace').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function calc() {
+            let m=document.getElementById('b-model').value, box=document.getElementById('b-desc'), final=discount?599:bPrice;
+            if(m==="corp") {
+                box.innerHTML="💡 <b>Corporate Link:</b> Tools setup on your domain email. Card attached inside accounts line securely."; box.style.color="#a0a0a0";
             } else {
-                msgArea.innerText = "❌ Invalid coupon code or parameters unassigned to this node.";
-                msgArea.style.color = "#ff3333"; msgArea.style.display = "block";
+                final+=26; box.innerHTML="⚠️ <b>Unified Invoicing:</b> Platform overhead charges (+$26/mo fee) appended straight into your comprehensive invoice."; box.style.color="#ffaa00";
             }
+            document.getElementById('w-cost').innerText = "Retainer Balance: $" + final + " / month";
+            document.getElementById('s-btn').innerText = "Initialize " + pLabel + " ($" + final + "/mo)";
+        }
+
+        function promo() {
+            let v=document.getElementById('p-in').value.trim().toUpperCase(), msg=document.getElementById('p-msg');
+            if(v==="FOUNDER50" && pKey==="cortex") {
+                discount=true; msg.innerText="✅ Verified! Lifetime configuration retainer rate adjusted to $599/mo."; msg.style.color="#00ffcc";
+            } else { msg.innerText="❌ Invalid coupon sequence code."; msg.style.color="red"; }
+            msg.style.display="block"; calc();
         }
     </script>
 </body>
