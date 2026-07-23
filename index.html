@@ -5,18 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NexusAutomata AI (NAI) | Automated Broker Agency Core</title>
     <style>
-        /* Modern Premium Glassmorphism Design System */
+        /* SpaceX & Tesla Inspired B2B Glassmorphism Instrumentation Theme */
         :root {
-            --bg-color: #030305;
-            --glass-bg: rgba(20, 20, 28, 0.45);
-            --glass-border: rgba(255, 255, 255, 0.05);
+            --bg-color: #020204;
+            --glass-bg: rgba(13, 13, 20, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.04);
             --primary: #00ffcc;
             --primary-hover: #00ccaa;
             --accent-blue: #0077ff;
             --text-main: #ffffff;
-            --text-muted: #8f8f9d;
+            --text-muted: #7c7c8c;
+            --border: #12121a;
             --gradient: linear-gradient(135deg, #00ffcc 0%, #0077ff 100%);
             --accent-orange: #ffaa00;
+            --grid-line: rgba(0, 255, 204, 0.02);
         }
 
         body { 
@@ -28,48 +30,52 @@
             margin: 0; 
             overflow-x: hidden;
             scroll-behavior: smooth;
+            /* Tesla Engineering Wireframe Backdrop grid */
+            background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 40px 40px;
         }
 
-        /* Fixed Navigation Sidebar / Index Index Bar */
+        /* Fixed Navigation Sidebar Index Bar */
         .side-nav-index {
             position: fixed;
             top: 50%;
             right: 30px;
             transform: translateY(-50%);
             background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--glass-border);
-            padding: 20px 15px;
-            border-radius: 30px;
+            padding: 25px 15px;
+            border-radius: 24px;
             z-index: 1000;
             display: flex;
             flex-direction: column;
             gap: 15px;
             text-align: right;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.7);
         }
         .side-nav-index a {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
+            font-size: 0.8rem;
+            font-weight: 700;
             transition: 0.3s;
             display: flex;
             align-items: center;
             gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         .side-nav-index a:hover {
             color: var(--primary);
             text-shadow: 0 0 10px rgba(0,255,204,0.5);
         }
 
-        /* Matrix Coding Background Canvas Layout */
-        canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; opacity: 0.08; }
+        canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; opacity: 0.05; }
 
         section {
-            padding: 100px 40px;
-            min-height: 85vh;
+            padding: 120px 40px;
+            min-height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -78,64 +84,83 @@
             border-bottom: 1px solid var(--glass-border);
         }
 
-        /* Hero Headers styling Layout */
-        .typewriter-box { min-height: 4.5rem; display: flex; justify-content: center; align-items: center; margin-top: 40px; }
-        h1 { font-size: 3.8rem; font-weight: 900; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 40px rgba(0, 255, 204, 0.1); margin: 0; }
-        .subtitle { color: var(--text-muted); font-size: 1.25rem; margin-top: 15px; max-width: 750px; line-height: 1.7; }
-
-        /* Smooth Anchor Scroll button */
-        .scroll-down-btn {
-            margin-top: 40px; background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--primary); padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 0.9rem; transition: 0.3s; backdrop-filter: blur(8px);
+        /* SpaceX Style Real-Time HUD Metrics Strip */
+        .telemetry-hud {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 15px 40px;
+            border-radius: 12px;
+            margin: 30px auto 50px auto;
+            max-width: 900px;
+            box-sizing: border-box;
+            direction: ltr;
         }
-        .scroll-down-btn:hover { background: var(--primary); color: #000; box-shadow: 0 0 20px rgba(0,255,204,0.4); }
+        .hud-metric { text-align: left; }
+        .hud-label { font-size: 0.75rem; color: var(--text-muted); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+        .hud-value { font-size: 1.1rem; color: var(--primary); font-family: monospace; font-weight: bold; margin-top: 4px; }
 
-        /* Pricing Matrix Framework Grid layout */
-        .pricing-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 40px; width: 100%; max-width: 1100px; }
-        .card { background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--glass-border); border-radius: 20px; padding: 45px 30px; width: 320px; text-align: left; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
-        .card:hover { border-color: var(--primary); transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0, 255, 204, 0.12); }
-        .card h3 { color: var(--primary); font-size: 1.6rem; margin: 0; text-align: center; font-weight: 800; }
-        .price { font-size: 2.6rem; font-weight: bold; margin: 20px 0; color: #fff; text-align: center; }
-        .card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px; min-height: 70px; }
-        
-        /* Modern Premium Sleek Hyperlink Buttons */
-        .btn-action { background: linear-gradient(90deg, rgba(0,255,204,0.1), rgba(0,119,255,0.1)); border: 1px solid var(--primary); color: var(--primary); padding: 14px; border-radius: 30px; font-size: 0.95rem; font-weight: 700; cursor: pointer; width: 100%; text-align: center; text-decoration: none; display: block; box-sizing: border-box; transition: 0.3s; }
+        /* Hero Headers Layout */
+        .typewriter-box { min-height: 4.5rem; display: flex; justify-content: center; align-items: center; margin-top: 20px; }
+        h1 { font-size: 4rem; font-weight: 900; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 40px rgba(0, 255, 204, 0.15); margin: 0; letter-spacing: -1px; }
+        .subtitle { color: var(--text-muted); font-size: 1.25rem; margin-top: 20px; max-width: 800px; line-height: 1.8; }
+
+        .scroll-down-btn {
+            margin-top: 30px; background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--primary); padding: 14px 35px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 0.9rem; transition: 0.3s; backdrop-filter: blur(8px); text-transform: uppercase; letter-spacing: 1px;
+        }
+        .scroll-down-btn:hover { background: var(--primary); color: #000; box-shadow: 0 0 25px rgba(0,255,204,0.4); }
+
+        /* High-Density Structural Plan Layout Matrix */
+        .pricing-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 40px; width: 100%; max-width: 1200px; }
+        .card { background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 20px; padding: 45px 30px; width: 350px; text-align: left; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
+        .card:hover { border-color: var(--primary); transform: translateY(-10px); box-shadow: 0 25px 60px rgba(0, 255, 204, 0.15); }
+        .card h3 { color: var(--primary); font-size: 1.6rem; margin: 0; text-align: center; font-weight: 800; letter-spacing: -0.5px; }
+        .price { font-size: 2.6rem; font-weight: bold; margin: 20px 0; color: #fff; text-align: center; font-family: monospace; }
+        .card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; min-height: 70px; }
+        /* High-Density Internal Spec Metrics Tables for Cards */
+        .card-spec-table { width: 100%; margin-bottom: 30px; border-collapse: collapse; font-size: 0.8rem; font-family: monospace; }
+        .card-spec-table tr { border-bottom: 1px solid rgba(255,255,255,0.03); }
+        .card-spec-table td { padding: 8px 0; color: var(--text-muted); }
+        .card-spec-table td.val { text-align: right; color: #fff; font-weight: bold; }
+        .card-spec-table td.val.active { color: var(--primary); }
+
+        .btn-action { background: linear-gradient(90deg, rgba(0,255,204,0.05), rgba(0,119,255,0.05)); border: 1px solid var(--primary); color: var(--primary); padding: 15px; border-radius: 30px; font-size: 0.95rem; font-weight: 700; cursor: pointer; width: 100%; text-align: center; text-decoration: none; display: block; box-sizing: border-box; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
         .card:hover .btn-action { background: var(--gradient); color: #000; box-shadow: 0 0 25px rgba(0, 255, 204, 0.4); border-color: transparent; }
-        /* Workspace Control Matrix Blocks Layout CSS */
-        .workspace-section { max-width: 900px; width: 100%; background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 2px solid var(--glass-border); border-radius: 24px; padding: 45px; text-align: left; box-shadow: 0 30px 60px rgba(0,0,0,0.4); box-sizing: border-box; }
+
+        .workspace-section { max-width: 1000px; width: 100%; background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 2px solid var(--glass-border); border-radius: 24px; padding: 50px; text-align: left; box-shadow: 0 30px 60px rgba(0,0,0,0.5); box-sizing: border-box; }
         .workspace-section.active-glow { border-color: var(--primary); box-shadow: 0 0 40px rgba(0, 255, 204, 0.08); }
         .features-headline { color: var(--primary); font-size: 1.8rem; margin: 0 0 10px 0; font-weight: 800; }
         .features-cost-badge { display: inline-block; background: rgba(0, 255, 204, 0.1); border: 1px solid rgba(0,255,204,0.2); color: var(--primary); padding: 8px 16px; border-radius: 8px; font-weight: bold; margin-bottom: 30px; font-size: 1.05rem; }
-        .f-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 40px; }
-        .f-item { background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); padding: 18px; border-radius: 12px; font-size: 0.95rem; line-height: 1.5; }
+        .f-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px; }
+        .f-item { background: rgba(0,0,0,0.4); border: 1px solid var(--glass-border); padding: 20px; border-radius: 12px; font-size: 0.95rem; line-height: 1.5; }
         .f-item span { color: var(--primary); font-weight: bold; margin-right: 10px; font-size: 1.1rem; }
         .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 30px; }
-        .form-group label { display: block; margin-bottom: 10px; color: var(--text-muted); font-size: 0.9rem; font-weight: 600; }
-        input, select { width: 100%; padding: 15px; border-radius: 10px; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.4); color: #fff; font-size: 1rem; box-sizing: border-box; transition: 0.3s; }
-        input:focus, select:focus { border-color: var(--primary); background: rgba(0,0,0,0.6); outline: none; box-shadow: 0 0 15px rgba(0,255,204,0.15); }
-        .infobox { background: rgba(0,0,0,0.3); border-left: 4px solid var(--primary); padding: 18px; border-radius: 8px; margin-bottom: 30px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
-        .btn-master-submit { background: var(--gradient); color: #000; border: none; padding: 18px; font-size: 1.1rem; font-weight: 800; border-radius: 10px; cursor: pointer; width: 100%; box-shadow: 0 5px 20px rgba(0, 255, 204, 0.2); transition: 0.3s cubic-bezier(0.165, 0.84, 0.44, 1); }
+        .form-group label { display: block; margin-bottom: 10px; color: var(--text-muted); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        input, select { width: 100%; padding: 15px; border-radius: 10px; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.5); color: #fff; font-size: 1rem; box-sizing: border-box; transition: 0.3s; }
+        input:focus, select:focus { border-color: var(--primary); background: rgba(0,0,0,0.7); outline: none; box-shadow: 0 0 15px rgba(0,255,204,0.15); }
+        .infobox { background: rgba(0,0,0,0.4); border-left: 4px solid var(--primary); padding: 18px; border-radius: 8px; margin-bottom: 30px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
+        .btn-promo-apply { background: #1a1a24; color: var(--primary); border: 1px solid #333; padding: 0 25px; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        .btn-master-submit { background: var(--gradient); color: #000; border: none; padding: 18px; font-size: 1.1rem; font-weight: 800; border-radius: 10px; cursor: pointer; width: 100%; box-shadow: 0 5px 20px rgba(0, 255, 204, 0.2); transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
         .btn-master-submit:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0, 255, 204, 0.4); }
         
-        /* Premium Strategic Executive Corporate Sections */
-        .about-section { max-width: 1050px; width: 100%; background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 24px; padding: 70px 50px; text-align: left; box-sizing: border-box; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
-        .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 35px; margin-top: 40px; }
-        .about-box { background: rgba(0,0,0,0.25); border: 1px solid var(--glass-border); padding: 25px; border-radius: 16px; transition: 0.3s; }
-        .about-box:hover { border-color: var(--primary); background: rgba(0,255,204,0.02); }
-        .about-box h4 { color: var(--primary); font-size: 1.3rem; margin: 0 0 12px 0; font-weight: 700; }
+        .about-section { max-width: 1100px; width: 100%; background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 24px; padding: 80px 60px; text-align: left; box-sizing: border-box; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; margin-top: 50px; }
+        .about-box { background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); padding: 30px; border-radius: 16px; transition: 0.3s; }
+        .about-box:hover { border-color: var(--primary); background: rgba(0,255,204,0.01); }
+        .about-box h4 { color: var(--primary); font-size: 1.35rem; margin: 0 0 15px 0; font-weight: 700; letter-spacing: -0.5px; }
         .about-box p { color: var(--text-muted); font-size: 0.95rem; margin: 0; line-height: 1.6; }
         
         .success-links { margin-top: 20px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
         .suc-link { display: inline-block; background: rgba(0,255,204,0.1); border: 1px solid var(--primary); color: var(--primary); padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 0.9rem; transition: 0.3s; }
         .suc-link:hover { background: var(--primary); color: #000; box-shadow: 0 0 15px rgba(0,255,204,0.3); }
-
-        /* Floating Custom Cyberpunk Dify Widget Brand Adjustments */
-        #dify-chatbot-bubble-button { background-color: var(--primary) !important; box-shadow: 0 4px 20px rgba(0, 255, 204, 0.3) !important; }
-        #dify-chatbot-bubble-window { width: 24rem !important; height: 40rem !important; border: 2px solid var(--primary) !important; border-radius: 12px !important; background-color: #0d0d12 !important; }
+        .chat-section { max-width: 1100px; width: 100%; background: var(--glass-bg); border: 2px solid var(--primary); border-radius: 24px; padding: 25px; box-shadow: 0 20px 50px rgba(0,255,204,0.1); text-align: left; box-sizing: border-box; }
+        iframe { width: 100%; height: 700px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); background: #040406; margin-top: 25px; box-shadow: 0 15px 40px rgba(0,0,0,0.5); }
     </style>
 </head>
 <body>
 
-    <!-- Fixed Page Navigator Index Sidebar Menu -->
     <div class="side-nav-index">
         <a href="#hero-core">⚡ Home Core</a>
         <a href="#pricing-matrix">💎 Asset Tiers</a>
@@ -145,37 +170,63 @@
 
     <canvas id="matrix-canvas"></canvas>
 
-    <!-- Section 1: Hero Section Layout Core -->
+    <!-- Section 1: SpaceX Telemetry Style Hero Core -->
     <section id="hero-core">
         <div class="typewriter-box"><h1 id="typewriter-headline"></h1></div>
         <p class="subtitle">Next-Generation 24/7 AI-Powered Missed-Call Systems & Full Operational Automation Architectures for Enterprise Real Estate Ecosystems.</p>
-        <a href="#pricing-matrix" class="scroll-down-btn">Explore Enterprise Tiers ↓</a>
+        
+        <!-- SpaceX Style Live Telemetry Stream HUD -->
+        <div class="telemetry-hud">
+            <div class="hud-metric"><div class="hud-label">Core Status</div><div class="hud-value" style="color: #00ffcc;">ONLINE // NOMINAL</div></div>
+            <div class="hud-metric"><div class="hud-label">Active Node Loads</div><div class="hud-value">4.02 Tflops</div></div>
+            <div class="hud-metric"><div class="hud-label">Memory Partition</div><div class="hud-value">98.4% Secure</div></div>
+            <div class="hud-metric"><div class="hud-label">Global Requests</div><div class="hud-value">2,514/sec</div></div>
+        </div>
+        
+        <a href="#pricing-matrix" class="scroll-down-btn">Explore Systems Matrix ↓</a>
     </section>
 
-    <!-- Section 2: Spaced Three-Tier Pricing Grid Module -->
+    <!-- Section 2: High-Density Plan Cards Grid Matrix -->
     <section id="pricing-matrix">
-        <h2 style="font-size: 2.5rem; font-weight: 800; margin: 0 0 10px 0; color: #fff;">NexusAutomata Solutions Matrix</h2>
-        <p style="color: var(--text-muted); margin-bottom: 40px; max-width: 600px;">Select an automated broker node tier below to examine its deep unique blueprints and map execution funnels.</p>
+        <h2 style="font-size: 2.6rem; font-weight: 800; margin: 0 0 10px 0; color: #fff; letter-spacing: -0.5px;">NexusAutomata Solutions Matrix</h2>
+        <p style="color: var(--text-muted); margin-bottom: 45px; max-width: 650px; font-size: 1.05rem;">Select an automated broker node tier below to examine its deep operational capability benchmarks and map execution paths.</p>
         
         <div class="pricing-container">
+            <!-- Card 1 -->
             <div class="card" onclick="tab('starter',599,'Starter Node')">
-                <h3>Starter Node</h3><div class="price">$599<span style="font-size:1rem;color:var(--text-muted)">/mo</span></div>
-                <p>Instant missed-call text-back deployment 24/7 via WhatsApp & SMS. Auto-sync data pipelines to Google Sheets channels.</p>
-                <a href="#integration-workspace" class="btn-action">Examine Architecture & Deploy</a>
+                <div>
+                    <h3>Starter Node</h3><div class="price">$599<span style="font-size:1rem;color:var(--text-muted)">/mo</span></div>
+                    <p>Instant missed-call text-back deployment 24/7 via WhatsApp & SMS. Auto-sync data pipelines to Google Sheets channels.</p>
+                    <table class="card-spec-table">
+                        <tr><td>Intercept Latency</td><td class="val active">&lt; 1.5s</td></tr>
+                        <tr><td>Database Pipelines</td><td class="val">Google Sheets API</td></tr>
+                        <tr><td>Channel Sync</td><td class="val">WhatsApp + SMS</td></tr>
+                        <tr><td>Uptime Guarantee</td><td class="val active">99.99%</td></tr>
+                    </table>
+                </div>
+                <a href="#integration-workspace" class="btn-action">Examine Core Spec</a>
             </div>
+            <!-- Card 2 -->
             <div class="card featured" onclick="tab('cortex',1199,'Cortex Pro')">
-                <h3>Cortex Pro</h3><div class="price">$1,199<span style="font-size:1rem;color:var(--text-muted)">/mo</span></div>
-                <p>Includes Starter Node features + complete bilingual real estate AI brain (Ar/En) + automated calendar viewings scheduling.</p>
-                <a href="#integration-workspace" class="btn-action">Examine Architecture & Deploy</a>
+                <div>
+                    <h3>Cortex Pro</h3><div class="price">$1,199<span style="font-size:1rem;color:var(--text-muted)">/mo</span></div>
+                    <p>Includes Starter Node features + complete bilingual real estate AI brain (Ar/En) + automated calendar viewings scheduling.</p>
+                    <table class="card-spec-table">
+                        <tr><td>Model Parameters</td><td class="val active">Gemini 1.5 Flash</td></tr>
+                        <tr><td>Language Matrix</td><td class="val">Dual (Arabic/English)</td></tr>
+                        <tr><td>Scheduling Node</td><td class="val">Google Calendar API</td></tr>
+                        <tr><td>Context Memory</td><td class="val active">Unlimited History</td></tr>
+                    </table>
+                </div>
+                <a href="#integration-workspace" class="btn-action">Examine Core Spec</a>
             </div>
+            <!-- Card 3 -->
             <div class="card" onclick="tab('nexus',2999,'Nexus Enterprise')">
-                <h3>Nexus Enterprise</h3><div class="price">$2,999<span style="font-size:1rem;color:var(--text-muted)">/mo</span></div>
-                <p>Deep bridging to corporate legacy CRMs (Salesforce/HubSpot) + multi-day automated parallel warm AI follow-up loops.</p>
-                <a href="#integration-workspace" class="btn-action">Examine Architecture & Deploy</a>
-            </div>
-        </div>
-    </section>
-    <!-- Section 3: Connected Dynamic Configurations Workspace Control Panel -->
+                <div>
+                    <h3>Nexus Enterprise</h3><div class="price">$2,999<span style="font-size:1rem;color:var(--text-muted)">/mo</span></div>
+                    <p>Deep bridging to corporate legacy CRMs (Salesforce/HubSpot) + multi-day automated parallel warm AI follow-up loops.</p>
+`html
+    <!-- Section 3: High-Density Interactive Configuration Workspace -->
     <section id="integration-workspace">
         <div class="workspace-section active-glow">
             <h3 class="features-headline" id="w-title">Starter Node Infrastructure Architecture</h3>
@@ -193,10 +244,10 @@
             <form id="master-deployment-terminal-form" onsubmit="handleFormSubmissionPipeline(event)">
                 <div class="form-grid">
                     <div class="form-group"><label>Company Name</label><input type="text" required placeholder="e.g., Prime Realty Group"></div>
-                    <div class="form-group"><label>Corporate Email</label><input type="email" required placeholder="info@company.com"></div>
+                    <div class="form-group"><label>Corporate Domain Email</label><input type="email" required placeholder="info@company.com"></div>
                     <div class="form-group"><label>WhatsApp Phone</label><input type="tel" required placeholder="+1 234 567 8900"></div>
                 </div>
-                <div style="margin-bottom:20px; text-align: left;">
+                <div style="margin-bottom:25px; text-align: left;">
                     <label style="display:block; margin-bottom:10px; color:var(--text-muted); font-size:0.9rem; font-weight:600;">Deployment Billing Model</label>
                     <select id="b-model" onchange="calc()">
                         <option value="corp">Direct Corporate Link (Secure company card attached directly to system accounts)</option>
@@ -205,57 +256,66 @@
                 </div>
                 <div class="infobox" id="b-desc">💡 <b>Corporate Link:</b> Tools setup on your domain email. Card attached inside accounts line securely.</div>
                 
-                <div id="p-zone" style="display:none; margin-bottom:25px; border-top:1px dashed rgba(255,255,255,0.1); padding-top:20px;">
+                <div id="p-zone" style="display:none; margin-bottom:25px; border-top:1px dashed rgba(255,255,255,0.06); padding-top:20px;">
                     <label style="font-size:0.9rem; color:var(--primary); font-weight:bold; display:block; margin-bottom:8px;">Founding Partner Validation Coupon (Exclusive to Cortex Pro)</label>
                     <div class="promo-block">
                         <input type="text" id="p-in" placeholder="FOUNDER50">
-                        <button type="button" onclick="promo()" style="background:#1a1a24; color:var(--primary); border:1px solid rgba(255,255,255,0.1); padding:0 25px; border-radius:8px; cursor:pointer; font-weight:bold; transition:0.3s;">Apply</button>
+                        <button type="button" onclick="promo()">Apply</button>
                     </div>
                     <div id="p-msg" style="font-size:0.9rem; margin-top:8px; font-weight:bold;"></div>
                 </div>
                 
-                <!-- روابط الانتقال السريعة بعد ملء البيانات والمطورة بالبيانات الرسمية لك -->
-                <div id="post-submit-navigation-links" style="display:none; margin-bottom:25px; background: rgba(0,255,204,0.03); border: 1px dashed var(--primary); padding: 20px; border-radius: 12px; text-align: center;">
+                <div id="post-submit-navigation-links" style="display:none; margin-bottom:25px; background: rgba(0,255,204,0.02); border: 1px dashed var(--primary); padding: 25px; border-radius: 12px; text-align: center;">
                     <p style="color: #fff; font-weight: bold; margin-top: 0;">🚀 System Initialized Successfully! Open channels to proceed:</p>
                     <div class="success-links">
-                        <a href="https://wa.me" target="_blank" class="suc-link" style="border-color: #25D366; color: #25D366; background: rgba(37,211,102,0.05); font-weight: bold;">💬 Connect CEO WhatsApp Line</a>
+                        <a href="https://wa.me" target="_blank" class="suc-link" style="border-color: #25D366; color: #25D366; background: rgba(37,211,102,0.03); font-weight: bold;">💬 Connect CEO WhatsApp Line</a>
                         <a href="mailto:Nexus.Automation.AI1@gmail.com" class="suc-link">📩 Email Corporate Desk</a>
-                        <a href="#about-nexus" class="suc-link">Review Management Profile</a>
                     </div>
                 </div>
 
-                <button type="submit" class="btn-submit" id="s-btn">Initialize Starter Node ($599/mo)</button>
+                <button type="submit" class="btn-master-submit" id="s-btn">Initialize Starter Node ($599/mo)</button>
             </form>
         </div>
     </section>
 
-    <!-- Section 4: Premium Isolated Corporate About Us & Management Structure Section -->
-    <section id="about-nexus" style="background: linear-gradient(180deg, #030305 0%, #09090f 100%);">
+    <!-- Section 4: Highly Detailed STEM Executive Profile Hub -->
+    <section id="about-nexus" style="background: linear-gradient(180deg, #030305 0%, #06060c 100%);">
         <div class="about-section">
-            <h2 style="color:var(--primary); font-size:2.5rem; margin:0 0 15px 0; text-align: center; font-weight: 900;">Corporate Architecture & Management</h2>
-            <p style="color:var(--text-muted); font-size:1.1rem; line-height:1.7; text-align: center; margin-bottom: 40px;">NexusAutomata AI (NAI) is a premier specialized technology laboratory pioneering <b>Automated Broker Agency</b> infrastructures. We replace manual follow-ups and lost phone traffic with lightning-fast, high-converting LLM operations.</p>
+            <h2 style="color:var(--primary); font-size:2.5rem; margin:0 0 15px 0; text-align: center; font-weight: 900; letter-spacing: -0.5px;">Corporate Architecture & Management</h2>
+            <p style="color:var(--text-muted); font-size:1.1rem; line-height:1.7; text-align: center; margin-bottom: 45px;">NexusAutomata AI (NAI) is a premier specialized technology laboratory engineering high-density <b>Automated Broker Agency</b> infrastructures. We bypass traditional structural delay errors by mapping native system pipelines directly into automated conversational pipelines.</p>
             
             <div class="about-grid">
                 <div class="about-box">
                     <h4>Why Partner With Us?</h4>
-                    <p>Unlike standard marketing agencies, we build deep operational server logic. We don't just generate generic leads—we engineer autonomous systems that communicate, qualify, handle pricing catalogs, and schedule calendar viewings automatically 24/7/365.</p>
+                    <p>Unlike basic localized workflow agencies, we build deep operational backend nodes. We don't generate static contact objects—we design autonomous conversational machines that communicate, qualify, verify catalogs, and commit calendar schedules in real-time under complete endpoint safety protocols.</p>
                 </div>
                 <div class="about-box">
-                    <h4>What We Deliver</h4>
-                    <p>Complete deployment protection. Custom multilingual parameters (Arabic/English) built on top of private endpoints, direct pipeline synchronization to company data grids, and immediate missed-calls interception nodes. For emergency escalations: <a href="mailto:Kiroe0638@gmail.com" style="color: var(--primary); text-decoration: none; font-weight: bold;">Kiroe0638@gmail.com</a>.</p>
+                    <h4>Corporate System Protection</h4>
+                    <p>Complete environment safety isolation. Every deployment mounts private dual-language layers (Arabic/English) constructed directly over Google and Meta developer portals. For emergency escalations and technical errors: <a href="mailto:Kiroe0638@gmail.com" style="color: var(--primary); text-decoration: none; font-weight: bold;">Kiroe0638@gmail.com</a>.</p>
                 </div>
-                
-                <!-- لوحة بيانات الإدارة الفاخرة المحدثة ببياناتك وطول رقبتك قدام والدك -->
+                <-- Expanded High-Density Executive Profile (Kyrillos STEM Credentials) -->
                 <div class="about-box" style="border-color: var(--primary); background: linear-gradient(135deg, rgba(0,255,204,0.02) 0%, rgba(0,119,255,0.02) 100%);">
                     <h4>Executive Leadership</h4>
-                    <p style="color: #fff; font-weight: bold; margin-bottom: 4px; font-size: 1.1rem;">Kyrillos El-Banna</p>
-                    <p style="color: var(--primary); font-size: 0.85rem; font-weight: bold; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">Founder & Chief Executive Officer</p>
-                    <p style="font-size: 0.9rem; line-height: 1.5; margin-bottom: 10px;">Kyrillos is an elite <b>STEM Researcher</b> and Deep-Tech systems architect specializing in conversational AI engineering. Under his vision, NexusAutomata constructs high-performance corporate operational frameworks for real estate enterprise networks globally.</p>
-                    <p style="font-size: 0.85rem; color: var(--text-muted);">Corporate Contact: <span style="color: #fff; font-weight: bold;">Nexus.Automation.AI1@gmail.com</span></p>
+                    <p style="color: #fff; font-weight: bold; margin-bottom: 4px; font-size: 1.15rem;">Kyrillos El-Banna</p>
+                    <p style="color: var(--primary); font-size: 0.85rem; font-weight: bold; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">Founder & Chief Executive Officer</p>
+                    <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 15px;">Kyrillos is an elite <b>STEM Researcher</b> and deep-tech conversational systems architect specializing in conversational AI engineering. His research concentrates on advanced vector ingestion matrices and cognitive agent orchestration layer development. Under his core technical leadership, NexusAutomata constructs mission-critical operational systems for global real estate enterprise groups.</p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid rgba(255,255,255,0.05); padding-top: 12px; margin: 0;">Corporate Desk: <span style="color: #fff; font-weight: bold;">Nexus.Automation.AI1@gmail.com</span></p>
                 </div>
             </div>
         </div>
     </section>
+    <!-- Section 5: Production Embedded Sandbox Matrix Core App Section -->
+    <section id="live-sandbox" style="padding-top: 20px;">
+        <div class="chat-section">
+            <div class="chat-title-container">
+                <h2>🤖 NAI Broker Agent (Live Production Web-App Sandbox)</h2>
+                <span class="demo-badge" style="background: rgba(0, 255, 204, 0.1); color: var(--primary); font-size: 0.75rem; padding: 6px 12px; border-radius: 6px; font-weight: bold; border: 1px solid rgba(0, 255, 204, 0.2);">LIVE TEST SANDBOX</span>
+            </div>
+            <!-- Embedded Active Gemini Production Engine Core Frame -->
+            <iframe src="https://udify.app" frameborder="0" allow="microphone"></iframe>
+        </div>
+    </section>
+
     <!-- Pure Computational Script Architecture Engine Loops -->
     <script>
         // Matrix Falling Digital Rain Coding Canvas Engine
@@ -288,9 +348,9 @@
 
         // Relational Architecture Blueprints Repositories Data
         const DB = {
-            starter: { t:"Starter Node", p:599, f1:"24/7 Automated Intercept for Missed-Calls", f2:"Instant Text-Back via WhatsApp Business API", f3:"Backup SMS Failure Switching Engines", f4:"Lead Data Extraction & Google Sheets Synchronization" },
+            starter: { t:"Starter Node", p:599, f1:"24/7 Automated Intercept for Missed-Calls", f2:"Instant Text-Back via WhatsApp Business API", f3:"Backup SMS Delivery Failure Switching Engines", f4:"Lead Data Extraction & Google Sheets Synchronization" },
             cortex: { t:"Cortex Pro", p:1199, f1:"All Starter Node features included", f2:"Advanced Bilingual LLM Core Engine (Ar/En)", f3:"Instant Property Inquiries Resolution (Pricing, Maps)", f4:"Autonomous Calendar Booking for Real Estate Viewings" },
-            nexus: { t:"Nexus Enterprise", p:2999, f1:"Tailored Core Infrastructure Architecture Fine- Tuning", f2:"Direct CRM Pipelines Sync (Salesforce/HubSpot)", f3:"Multi-day Sequential Warm AI Follow-up loops", f4:"Dedicated Enterprise Operational Monitoring Dashboards" }
+            nexus: { t:"Nexus Enterprise", p:2999, f1:"Tailored Core Infrastructure Architecture Fine-Tuning", f2:"Direct CRM Pipelines Sync (Salesforce/HubSpot)", f3:"Multi-day Sequential Warm AI Follow-up loops", f4:"Dedicated Enterprise Operational Monitoring Dashboards" }
         };
         let pKey="starter", bPrice=599, pLabel="Starter Node", discount=false;
 
@@ -343,10 +403,6 @@
       userVariables: {},
      }
     </script>
-    <script
-     src="https://udify.app/embed.min.js"
-     id="AlytJyGr9oVTQcna"
-     defer>
-    </script>
+    <script src="https://udify.app" id="AlytJyGr9oVTQcna" defer></script>
 </body>
 </html>
