@@ -8,11 +8,10 @@
         /* SpaceX & Tesla Inspired B2B Glassmorphism Instrumentation Theme */
         :root {
             --bg-color: #020204;
-            --glass-bg: rgba(13, 13, 20, 0.65);
-            --glass-border: rgba(255, 255, 255, 0.04);
+            --glass-bg: rgba(13, 13, 20, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.05);
             --primary: #00ffcc;
             --primary-hover: #00ccaa;
-            --accent-blue: #0077ff;
             --text-main: #ffffff;
             --text-muted: #7c7c8c;
             --border: #12121a;
@@ -72,7 +71,7 @@
 
         canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; opacity: 0.05; }
 
-        /* FIX: Enforced strict block isolation clear layout boundaries across sections */
+        /* FIX: Absolute full block screen section isolation grid reset */
         section {
             width: 100%;
             display: block;
@@ -81,6 +80,7 @@
             padding: 120px 40px;
             box-sizing: border-box;
             border-bottom: 1px solid var(--glass-border);
+            position: relative;
         }
 
         /* SpaceX Style Real-Time HUD Metrics Strip */
@@ -169,7 +169,7 @@
 
     <canvas id="matrix-canvas"></canvas>
 
-    <!-- Section 1: SpaceX Telemetry Style Hero Core -->
+    <!-- Section 1: Hero Core Header -->
     <section id="hero-core">
         <div class="typewriter-box"><h1 id="typewriter-headline"></h1></div>
         <p class="subtitle">Next-Generation 24/7 AI-Powered Missed-Call Systems & Full Operational Automation Architectures for Enterprise Real Estate Ecosystems.</p>
@@ -184,7 +184,7 @@
         <a href="#pricing-matrix" class="scroll-down-btn">Explore Systems Matrix ↓</a>
     </section>
 
-    <!-- Section 2: High-Density Plan Cards Grid Matrix -->
+    <!-- Section 2: High-Density Pricing Cards Module -->
     <section id="pricing-matrix">
         <h2 style="font-size: 2.6rem; font-weight: 800; margin: 0 0 10px 0; color: #fff; letter-spacing: -0.5px;">NexusAutomata Solutions Matrix</h2>
         <p style="color: var(--text-muted); margin-bottom: 45px; max-width: 650px; font-size: 1.05rem;">Select an automated broker node tier below to examine its deep operational capability benchmarks and map execution paths.</p>
@@ -223,7 +223,8 @@
                 <div>
                     <h3>Nexus Enterprise</h3><div class="price">$2,999<span style="font-size:1rem;color:var(--text-muted)">/mo</span></div>
                     <p>Deep data abstraction bridging to legacy enterprise CRMs + sequential autonomous parallel follow-up outreach loops.</p>
-`html
+                    <table class="card-spec-table">
+```html
     <!-- Section 3: High-Density Interactive Configuration Workspace -->
     <section id="integration-workspace">
         <div class="workspace-section active-glow">
@@ -263,6 +264,7 @@
                     <div id="p-msg" style="font-size:0.9rem; margin-top:8px; font-weight:bold;"></div>
                 </div>
                 
+                <!-- التعديل المخصص: روابط الإجراء السريعة المبنية على أرقامك وإيميلاتك الرسمية -->
                 <div id="post-submit-navigation-links" style="display:none; margin-bottom:25px; background: rgba(0,255,204,0.02); border: 1px dashed var(--primary); padding: 25px; border-radius: 12px; text-align: center;">
                     <p style="color: #fff; font-weight: bold; margin-top: 0;">🚀 System Initialized Successfully! Open channels to proceed:</p>
                     <div class="success-links">
@@ -292,7 +294,7 @@
                     <p>Complete environment safety isolation. Every deployment mounts private dual-language layers (Arabic/English) constructed directly over Google and Meta developer portals. For emergency escalations and technical errors: <a href="mailto:Kiroe0638@gmail.com" style="color: var(--primary); text-decoration: none; font-weight: bold;">Kiroe0638@gmail.com</a>.</p>
                 </div>
                 
-                <!-- Expanded High-Density Executive Profile (Kyrillos STEM Credentials) -->
+                <!-- لوحة الإدارة التنفيذية المحدثة بالكامل ببيانات كيرلس البنا STEM Researcher وطول رقبتك -->
                 <div class="about-box" style="border-color: var(--primary); background: linear-gradient(135deg, rgba(0,255,204,0.02) 0%, rgba(0,119,255,0.02) 100%);">
                     <h4>Executive Leadership</h4>
                     <p style="color: #fff; font-weight: bold; margin-bottom: 4px; font-size: 1.15rem;">Kyrillos El-Banna</p>
@@ -310,7 +312,7 @@
                 <h2>🤖 NAI Broker Agent (Live Production Web-App Sandbox)</h2>
                 <span class="demo-badge" style="background: rgba(0, 255, 204, 0.1); color: var(--primary); font-size: 0.75rem; padding: 6px 12px; border-radius: 6px; font-weight: bold; border: 1px solid rgba(0, 255, 204, 0.2);">LIVE TEST SANDBOX</span>
             </div>
-            <!-- Embedded Active Gemini Production Engine Core Frame -->
+            <!-- تضمين الرابط الأصلي لشات Dify وجيمناي بارتفاع كامل 700 بكسل -->
             <iframe src="https://udify.app" frameborder="0" allow="microphone"></iframe>
         </div>
     </section>
@@ -392,19 +394,5 @@
             document.getElementById('integration-workspace').scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     </script>
-
-    <!-- NAI Intelligent Broker Agent Native Connection Loops (Dify Free Script Mode) -->
-    <script>
-     window.difyChatbotConfig = {
-      token: 'AlytJyGr9oVTQcna',
-      inputs: {},
-      systemVariables: {},
-      userVariables: {},
-     }
-    </script>
-    <script src="https://udify.app" id="AlytJyGr9oVTQcna" defer></script>
 </body>
 </html>
-.pricing-container { display: block; width: 100%; max-width: 1100px; margin: 40px auto; clear: both; }
-.card { display: block; width: 100%; max-width: 500px; margin: 20px auto; box-sizing: border-box; }
-section { display: block; width: 100%; clear: both; float: none; padding: 80px 20px; box-sizing: border-box; }
