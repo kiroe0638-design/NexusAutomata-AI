@@ -16,41 +16,27 @@
             --gradient: linear-gradient(135deg, #00ffcc 0%, #0077ff 100%);
         }
         body { margin: 0; padding: 40px 20px; background-color: var(--bg-color); color: #fff; font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; box-sizing: border-box; }
-        
         .demo-header { text-align: center; max-width: 700px; margin-bottom: 30px; }
         .demo-header h2 { font-size: 2.2rem; font-weight: 900; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0; }
         .demo-header p { color: #8f8f9d; font-size: 0.95rem; margin-top: 10px; }
-
-        /* Advanced Simulated WhatsApp Device Frame */
-        .phone-frame { width: 100%; max-width: 450px; height: 650px; background: var(--wa-bg); border: 4px solid #222; border-radius: 32px; box-shadow: 0 50px 100px rgba(0,0,0,0.8); display: flex; flex-direction: column; overflow: hidden; position: relative; }
-        
-        /* Chat Top Bar */
+        .phone-frame { width: 100%; max-width: 450px; height: 600px; background: var(--wa-bg); border: 4px solid #222; border-radius: 32px; box-shadow: 0 50px 100px rgba(0,0,0,0.8); display: flex; flex-direction: column; overflow: hidden; }
         .chat-topbar { background: #202c33; padding: 15px 20px; display: flex; align-items: center; gap: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); direction: rtl; }
-        .avatar { width: 40px; height: 40px; background: var(--gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #000; font-size: 0.9rem; }
+        .avatar { width: 40px; height: 40px; background: var(--gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #000; }
         .bot-status-info { text-align: right; }
         .bot-name { font-size: 1rem; font-weight: 700; color: #fff; }
         .bot-status { font-size: 0.75rem; color: var(--primary); font-family: monospace; display: flex; align-items: center; gap: 5px; }
         .pulse { width: 6px; height: 6px; background: var(--primary); border-radius: 50%; box-shadow: 0 0 8px var(--primary); }
-
-        /* Chat Log Container */
-        .chat-body { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; box-sizing: border-box; background-image: radial-gradient(rgba(255,255,255,0.02) 1px, transparent 0); background-size: 15px 15px; }
-        
-        .msg { max-width: 80px; width: auto; max-width: 75%; padding: 12px 16px; border-radius: 12px; font-size: 0.95rem; line-height: 1.5; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        .chat-body { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; box-sizing: border-box; }
+        .msg { max-width: 75%; padding: 12px 16px; border-radius: 12px; font-size: 0.95rem; line-height: 1.5; }
         .incoming { background: var(--wa-incoming); color: #fff; align-self: flex-start; border-top-left-radius: 2px; text-align: left; }
         .outgoing { background: var(--wa-outgoing); color: #fff; align-self: flex-end; border-top-right-radius: 2px; text-align: right; direction: rtl; }
-        .msg-time { display: block; font-size: 0.7rem; color: #8f8f9d; margin-top: 5px; text-align: right; font-family: monospace; }
-
-        /* Typing Indicator Preview */
-        .typing-indicator { display: none; background: var(--wa-incoming); align-self: flex-start; border-radius: 12px; border-top-left-radius: 2px; padding: 12px 20px; font-size: 0.85rem; color: var(--primary); font-family: monospace; letter-spacing: 1px; }
-
-        /* Chat Bottom Input Action */
-        .chat-input-area { background: #202c33; padding: 15px; display: flex; gap: 10px; border-top: 1px solid rgba(255,255,255,0.05); box-sizing: border-box; }
-        .chat-input { flex: 1; background: #2a3942; border: none; padding: 14px 20px; border-radius: 25px; color: #fff; font-size: 0.95rem; box-sizing: border-box; }
+        .msg-time { display: block; font-size: 0.7rem; color: #8f8f9d; margin-top: 5px; text-align: right; }
+        .typing-indicator { display: none; background: var(--wa-incoming); align-self: flex-start; border-radius: 12px; padding: 12px 20px; font-size: 0.85rem; color: var(--primary); font-family: monospace; margin: 10px; }
+        .chat-input-area { background: #202c33; padding: 15px; display: flex; gap: 10px; border-top: 1px solid rgba(255,255,255,0.05); }
+        .chat-input { flex: 1; background: #2a3942; border: none; padding: 14px 20px; border-radius: 25px; color: #fff; font-size: 0.95rem; }
         .chat-input:focus { outline: none; }
-        .btn-send { background: var(--primary); border: none; width: 48px; height: 48px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #000; font-size: 1.1rem; transition: 0.3s; }
-        .btn-send:hover { transform: scale(1.05); box-shadow: 0 0 15px var(--primary); }
-
-        .back-nav { margin-top: 30px; color: var(--text-muted); text-decoration: none; font-size: 0.85rem; font-family: monospace; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .btn-send { background: var(--primary); border: none; width: 48px; height: 48px; border-radius: 50%; cursor: pointer; font-size: 1.1rem; font-weight: bold; }
+        .back-nav { margin-top: 25px; color: var(--text-muted); text-decoration: none; font-size: 0.85rem; font-family: monospace; text-transform: uppercase; }
         .back-nav:hover { color: var(--primary); }
     </style>
 </head>
@@ -58,10 +44,9 @@
 
     <div class="demo-header">
         <h2>Cognitive Architecture Core Live Demo</h2>
-        <p>قم بمحاكاة وتجربة عقل الذكاء الاصطناعي لـ NexusAutomata AI. اكتب أي استفسار لترى كيف تقوم النواة بالرد الفوري، شرح الوحدات، وجدولة المواعيد كخبير عقاري محترف بالكامل.</p>
+        <p>قم ببدء تجربة حية ومحاكاة حقيقية لعقل الذكاء الاصطناعي لشركة NexusAutomata AI العقارية.</p>
     </div>
 
-    <!-- Phone WhatsApp Simulator Frame -->
     <div class="phone-frame">
         <div class="chat-topbar">
             <div class="avatar">NAI</div>
@@ -72,15 +57,8 @@
         </div>
 
         <div class="chat-body" id="chat-container">
-            <!-- Starting Automatic Messages -->
-            <div class="msg incoming">
-                Hello! Welcome to NexusAutomata AI Real Estate Node Simulator. How can I assist your property search today?
-                <span class="msg-time">12:00 AM</span>
-            </div>
-            <div class="msg incoming" style="direction: rtl; text-align: right;">
-                أهلاً بك في نظام المحاكاة الذكي لشركتكم العقارية. أنا العقل الرقمي المؤتمت بالكامل، كيف يمكنني مساعدتك في معرفة الأسعار، المساحات المتاحة، أو حجز موعد معاينة اليوم؟
-                <span class="msg-time">12:00 AM</span>
-            </div>
+            <div class="msg incoming">Hello! Welcome to NexusAutomata AI Simulator. How can I assist your property search today?</div>
+            <div class="msg incoming" style="direction: rtl; text-align: right;">أهلاً بك في نظام المحاكاة الذكي لشركتكم العقارية. أنا العقل الرقمي المطور، كيف يمكنني مساعدتك في معرفة الأسعار، المساحات المتاحة، أو حجز موعد معاينة اليوم؟</div>
         </div>
 
         <div class="typing-indicator" id="typing-box">CORTEX IS THINKING...</div>
@@ -91,9 +69,8 @@
         </div>
     </div>
 
-    <a href="index.html" class="back-nav">&lt; Return to Core Control Center</a>
+    <a href="./index.html" class="back-nav">&lt; Return to Core Control Center</a>
 
-    <!-- Intelligent Simulated Dialogue Engine Script -->
     <script>
         function handleKey(e) { if(e.key === 'Enter') sendSimulatedMsg(); }
 
@@ -101,54 +78,83 @@
             const input = document.getElementById("user-msg-input");
             const text = input.value.trim();
             if(!text) return;
-
-            // Append User Msg
             appendMessage(text, 'outgoing');
             input.value = "";
-
-            // Trigger AI Automated Thinking Response Simulation
             const typingBox = document.getElementById("typing-box");
             typingBox.style.display = "block";
-            
             setTimeout(() => {
                 typingBox.style.display = "none";
-                const aiReply = getSimulatedAIResponse(text);
-                appendMessage(aiReply, 'incoming');
-            }, 1500);
+                appendMessage(getDynamicAIResponse(text), 'incoming');
+            }, 1200);
         }
 
         function appendMessage(text, side) {
             const container = document.getElementById("chat-container");
             const msgDiv = document.createElement("div");
             msgDiv.className = `msg ${side}`;
-            if(side === 'outgoing') {
-                msgDiv.innerHTML = `${text}<span class="msg-time">Just Now</span>`;
-            } else {
-                // If arabic or mixed style correctly
-                msgDiv.style.direction = text.match(/[\u0600-\u06FF]/) ? "rtl" : "ltr";
-                msgDiv.style.textAlign = text.match(/[\u0600-\u06FF]/) ? "right" : "left";
-                msgDiv.innerHTML = `${text}<span class="msg-time">Just Now</span>`;
-            }
+            msgDiv.style.direction = text.match(/[\u0600-\u06FF]/) ? "rtl" : "ltr";
+            msgDiv.style.textAlign = text.match(/[\u0600-\u06FF]/) ? "right" : "left";
+            msgDiv.innerHTML = `${text}<span class="msg-time">Just Now</span>`;
             container.appendChild(msgDiv);
             container.scrollTop = container.scrollHeight;
         }
 
-        // Contextual Logic Matrix for Real Estate Core Chat
-        function getSimulatedAIResponse(userText) {
+        // --- Innovative & Interactive Dynamic AI Response Engine ---
+        function getDynamicAIResponse(userText) {
             const t = userText.toLowerCase();
-            if(t.includes("سعر") || t.includes("الاسعار") || t.includes("price") || t.includes("بكم")) {
-                return "مرحباً بك، أسعار الوحدات السكنية في مشروعنا التأسيسي تبدأ من 4,500,000 جنيه مصري، مع أنظمة سداد مرنة مقدم 10% وأقساط متساوية تصل إلى 7 سنوات بدون فوائد. هل ترغب في إرسال بروشور الأسعار الكامل عبر الإيميل؟";
+            
+            const pricingIntro = [
+                "تمام، بخصوص الأسعار المتاحة حالياً في المشروع: ",
+                "يسعدني جداً توضيح خطة الأسعار لك؛ حالياً الأسعار كالتالي: ",
+                "أهلاً بك، بخصوص الجانب المالي وأنظمة السداد، تفاصيلنا هي: "
+            ];
+            const pricingDetails = "بدأ خطة الأسعار الحالية للوحدات السكنية الفاخرة من 4.5 مليون جنيه مصري، مع إمكانية دفع مقدم 10% فقط وتقسيط الباقي على مدار 7 سنوات بأقساط متساوية تماماً وبدون أي فوائد بنكية.";
+            const pricingOutro = [
+                " هل تحب أن نرسل لك كراسة الشروط الرسمية (البروشور) عبر الواتساب فوراً لمراجعة المخططات؟",
+                " هل تفضل أن يقوم أحد مستشارينا العقاريين بالتواصل معك لشرح أنظمة السداد بالتفصيل؟",
+                " ما هو النطاق السعري المناسب لميزانيتكم لكي أرشح لك الوحدة الأفضل؟"
+            ];
+
+            const spaceIntro = [
+                "بخصوص المساحات والهندسة المعمارية في المشروع, قمنا بتنويع الخيارات بشكل كبير: ",
+                "سؤال ممتاز! المساحات مصممة بذكاء واستغلال كامل للمساحات الداخلي، وهي كالتالي: ",
+                "لدينا مساحات ممتازة تناسب كافة الرغبات العائلية؛ "
+            ];
+            const spaceDetails = "تبدأ مساحات الشقق السكنية الأرضي والمتكرر من 120 متر مربع، وحصرياً قمنا بإطلاق مرحلة الفيلات المستقلة والتاون هاوس بمساحات فاخرة تبدأ من 250 متر مربع وحتى 450 متر مربع بكامل الخدمات.";
+            const spaceOutro = [
+                " ما هي المساحة التقريبية التي تراها مناسبة لمتطلبات عائلتك؟",
+                " هل تفضل الشقق السكنية المستقلة أم تبحث عن خصوصية الفيلات والتاون هاوس؟",
+                " يمكنني إرسال المخطط الهندسي الداخلي (Floor Plans) لأي مساحة تختارها الآن."
+            ];
+
+            const bookingIntro = [
+                "أهلاً بك، يسعدنا ويشرفنا ترتيب موعد لمعاينة أرض المشروع حياً! ",
+                "بكل تأكيد، المعاينة على أرض الواقع ستوضح لك دقة وجودة التنفيذ؛ ",
+                "خطوة ممتازة! نظام الجدولة الذكي لدينا مفتوح ومربوط بتقويم الشركة حالياً للترتيب: "
+            ];
+            const bookingOutro = [
+                " ما هو اليوم الأنسب لك للزيارة هذا الأسبوع (الخميس أم الجمعة) لكي أؤكد حجز تذكرتك تلقائياً؟",
+                " هل تفضل الفترة الصباحية أم المسائية للمعاينة؟ وسأقوم بجدولتها في تقويم سماسرتنا فوراً.",
+                " يرجى كتابة اليوم المفضل لك، وسأرسل لك لوكيشن الموقع وتفاصيل تصريح الدخول عبر رسالة فورية."
+            ];
+
+            if(t.includes("سعر") || t.includes("الاسعار") || t.includes("price") || t.includes("بكم") || t.includes("كم")) {
+                return pricingIntro[Math.floor(Math.random() * pricingIntro.length)] + pricingDetails + pricingOutro[Math.floor(Math.random() * pricingOutro.length)];
             }
-            if(t.includes("مساحة") || t.includes("مساحات") || t.includes("space") || t.includes("area")) {
-                return "لدينا مساحات متنوعة وهندسة معمارية ذكية تناسب كافة المتطلبات: شقق تبدأ من 120م وحصرياً تاون هاوس وفيلات مستقلة تبدأ من 250م حتى 450م. ما هي المساحة التقريبية التي تبحث عنها؟";
+            if(t.includes("مساحة") || t.includes("مساحات") || t.includes("space") || t.includes("area") || t.includes("كام متر")) {
+                return spaceIntro[Math.floor(Math.random() * spaceIntro.length)] + spaceDetails + spaceOutro[Math.floor(Math.random() * spaceOutro.length)];
             }
-            if(t.includes("عاوز احجز") || t.includes("معاينة") || t.includes("book") || t.includes("visit") || t.includes("موعد")) {
-                return "يسعدني جداً ترتيب موعد معاينة حية لكم! لقد قمت بفتح خط اتصال مباشر بـ Google Calendar الخاص بالشركة. ما هو اليوم الأنسب لك هذا الأسبوع (الخميس أم الجمعة) والساعة المفضلة لتأكيد حجز التذكرة أوتوماتيكياً؟";
+            if(t.includes("حجز") || t.includes("معاينة") || t.includes("book") || t.includes("visit") || t.includes("موعد") || t.includes("اشوف")) {
+            if(t.includes("حجز") || t.includes("معاينة") || t.includes("book") || t.includes("visit") || t.includes("موعد") || t.includes("اشوف")) {
+                return bookingIntro[Math.floor(Math.random() * bookingIntro.length)] + bookingOutro[Math.floor(Math.random() * bookingOutro.length)];
             }
-            if(t.includes("سلام") || t.includes("شكرا") || t.includes("hello") || t.includes("hi")) {
-                return "أهلاً بك! أنا النواة الإدراكية لـ NexusAutomata، مدعوم بموديل Gemini 1.5 Flash. يمكنك سؤالي مباشرة عن أسعار الوحدات العقارية، المساحات المتاحة، أو طلب حجز موعد معاينة لأرض المشروع فوراً.";
-            }
-            return "تم استلام طلبك وفهمه بدقة عبر محرك التصفية الإدراكي. بصفتي العقل الآلي لشركتكم، يمكنني الرد بمرونة على الأسعار، المساحات، أو جدولة المعاينات. يرجى تجربة سؤالي عن 'الأسعار' أو 'طلب حجز معاينة' لرؤية القوة الكاملة للنظام.";
+            
+            const fallbacks = [
+                "تم استلام استفسارك بدقة عبر عقل الذكاء الاصطناعي. بصفتي المساعد الإدراكي، يمكنني الرد بمرونة تامة وبابتكار. جرب سؤالي الآن عن 'أسعار الوحدات' أو 'المساحات المتاحة' أو اكتب 'أريد حجز موعد معاينة' لترى كيف سأقوم بجدولتها لك فوراً.",
+                "أهلاً بك، أنا أتعلم وأفهم السياق بشكل تفاعلي حقيقي لتوفير وقت شركتكم العقارية. يمكنك نقاشي بجدية عن تفاصيل الأسعار، أنظمة السداد، مساحات الفيلات، أو ترتيب موعد للزيارة اليوم. بمَ ترغب أن نبدأ؟",
+                "مرحباً بك في النواة الإدراكية لـ NexusAutomata العقارية. أنا مصمم لأتعامل معك كخبير بشري حقيقي. يرجى سؤالي مباشرة عن 'أسعار وحدات المشروع' أو 'طلب حجز معاينة حية' لتجربة تدفق البيانات والجدولة التلقائية."
+            ];
+            return fallbacks[Math.floor(Math.random() * fallbacks.length)];
         }
     </script>
 </body>
