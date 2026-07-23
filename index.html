@@ -10,6 +10,7 @@
             --bg-color: #060608;
             --card-bg: #0d0d12;
             --primary: #00ffcc;
+            --primary-hover: #00ccaa;
             --text-main: #ffffff;
             --text-muted: #8f8f9d;
             --border: #1a1a24;
@@ -27,16 +28,28 @@
             scroll-behavior: smooth;
         }
 
+        /* Typewriter Animation Infrastructure */
+        .typewriter-container {
+            min-height: 4.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         h1 { 
-            color: var(--primary); 
             font-size: 3.8rem; 
             font-weight: 900; 
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 0 30px rgba(0, 255, 204, 0.15);
-            margin-bottom: 15px;
             letter-spacing: -1px;
+            margin: 0;
+            border-right: 3px solid var(--primary);
+            white-space: nowrap;
+            overflow: hidden;
+            animation: blink 0.75s step-end infinite;
         }
         
         .main-subtitle { 
@@ -47,6 +60,9 @@
             margin-left: auto;
             margin-right: auto;
             line-height: 1.8;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: animationFadeInUp 1s ease forwards 2.5s;
         }
 
         /* Spaced Pricing Matrix Grid Layout */
@@ -55,7 +71,7 @@
             justify-content: center; 
             gap: 30px; 
             flex-wrap: wrap; 
-            margin-bottom: 80px;
+            margin-bottom: 100px;
             direction: ltr;
         }
         
@@ -73,8 +89,15 @@
             flex-direction: column;
             justify-content: space-between;
             box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(30px);
         }
         
+        /* Sequential stagger fade-in triggers for the structural grid cards */
+        .card:nth-child(1) { animation: animationFadeInUp 1s ease forwards 3s; }
+        .card:nth-child(2) { animation: animationFadeInUp 1s ease forwards 3.3s; }
+        .card:nth-child(3) { animation: animationFadeInUp 1s ease forwards 3.6s; }
+
         .card:hover { 
             border-color: var(--primary); 
             transform: translateY(-10px); 
@@ -134,17 +157,66 @@
             border-color: #00ccaa;
         }
 
-        /* Custom Floating Chat Bubble Brand Adapters */
+        /* High-End Enterprise About Us Layout Grid */
+        .about-section {
+            max-width: 960px;
+            margin: 0 auto 100px auto;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: left;
+            box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: animationFadeInUp 1.2s ease forwards 4s;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .about-meta-box h4 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        .about-meta-box p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Floating Custom Cyberpunk Dify Brand Overlay */
         #dify-chatbot-bubble-button {
             background-color: var(--primary) !important;
-            box-shadow: 0 4px 20px rgba(0, 255, 204, 0.4) !important;
+            box-shadow: 0 4px 25px rgba(0, 255, 204, 0.4) !important;
+        }
+        #dify-chatbot-bubble-window {
+            border: 2px solid var(--primary) !important;
+            box-shadow: 0 10px 40px rgba(0, 255, 204, 0.15) !important;
+        }
+
+        /* Keyframes Animations Repositories */
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary); }
+        }
+        @keyframes animationFadeInUp {
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <!-- Main Headings Layer -->
-    <h1>NexusAutomata AI</h1>
+    <!-- Main Branding Header Matrix with Typewriter Engine Hook -->
+    <div class="typewriter-container">
+        <h1 id="typewriter-headline"></h1>
+    </div>
     <p class="main-subtitle">Next-Generation 24/7 AI-Powered Missed-Call Systems & Full Operational Automation Architectures for Enterprise Real Estate Ecosystems.</p>
     
     <!-- Three-Tier Premium Plan Matrix Matrix -->
@@ -156,7 +228,7 @@
                 <div class="price">$599<span style="font-size:1rem; color:var(--text-muted);">/mo</span></div>
                 <p>Instant missed-call text-back deployment 24/7 via WhatsApp & SMS. Automatically captures critical lead data and syncs directly to your internal Google Sheets infrastructure.</p>
             </div>
-            <a href="checkout.html?plan=starter" class="btn-action">Configure Node</a>
+            <a href="checkout.html?plan=starter" class="btn-action">Explore & Deploy</a>
         </div>
         
         <!-- Card 2: Cortex Pro -->
@@ -166,7 +238,7 @@
                 <div class="price">$1,199<span style="font-size:1rem; color:var(--text-muted);">/mo</span></div>
                 <p>Includes Starter Node features + complete interactive bilingual AI assistant (Ar/En) to answer pricing/layouts + automated calendar booking systems.</p>
             </div>
-            <a href="checkout.html?plan=cortex" class="btn-action">Configure Node</a>
+            <a href="checkout.html?plan=cortex" class="btn-action">Explore & Deploy</a>
         </div>
         
         <!-- Card 3: Nexus Enterprise -->
@@ -176,11 +248,54 @@
                 <div class="price">$2,999<span style="font-size:1rem; color:var(--text-muted);">/mo</span></div>
                 <p>Custom deep infrastructure bridging to major enterprise CRMs (HubSpot/Salesforce) + adaptive autonomous multi-day operational follow-up funnels.</p>
             </div>
-            <a href="checkout.html?plan=nexus" class="btn-action">Configure Node</a>
+            <a href="checkout.html?plan=nexus" class="btn-action">Explore & Deploy</a>
         </div>
     </div>
 
-    <!-- Active Native Connection Widget Script Layer (Bypasses Frame-Origin Blocks completely) -->
+    <!-- Premium Spaced About Us Layer Section -->
+    <div class="about-section">
+        <h2 style="color: var(--primary); font-size: 2.2rem; margin-top: 0; margin-bottom: 15px; font-weight: 800;">About NexusAutomata</h2>
+        <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.7; margin: 0;">We engineer production-grade conversational architectures and cross-channel pipeline infrastructure to help premier real estate agencies capture warm opportunities automatically, eliminating dropped leads permanently.</p>
+        
+        <div class="about-grid">
+            <div class="about-meta-box">
+                <h4>Autonomous Intercepts</h4>
+                <p>Our algorithms track system lines 24/7, spinning up automated context loops on preferred client messaging spaces the instant a line drops.</p>
+            </div>
+            <div class="about-meta-box">
+                <h4>Bilingual Intelligence</h4>
+                <p>Engineered via custom LLM parameters to handle intricate dual-language property, layout, pricing, and viewing scheduling transactions natively.</p>
+            </div>
+            <div class="about-meta-box">
+                <h4>Enterprise Core Bridging</h4>
+                <p>Clean database alignments mapping customer interaction objects cleanly back into localized corporate database sheets or global CRMs like Salesforce.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Typewriter Script Logic Loop Engine -->
+    <script>
+        const textSequence = "NexusAutomata AI";
+        const targetElement = document.getElementById("typewriter-headline");
+        let charIndex = 0;
+
+        function runTypewriterLoop() {
+            if (charIndex < textSequence.length) {
+                targetElement.innerHTML += textSequence.charAt(charIndex);
+                charIndex++;
+                setTimeout(runTypewriterLoop, 100);
+            } else {
+                setTimeout(() => {
+                    targetElement.style.borderRight = "none";
+                }, 1000);
+            }
+        }
+        
+        // Execute the typewriter script cleanly upon load
+        runTypewriterLoop();
+    </script>
+
+    <!-- Active Native Connection Widget Script Layer (Bypasses Frame Blocks) -->
     <script>
      window.difyChatbotConfig = { token: 'AlytJyGr9oVTQcna' }
     </script>
