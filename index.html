@@ -3,214 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexusAutomata AI (NAI)</title>
+    <title>NexusAutomata AI (NAI) | Enterprise Automation Core</title>
     
-    <!-- AOS Library for luxury scroll trigger behaviors -->
+    !-- مكتبة الأنميشن AOS -->
     <link href="https://unpkg.com" rel="stylesheet">
-    
-    <style>
-        /* Modern Premium Cyberpunk Core Theme */
-        :root {
-            --bg-color: #0b0b0b;
-            --card-bg: #141414;
-            --primary: #00ffcc;
-            --primary-hover: #00ccaa;
-            --text-main: #ffffff;
-            --text-muted: #a0a0a0;
-            --border: #222;
-            --gradient: linear-gradient(135deg, #00ffcc 0%, #0077ff 100%);
-        }
-
-        body { 
-            background-color: var(--bg-color); 
-            color: var(--text-main); 
-            font-family: 'Segoe UI', sans-serif; 
-            text-align: center; 
-            padding: 60px 20px; 
-            margin: 0; 
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
-
-        h1 { 
-            color: var(--primary); 
-            font-size: 3.5rem; 
-            margin-bottom: 10px; 
-            font-weight: 800; 
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(0, 255, 204, 0.15);
-        }
-        
-        p.main-subtitle { 
-            color: var(--text-muted); 
-            font-size: 1.2rem; 
-            margin-bottom: 50px; 
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.7;
-        }
-
-        /* 3D Pricing Grid Matrix */
-        .pricing-container { 
-            display: flex; 
-            justify-content: center; 
-            gap: 25px; 
-            flex-wrap: wrap; 
-            margin-top: 20px; 
-            margin-bottom: 60px; 
-            direction: ltr;
-        }
-        
-        .card { 
-            background: var(--card-bg); 
-            border: 1px solid var(--border); 
-            border-radius: 12px; 
-            padding: 35px 25px; 
-            width: 300px; 
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            text-align: left;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        
-        .card:hover { 
-            border-color: var(--primary); 
-            transform: translateY(-10px) scale(1.02); 
-            box-shadow: 0 15px 30px rgba(0, 255, 204, 0.15);
-        }
-
-        .card.featured::before {
-            content: '🔥 MOST POPULAR';
-            position: absolute;
-            top: 20px;
-            right: -35px;
-            background: var(--primary);
-            color: #000;
-            font-size: 0.7rem;
-            font-weight: bold;
-            padding: 5px 35px;
-            transform: rotate(45deg);
-        }
-        
-        .card h3 { color: var(--primary); font-size: 1.5rem; margin-top: 0; font-weight: 700; text-align: center; }
-        .price { font-size: 2.3rem; font-weight: bold; margin: 20px 0; color: #fff; text-align: center; }
-        .card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px; min-height: 100px; }
-
-        /* Dynamic Active Action Buttons routing to dynamic checkout system */
-        .btn-action {
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            transition: all 0.3s ease;
-            text-align: center;
-            text-decoration: none;
-            display: block;
-            box-sizing: border-box;
-        }
-        .btn-action:hover {
-            background: var(--primary);
-            color: #000;
-            box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
-        }
-        .card.featured .btn-action {
-            background: var(--primary);
-            color: #000;
-        }
-        .card.featured .btn-action:hover {
-            background: #00ccaa;
-            border-color: #00ccaa;
-        }
-
-        /* Premium Floating Chatbot Custom CSS Brand Adjustments */
-        #dify-chatbot-bubble-button {
-            background-color: var(--primary) !important;
-            box-shadow: 0 4px 20px rgba(0, 255, 204, 0.3) !important;
-        }
-        #dify-chatbot-bubble-window {
-            width: 24rem !important;
-            height: 40rem !important;
-            border: 2px solid var(--primary) !important;
-            border-radius: 12px !important;
-            background-color: var(--card-bg) !important;
-        }
-    </style>
+    !-- ربط ملف الستايل الخارجي المنفصل -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Main Branding Headers -->
-    <h1 data-aos="fade-down" data-aos-duration="1000">NexusAutomata AI (NAI)</h1>
-    <p class="main-subtitle" data-aos="fade-up" data-aos-duration="1200">
-        Intelligent 24/7 AI-Powered Missed-Call & Automation Solutions for Real Estate Ecosystems
-    </p>
+    !-- Header Section -->
+    <header>
+        <h1 data-aos="fade-down" data-aos-duration="1000">NexusAutomata AI (NAI)</h1>
+        <p class="main-subtitle" data-aos="fade-up" data-aos-duration="1200">
+            Intelligent 24/7 AI-Powered Missed-Call & Automation Solutions for Real Estate Ecosystems
+        </p>
+    </header>
     
-    <!-- Three-Tier Matrix Plan Structure with Connected Dynamic Links -->
-    <div class="pricing-container" data-aos="fade-up" data-aos-delay="200">
-        <!-- Card 1: Starter Node -->
+    !-- Pricing Matrix Section -->
+    <main class="pricing-container" data-aos="fade-up" data-aos-delay="200">
+        
+        !-- Card 1: Starter -->
         <div class="card">
-            <div>
-                <h3>Starter Node</h3>
-                <div class="price">$599<span style="font-size:1rem; color:var(--text-muted);">/mo</span></div>
-                <p>Instant missed-call text-back deployment 24/7 via WhatsApp & SMS. Automatically captures critical lead data and syncs directly to your internal Google Sheets infrastructure.</p>
-            </div>
-            <a href="checkout.html?plan=starter" class="btn-action">Configure Node</a>
+            <h3>Starter Node</h3>
+            <div class="price">$599<span class="mo-text">/mo</span></div>
+            <p>Instant missed-call text-back deployment 24/7 via WhatsApp & SMS. Automatically captures critical lead data to Google Sheets.</p>
+            <a href="pages/checkout-starter.html" class="btn-action">Configure Node</a>
         </div>
         
-        <!-- Card 2: Cortex Pro -->
+        !-- Card 2: Cortex Pro -->
         <div class="card featured">
-            <div>
-                <h3>Cortex Pro</h3>
-                <div class="price">$1,199<span style="font-size:1rem; color:var(--text-muted);">/mo</span></div>
-                <p>Includes Starter Node features + complete interactive bilingual AI assistant (Ar/En) to answer pricing/locations + automated calendar booking systems.</p>
-            </div>
-            <a href="checkout.html?plan=cortex" class="btn-action">Configure Node</a>
+            <h3>Cortex Pro</h3>
+            <div class="price">$1,199<span class="mo-text">/mo</span></div>
+            <p>Includes Starter Node features + complete interactive bilingual AI assistant (Ar/En) to answer pricing/locations + automated calendar booking.</p>
+            <a href="pages/checkout-cortex.html" class="btn-action">Configure Node</a>
         </div>
         
-        <!-- Card 3: Nexus Enterprise -->
+        !-- Card 3: Nexus Enterprise -->
         <div class="card">
-            <div>
-                <h3>Nexus Enterprise</h3>
-                <div class="price">$2,999<span style="font-size:1rem; color:var(--text-muted);">/mo</span></div>
-                <p>Custom deep infrastructure bridging to major enterprise CRMs (HubSpot/Salesforce) + adaptive autonomous multi-day operational follow-up funnels.</p>
-            </div>
-            <a href="checkout.html?plan=nexus" class="btn-action">Configure Node</a>
+            <h3>Nexus Enterprise</h3>
+            <div class="price">$2,999<span class="mo-text">/mo</span></div>
+            <p>Custom infrastructure deep bridging to major enterprise CRMs (HubSpot/Salesforce) + automated multi-day smart AI follow-up loops.</p>
+            <a href="pages/checkout-nexus.html" class="btn-action">Configure Node</a>
         </div>
-    </div>
+        
+    </main>
 
-    <!-- Script Architecture for Animations -->
+    !-- ربط مكتبة الأنميشن والسكريبت الخارجي -->
     <script src="https://unpkg.com"></script>
-    <script>
-        window.scrollTo(0, 0);
-        window.onload = function() {
-            AOS.init({ once: false, mirror: true, offset: 100, duration: 1000 });
-        };
-    </script>
+    <script src="js/main.js"></script>
 
-    <!-- NAI Intelligent Broker Agent Native Connection Loops (Dify Widget Script) -->
+    !-- سكريبت الشات بوت العائم الحقيقي والمجرب (Dify Chat Widget) -->
     <script>
-     window.difyChatbotConfig = {
-      token: 'AlytJyGr9oVTQcna',
-      inputs: {},
-      systemVariables: {},
-      userVariables: {},
-     }
+        window.difyChatbotConfig = { token: 'AlytJyGr9oVTQcna' }
     </script>
-    <script
-     src="https://udify.app/embed.min.js"
-     id="AlytJyGr9oVTQcna"
-     defer>
-    </script>
+    <script src="https://udify.app" id="AlytJyGr9oVTQcna" defer></script>
 
 </body>
 </html>
