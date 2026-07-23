@@ -14,65 +14,158 @@
             --text-muted: #8f8f9d;
             --gradient: linear-gradient(135deg, #00ffcc 0%, #0077ff 100%);
             --grid-line: rgba(0, 255, 204, 0.02);
-            --glow: drop-shadow(0 0 15px rgba(0, 255, 204, 0.3));
         }
-        html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
-        html, body { margin: 0; padding: 0; width: 100%; height: 100vh; background-color: var(--bg-color); color: var(--text-main); font-family: 'Segoe UI', system-ui, sans-serif; background-size: 40px 40px; background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px); overflow-y: scroll; overflow-x: hidden; }
-        #particle-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; opacity: 0.35; }
-        section { width: 100%; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; box-sizing: border-box; scroll-snap-align: start; scroll-snap-stop: always; position: relative; z-index: 2; padding: 40px 20px; }
-        nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(3, 3, 5, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border); padding: 20px 40px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; }
-        .nav-logo { font-size: 1.2rem; font-weight: 800; letter-spacing: 1px; color: #fff; text-decoration: none; filter: var(--glow); }
+        html { scroll-behavior: smooth; }
+        body { margin: 0; padding: 0; width: 100%; background-color: var(--bg-color); color: var(--text-main); font-family: 'Segoe UI', system-ui, sans-serif; background-size: 40px 40px; background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px); overflow-x: hidden; }
+        nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(3, 3, 5, 0.8); backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border); padding: 20px 40px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { font-size: 1.2rem; font-weight: 800; letter-spacing: 1px; color: #fff; text-decoration: none; }
         .nav-logo span { color: var(--primary); }
         .nav-links { display: flex; gap: 30px; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: 0.3s; text-transform: uppercase; }
-        .nav-links a:hover { color: var(--primary); text-shadow: 0 0 8px var(--primary); }
-        header { padding: 20px; box-sizing: border-box; text-align: center; }
-        .typewriter-box { display: flex; justify-content: center; align-items: center; min-height: 4.5rem; }
-        h1 { font-size: 3.8rem; font-weight: 900; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; border-right: 3px solid var(--primary); white-space: nowrap; overflow: hidden; width: 16ch; animation: typing 2s steps(16) forwards, blink 0.75s step-end infinite; margin: 0; letter-spacing: -1px; filter: var(--glow); }
-        .subtitle-container { max-width: 900px; margin: 20px auto 0 auto; display: flex; flex-direction: column; gap: 12px; text-align: center; }
-        .subtitle-en { color: #fff; font-size: 1.25rem; font-weight: 500; line-height: 1.6; }
-        .subtitle-ar { color: var(--text-muted); font-size: 1.15rem; font-weight: 400; line-height: 1.8; direction: rtl; }
-        .telemetry-hud { display: flex; justify-content: center; gap: 40px; background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 15px 40px; border-radius: 12px; margin: 30px auto; max-width: 900px; box-sizing: border-box; direction: ltr; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; }
+        .nav-links a:hover { color: var(--primary); }
+        header { padding: 140px 20px 40px 20px; box-sizing: border-box; text-align: center; }
+        h1 { font-size: 3.5rem; font-weight: 900; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0; letter-spacing: -1px; }
+        .subtitle-container { max-width: 800px; margin: 20px auto; display: flex; flex-direction: column; gap: 10px; }
+        .subtitle-en { color: #fff; font-size: 1.2rem; line-height: 1.6; }
+        .subtitle-ar { color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; direction: rtl; }
+        .telemetry-hud { display: flex; justify-content: center; gap: 40px; background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 15px 40px; border-radius: 12px; margin: 40px auto; max-width: 900px; box-sizing: border-box; backdrop-filter: blur(12px); flex-wrap: wrap; }
         .hud-metric { text-align: left; }
-        .hud-label { font-size: 0.75rem; color: var(--text-muted); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
-        .hud-value { font-size: 1.1rem; color: var(--primary); font-family: monospace; font-weight: bold; margin-top: 4px; display: flex; align-items: center; gap: 6px; }
-        .pulse-dot { width: 6px; height: 6px; background-color: var(--primary); border-radius: 50%; display: inline-block; box-shadow: 0 0 8px var(--primary); }
-        .about-box { background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border-radius: 24px; padding: 45px; max-width: 1000px; width: 100%; box-shadow: 0 40px 80px rgba(0,0,0,0.5); display: grid; grid-template-columns: 1.2fr 1fr; gap: 45px; }
-        .about-text h2 { font-size: 2.2rem; font-weight: 900; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-top: 0; filter: var(--glow); }
-        .about-text p { color: var(--text-muted); line-height: 1.8; font-size: 1.05rem; }
-        .ceo-card { border-left: 2px solid rgba(255,255,255,0.05); padding-left: 40px; display: flex; flex-direction: column; justify-content: center; }
-        .ceo-badge { color: var(--primary); font-family: monospace; font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
-        .ceo-name { font-size: 1.9rem; font-weight: 800; color: #fff; margin: 0 0 8px 0; }
-        .ceo-title { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 20px; }
-        .contact-item { font-size: 0.85rem; margin-bottom: 10px; color: var(--text-muted); }
-        .contact-item strong { color: #fff; font-family: monospace; }
-        .pricing-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin: 20px auto; width: 100%; max-width: 1200px; padding: 0 20px; box-sizing: border-box; }
-        .card { background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 20px; padding: 45px 30px; width: 340px; text-align: left; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
-        .card:hover { border-color: var(--primary); transform: translateY(-10px); box-shadow: 0 25px 60px rgba(0, 255, 204, 0.15); }
-        .card h3 { color: var(--primary); font-size: 1.5rem; margin: 0; text-align: center; font-weight: 800; letter-spacing: -0.5px; }
-        .price { font-size: 2.5rem; font-weight: bold; margin: 20px 0; color: #fff; text-align: center; font-family: monospace; }
-        .card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px; min-height: 70px; }
-        .card-spec-table { width: 100%; margin-bottom: 30px; border-collapse: collapse; font-size: 0.8rem; font-family: monospace; }
+        .hud-label { font-size: 0.75rem; color: var(--text-muted); font-weight: bold; text-transform: uppercase; }
+        .hud-value { font-size: 1.1rem; color: var(--primary); font-family: monospace; font-weight: bold; margin-top: 4px; }
+        .about-container { max-width: 1000px; margin: 60px auto; padding: 0 20px; box-sizing: border-box; }
+        .about-box { background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: blur(20px); border-radius: 24px; padding: 40px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; }
+        .about-text h2 { font-size: 2rem; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-top: 0; }
+        .about-text p { color: var(--text-muted); line-height: 1.8; font-size: 1rem; }
+        .ceo-card { border-left: 2px solid rgba(255,255,255,0.05); padding-left: 30px; display: flex; flex-direction: column; justify-content: center; }
+        .ceo-badge { color: var(--primary); font-family: monospace; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 5px; }
+        .ceo-name { font-size: 1.8rem; font-weight: 800; color: #fff; margin: 0 0 5px 0; }
+        .ceo-title { color: var(--text-muted); font-size: 1rem; margin-bottom: 15px; }
+        .contact-item { font-size: 0.85rem; margin-bottom: 8px; color: var(--text-muted); }
+        .contact-item strong { color: #fff; }
+        .pricing-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin: 60px auto; max-width: 1200px; padding: 0 20px; box-sizing: border-box; }
+        .card { background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 20px; padding: 40px 30px; width: 340px; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box; transition: 0.3s; }
+        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .card h3 { color: var(--primary); font-size: 1.4rem; margin: 0; text-align: center; font-weight: 800; }
+        .price { font-size: 2.5rem; font-weight: bold; margin: 15px 0; color: #fff; text-align: center; font-family: monospace; }
+        .card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; text-align: center; margin-bottom: 20px; min-height: 50px; }
+        .card-spec-table { width: 100%; margin-bottom: 25px; border-collapse: collapse; font-size: 0.8rem; font-family: monospace; }
         .card-spec-table tr { border-bottom: 1px solid rgba(255,255,255,0.03); }
         .card-spec-table td { padding: 8px 0; color: var(--text-muted); }
         .card-spec-table td.val { text-align: right; color: #fff; font-weight: bold; }
         .card-spec-table td.val.active { color: var(--primary); }
-        .btn-action { background: linear-gradient(90deg, rgba(0,255,204,0.05), rgba(0,119,255,0.05)); border: 1px solid var(--primary); color: var(--primary); padding: 15px; border-radius: 30px; font-size: 0.95rem; font-weight: 700; cursor: pointer; width: 100%; text-align: center; text-decoration: none; display: block; box-sizing: border-box; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
-        .card:hover .btn-action { background: var(--gradient); color: #000; box-shadow: 0 0 25px rgba(0, 255, 204, 0.4); border-color: transparent; }
-        .scroll-indicator { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--text-muted); font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; animation: float 2s infinite ease-in-out; }
-        .scroll-mouse { width: 20px; height: 32px; border: 2px solid var(--text-muted); border-radius: 10px; position: relative; }
-        .scroll-wheel { width: 4px; height: 8px; background: var(--primary); position: absolute; top: 6px; left: 50%; transform: translateX(-50%); border-radius: 2px; animation: scrollAnim 1.5s infinite; }
-        footer { background: #010102; border-top: 1px solid var(--glass-border); padding: 50px 40px 30px 40px; width: 100%; box-sizing: border-box; }
-        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; }
-        .footer-col h4 { color: #fff; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; border-left: 3px solid var(--primary); padding-left: 12px; }
-        .footer-col ul { list-style: none; padding: 0; margin: 0; }
-        .footer-col ul li { margin-bottom: 10px; }
-        .footer-col ul li a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; transition: 0.3s; }
-        .footer-col ul li a:hover { color: var(--primary); padding-left: 5px; }
-        .footer-bottom { max-width: 1200px; margin: 30px auto 0 auto; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.03); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; font-size: 0.75rem; color: var(--text-muted); }
-        @keyframes typing { from { width: 0 } to { width: 16ch } }
-        @keyframes blink { from, to { border-color: transparent } 50% { border-color: var(--primary); } }
-        @keyframes float { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, -10px); } }
-        @keyframes scrollAnim { 0% { opacity: 1; top: 6px; } 100% { opacity: 0; top: 18px; } }
-        @media (max-width: 900px) { nav { padding: 20px; flex-direction: column; gap: 12px; } 
-        h1 { font-size: 2.6rem; } .telemetry-hud { display: none; } .about-box { grid-template-columns: 1fr; gap: 30px; padding: 25px; } .ceo-card { border-left: none; border-top: 1px solid rgba(255,255,255,0.05); padding-left: 0; padding-top: 25px; } section { height: auto; padding: 100px 20px; scroll-snap-align: none; } html { scroll-snap-type: none; } }NEXUSAUTOMATACore // الرئيسيةAbout // هويتناNodes // الباقاتCore TerminalMain TerminalAbout NexusAutomataPricing NodesSimulations⚡ Live AI System Demo // نسخة تجريبيةDocumentationArchitecture SLASecurity Protocols© 2026 NexusAutomata AI Inc. All Nodes Operational.جميع الحقوق محفوظة. أتمتة مؤسسية مستقلة للمؤسس كيرلس البنا.const canvas = document.getElementById("particle-canvas");const ctx = canvas.getContext("2d");let particles = [];function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }window.addEventListener("resize", resizeCanvas); resizeCanvas();class Particle {constructor() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.vx = (Math.random() - 0.5) * 0.5; this.vy = (Math.random() - 0.5) * 0.5; this.radius = Math.random() * 1.5 + 0.5; }update() { this.x += this.vx; this.y += this.vy; if (this.x < 0 || this.x > canvas.width) this.vx *= -1; if (this.y < 0 || this.y > canvas.height) this.vy *= -1; }draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2); ctx.fillStyle = "rgba(0, 255, 204, 0.4)"; ctx.fill(); }}for (let i = 0; i < 75; i++) particles.push(new Particle());function animate() {ctx.clearRect(0, 0, canvas.width, canvas.height);particles.forEach((p, idx) => {p.update(); p.draw();for (let j = idx + 1; j < particles.length; j++) {const dist = Math.hypot(p.x - particles[j].x, p.y - particles[j].y);if (dist < 130) {ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(particles[j].x, particles[j].y);ctx.strokeStyle = rgba(0, 255, 204, ${1 - dist / 130 * 0.12}); ctx.stroke();}}});requestAnimationFrame(animate);}animate();
+        .btn-action { background: linear-gradient(90deg, rgba(0,255,204,0.05), rgba(0,119,255,0.05)); border: 1px solid var(--primary); color: var(--primary); padding: 14px; border-radius: 30px; font-size: 0.9rem; font-weight: 700; cursor: pointer; width: 100%; text-align: center; text-decoration: none; display: block; box-sizing: border-box; transition: 0.3s; text-transform: uppercase; }
+        .card:hover .btn-action { background: var(--gradient); color: #000; }
+        footer { background: #010102; border-top: 1px solid var(--glass-border); padding: 40px; box-sizing: border-box; }
+        @media (max-width: 768px) { nav { padding: 15px; flex-direction: column; gap: 10px; } h1 { font-size: 2.3rem; } .telemetry-hud { display: none; } .about-box { grid-template-columns: 1fr; gap: 20px; padding: 20px; } .ceo-card { border-left: none; border-top: 1px solid rgba(255,255,255,0.05); padding-left: 0; padding-top: 20px; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="./index.html" class="nav-logo">NEXUS<span>AUTOMATA</span></a>
+        <div class="nav-links">
+            <a href="./index.html" style="color: var(--primary);">Core</a>
+            <a href="#about-section">About</a>
+            <a href="#pricing-section">Nodes</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>NexusAutomata AI</h1>
+        <div class="subtitle-container">
+            <div class="subtitle-en">Next-Generation 24/7 AI-Powered Missed-Call Systems & Full Operational Automation Architectures for Enterprise Real Estate Ecosystems.</div>
+            <div class="subtitle-ar">الجيل القادم من أنظمة الرد الذكي على المكالمات الفائتة وأتمتة العمليات التشغيلية بالكامل للشركات والمطورين العقاريين على مدار الساعة.</div>
+        </div>
+        
+        <div class="telemetry-hud">
+            <div class="hud-metric"><div class="hud-label">Core Status</div><div class="hud-value" style="color:#00ffcc;">ONLINE // NOMINAL</div></div>
+            <div class="hud-metric"><div class="hud-label">Active Node Loads</div><div class="hud-value">4.02 Tflops</div></div>
+            <div class="hud-metric"><div class="hud-label">Memory Partition</div><div class="hud-value">98.4% Secure</div></div>
+            <div class="hud-metric"><div class="hud-label">Global Requests</div><div class="hud-value">2,514/sec</div></div>
+        </div>
+    </header>
+
+    <main class="about-container" id="about-section">
+        <div class="about-box">
+            <div class="about-text">
+                <h2>Corporate Profile // هويتنا</h2>
+                <p style="direction: rtl;">تعتبر مؤسسة <strong>NexusAutomata AI (NAI)</strong> كياناً رائدًا ومبتكرًا في قطاع الوكالات العقارية المؤتمتة (Automated Broker Agencies)، ومن أوائل الشركات المتخصصة في هندسة أتمتة الأنظمة العقارية [١]. نهدف إلى القضاء تماماً على معضلة المكالمات الفائتة وهدر الفرص البيعية، مستبدلين التكاليف الباهظة لخدمة العملاء البشرية التقليدية ببنلايين البنى التحتية الإدراكية للذكاء الاصطناعي التي تعمل بكفاءة بشرية وسرعة ميكانيكية 24/7.</p>
+                <p>We decouple business scaling from raw human limitations. By deploying deep cognitive frameworks, NAI guarantees enterprise real estate ecosystems never drop a single lead again.</p>
+            </div>
+            <div class="ceo-card">
+                <div class="ceo-badge">Executive Core Node</div>
+                <div class="ceo-name">Mr. Kyrillos El-Banna</div>
+                <div class="ceo-title">Founder & CEO // STEM Researcher</div>
+                <div class="contact-item"><strong>Corp Mail:</strong> Nexus.Automata.AI@gmail.com</div>
+                <div class="contact-item"><strong>CEO Mail:</strong> Kiroe0638@gmail.com</div>
+                <div class="contact-item"><strong>Secure WhatsApp:</strong> +201204462723</div>
+            </div>
+        </div>
+    </main>
+
+    <main class="pricing-container" id="pricing-section">
+        <div class="card">
+            <div>
+                <h3>Starter Node</h3><div class="price">$599<span style="font-size:1rem;color:var(--text-muted)">/mo</span></div>
+                <p>Instant multi-channel missed-call text interception deployment 24/7 via WhatsApp API & cellular networks [١].</p>
+                <table class="card-spec-table">
+                    <tr><td>Intercept Latency</td><td class="val active">&lt; 1.5s</td></tr>
+                    <tr><td>Database Pipelines</td><td class="val">Google Sheets API</td></tr>
+                    <tr><td>Channel Sync</td><td class="val">WhatsApp + SMS</td></tr>
+                    <tr><td>Uptime Guarantee</td><td class="val active">99.99%</td></tr>
+                </table>
+            </div>
+            <a href="./register.html?node=starter" class="btn-action">Examine Spec & Deploy</a>
+        </div>
+
+        <div class="card" style="border-color: rgba(0,255,204,0.4);">
+            <div>
+                <h3>Cortex Pro</h3><div class="price">$1,199<span style="font-size:1rem;color:var(--text-muted)">/mo</span></div>
+                <p>Includes Starter Node frameworks + contextual cognitive real estate AI brain (Ar/En) + automated calendar booking.</p>
+                <table class="card-spec-table">
+                    <tr><td>Model Parameters</td><td class="val active">Gemini 1.5 Flash</td></tr>
+                    <tr><td>Language Matrix</td><td class="val">Dual (Ar/En)</td></tr>
+                    <tr><td>Scheduling Node</td><td class="val">Google Calendar API</td></tr>
+                    <tr><td>Context Memory</td><td class="val active">Unlimited History</td></tr>
+                </table>
+            </div>
+            <a href="./register.html?node=cortex" class="btn-action">Examine Spec & Deploy</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <h3>Nexus Enterprise</h3><div class="price">$2,999<span style="font-size:1rem;color:var(--text-muted)">/mo</span></div>
+                <p>Deep data abstraction bridging to legacy enterprise CRMs + sequential autonomous parallel follow-up outreach loops.</p>
+                <table class="card-spec-table">
+                    <tr><td>CRM Direct Bridge</td><td class="val active">Direct API Sync</td></tr>
+                    <tr><td>Outreach Engine</td><td class="val">AI Follow-Up Loop</td></tr>
+                    <tr><td>SLA Guarantee</td><td class="val active">99.99% Node Uptime</td></tr>
+                </table>
+            </div>
+            <a href="./register.html?node=enterprise" class="btn-action">Examine Spec & Deploy</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Core Terminal</h4>
+                <ul>
+                    <li><a href="./index.html">Main Terminal</a></li>
+                    <li><a href="#about-section">About NexusAutomata</a></li>
+                    <li><a href="#pricing-section">Pricing Nodes</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Simulations</h4>
+                <ul>
+                    <li><a href="./demo.html" style="color: var(--primary); font-weight: bold;">⚡ Live AI System Demo // نسخة تجريبية</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&copy; 2026 NexusAutomata AI Inc. All Nodes Operational.</div>
+            <div style="direction: rtl;">جميع الحقوق محفوظة. أتمتة مؤسسية مستقلة للمؤسس كيرلس البنا.</div>
+        </div>
+    </footer>
+</body>
+</html>
