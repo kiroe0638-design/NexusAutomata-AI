@@ -3,61 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexusAutomata AI (NAI) | Enterprise Automation Core</title>
+    <title>NexusAutomata AI (NAI)</title>
     
-    !-- مكتبة الأنميشن AOS -->
+    <!-- Verified CDN framework for scroll animations -->
     <link href="https://unpkg.com" rel="stylesheet">
-    !-- ربط ملف الستايل الخارجي المنفصل -->
-    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* Modern Premium Cyberpunk Core Theme */
+        :root {
+            --bg-color: #0b0b0b;
+            --card-bg: #141414;
+            --card-bg-active: #1a1a26;
+            --primary: #00ffcc;
+            --primary-hover: #00ccaa;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --border: #222;
+            --gradient: linear-gradient(135deg, #00ffcc 0%, #0077ff 100%);
+            --accent-orange: #ffaa00;
+        }
+
+        body { 
+            background-color: var(--bg-color); 
+            color: var(--text-main); 
+            font-family: 'Segoe UI', sans-serif; 
+            text-align: center; 
+            padding: 60px 20px; 
+            margin: 0; 
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        h1 { 
+            color: var(--primary); 
+            font-size: 3.5rem; 
+            margin-bottom: 10px; 
+            font-weight: 800; 
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(0, 255, 204, 0.15);
+        }
+        
+        p.main-subtitle { 
+            color: var(--text-muted); 
+            font-size: 1.2rem; 
+            margin-bottom: 50px; 
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        /* 3D Pricing Grid Matrix */
+        .pricing-container { 
+            display: flex; 
+            justify-content: center; 
+            gap: 25px; 
+            flex-wrap: wrap; 
+            margin-top: 20px; 
+            margin-bottom: 40px; 
+            direction: ltr;
+        }
+        
+        .card { 
+            background: var(--card-bg); 
+            border: 1px solid var(--border); 
+            border-radius: 12px; 
+            padding: 35px 25px; 
+            width: 300px; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+        
+        .card:hover, .card.selected-plan { 
+            border-color: var(--primary); 
+            transform: translateY(-10px) scale(1.02); 
+            box-shadow: 0 15px 30px rgba(0, 255, 204, 0.15);
+            background: var(--card-bg-active);
+        }
+
+        .card.featured::before {
+            content: '🔥 MOST POPULAR';
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: var(--primary);
+            color: #000;
+            font-size: 0.7rem;
+            font-weight: bold;
+            padding: 5px 35px;
+            transform: rotate(45deg);
+        }
+        
+        .card h3 { color: var(--primary); font-size: 1.5rem; margin-top: 0; font-weight: 700; text-align: center; }
+        .price { font-size: 2.3rem; font-weight: bold; margin: 20px 0; color: #fff; text-align: center; }
+        .card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px; min-height: 80px; }
+
+        .btn-select-tier {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            width: 100%;
+            text-align: center;
+            transition: 0.3s;
+            pointer-events: none;
+        }
+        .card:hover .btn-select-tier, .card.selected-plan .btn-select-tier {
+            background: var(--primary);
+            color: #000;
+        }
+
+        /* Fixed Configuration & Deployment Workspace Panel */
+        .workspace-section {
+            max-width: 900px;
+            margin: 60px auto;
+            background: var(--card-bg);
+            border: 2px solid var(--primary);
+            border-radius: 16px;
+            padding: 35px;
+            text-align: left;
+            box-shadow: 0 15px 40px rgba(0, 255, 204, 0.1);
+        }
+
+        .features-headline {
+            color: var(--primary);
+            font-size: 1.6rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .features-cost-badge {
+            display: inline-block;
+            background: rgba(0, 255, 204, 0.1);
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            font-size: 1rem;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 35px;
+        }
+        .feature-item {
+            background: #0b0b0b;
+            border: 1px solid #222;
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-main);
+        }
+        .feature-item span.icon { color: var(--primary); font-weight: bold; font-size: 1.2rem; }
+
+        /* Form Controls Architecture */
+        .interactive-form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        .form-group { text-align: left; margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-muted); font-size: 0.9rem; }
+        .form-group input, .form-group select {
+            width: 100%; padding: 14px; border-radius: 8px;
+            border: 1px solid #333; background: #0b0b0b;
+            color: #fff; font-size: 1rem; box-sizing: border-box;
+            transition: 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus { border-color: var(--primary); outline: none; }
+
+        .billing-infobox {
+            background: #0b0b0b;
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .promo-block {
+            display: flex; gap: 10px; margin-bottom: 10px; max-width: 400px;
+        }
+        .btn-promo-apply {
+            background: #222; color: var(--primary); border: 1px solid #333;
+            padding: 0 25px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s;
+        }
+        .btn-promo-apply:hover { border-color: var(--primary); background: #1a1a26; }
+        .promo-alert-msg { font-size: 0.85rem; font-weight: 600; margin-bottom: 25px; display: none; }
+
+        .btn-master-submit {
+            background: var(--gradient);
+            color: #000;
+            border: none;
+            padding: 16px 40px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 255, 204, 0.2);
+        }
+        .btn-master-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 255, 204, 0.4);
+        }
+
+        /* Hugging Face Floating Widget Brand Overrides */
+        #dify-chatbot-bubble-button {
+            background-color: var(--primary) !important;
+            box-shadow: 0 4px 20px rgba(0, 255, 204, 0.4) !important;
+        }
+    </style>
 </head>
 <body>
 
-    !-- Header Section -->
-    <header>
-        <h1 data-aos="fade-down" data-aos-duration="1000">NexusAutomata AI (NAI)</h1>
-        <p class="main-subtitle" data-aos="fade-up" data-aos-duration="1200">
-            Intelligent 24/7 AI-Powered Missed-Call & Automation Solutions for Real Estate Ecosystems
-        </p>
-    </header>
+    <!-- Main Headings Layer -->
+    <h1 data-aos="fade-down" data-aos-duration="1000">NexusAutomata AI (NAI)</h1>
+    <p class="main-subtitle" data-aos="fade-up" data-aos-duration="1200">
+        Intelligent 24/7 AI-Powered Missed-Call & Automation Solutions for Real Estate Ecosystems
+    </p>
     
-    !-- Pricing Matrix Section -->
-    <main class="pricing-container" data-aos="fade-up" data-aos-delay="200">
-        
-        !-- Card 1: Starter -->
-        <div class="card">
-            <h3>Starter Node</h3>
-            <div class="price">$599<span class="mo-text">/mo</span></div>
-            <p>Instant missed-call text-back deployment 24/7 via WhatsApp & SMS. Automatically captures critical lead data to Google Sheets.</p>
-            <a href="pages/checkout-starter.html" class="btn-action">Configure Node</a>
+    <!-- Step 1: Three-Tier Plan Matrix (Hardcoded, Static, Error-Free) -->
+    <div class="pricing-container" data-aos="fade-up" data-aos-delay="200">
+        <!-- Card 1: Starter Node -->
+        <div class="card" id="card-starter" onclick="selectPlanView('starter', 599, 'Starter Node')">
+            <div>
+                <h3>Starter Node</h3>
+                <div class="price">$599<span style="font-size:1rem; color:var(--text-muted);">/mo</span></div>
+                <p>Instant missed-call text-back deployment 24/7 via WhatsApp & SMS. Automatically captures critical lead data to Google Sheets.</p>
+            </div>
+            <button class="btn-select-tier">Configure Node</button>
         </div>
         
-        !-- Card 2: Cortex Pro -->
-        <div class="card featured">
-            <h3>Cortex Pro</h3>
-            <div class="price">$1,199<span class="mo-text">/mo</span></div>
-            <p>Includes Starter Node features + complete interactive bilingual AI assistant (Ar/En) to answer pricing/locations + automated calendar booking.</p>
-            <a href="pages/checkout-cortex.html" class="btn-action">Configure Node</a>
+        <!-- Card 2: Cortex Pro -->
+        <div class="card featured" id="card-cortex" onclick="selectPlanView('cortex', 1199, 'Cortex Pro')">
+            <div>
+                <h3>Cortex Pro</h3>
+                <div class="price">$1,199<span style="font-size:1rem; color:var(--text-muted);">/mo</span></div>
+                <p>Includes Starter Node features + complete interactive bilingual AI assistant (Ar/En) to answer pricing/locations + automated calendar booking.</p>
+            </div>
+            <button class="btn-select-tier">Configure Node</button>
         </div>
         
-        !-- Card 3: Nexus Enterprise -->
-        <div class="card">
-            <h3>Nexus Enterprise</h3>
-            <div class="price">$2,999<span class="mo-text">/mo</span></div>
-            <p>Custom infrastructure deep bridging to major enterprise CRMs (HubSpot/Salesforce) + automated multi-day smart AI follow-up loops.</p>
-            <a href="pages/checkout-nexus.html" class="btn-action">Configure Node</a>
-        </div>
-        
-    </main>
-
-    !-- ربط مكتبة الأنميشن والسكريبت الخارجي -->
-    <script src="https://unpkg.com"></script>
-    <script src="js/main.js"></script>
-
-    !-- سكريبت الشات بوت العائم الحقيقي والمجرب (Dify Chat Widget) -->
-    <script>
-        window.difyChatbotConfig = { token: 'AlytJyGr9oVTQcna' }
-    </script>
-    <script src="https://udify.app" id="AlytJyGr9oVTQcna" defer></script>
-
-</body>
-</html>
+        <!-- Card 3: Nexus Enterprise -->
+        <div class="card" id="card-nexus" onclick="selectPlanView('nexus', 2999, 'Nexus Enterprise')">
+            <div>
+                <h3>Nexus Enterprise</h3>
+                <div class="price">$2,999<span style="font-size:1rem; color:var(--text-muted);">/mo</span></div>
