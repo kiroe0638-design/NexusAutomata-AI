@@ -5,119 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NexusAutomata AI (NAI)</title>
     <style>
-        :root { --bg: #0b0b0b; --card: #141414; --primary: #00ffcc; --text: #ffffff; --muted: #a0a0a0; --border: #222; }
-        body { background: var(--bg); color: var(--text); font-family: sans-serif; text-align: center; padding: 40px 20px; margin:0; scroll-behavior: smooth; }
-        h1 { color: var(--primary); font-size: 3rem; margin-bottom: 10px; font-weight: 800; background: linear-gradient(135deg, #00ffcc, #0077ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .pricing { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; }
-        .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 30px 20px; width: 280px; text-align: left; display: flex; flex-direction: column; justify-content: space-between; transition: 0.3s; }
-        .card:hover, .active-card { border-color: var(--primary); transform: translateY(-5px); }
-        .btn { background: transparent; border: 2px solid var(--primary); color: var(--primary); padding: 12px; border-radius: 8px; font-weight: bold; width: 100%; text-align: center; cursor: pointer; text-decoration: none; display: block; box-sizing: border-box; }
-        .card:hover .btn, .active-card .btn { background: var(--primary); color: #000; }
-        .workspace { max-width: 850px; margin: 40px auto; background: var(--card); border: 2px solid var(--primary); border-radius: 16px; padding: 30px; text-align: left; }
-        .f-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-bottom: 30px; }
-        .f-item { background: #0b0b0b; border: 1px solid #222; padding: 12px; border-radius: 8px; font-size: 0.9rem; }
-        .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
-        input, select { width: 100%; padding: 12px; border-radius: 6px; border: 1px solid #333; background: #0b0b0b; color: #fff; box-sizing: border-box; }
-        .infobox { background: #0b0b0b; border-left: 4px solid var(--primary); padding: 12px; border-radius: 4px; margin-bottom: 20px; font-size: 0.85rem; color: var(--muted); }
-        .btn-submit { background: linear-gradient(135deg, #00ffcc, #0077ff); color: #000; border: none; padding: 15px; font-size: 1rem; font-weight: bold; border-radius: 8px; cursor: pointer; width: 100%; }
-        iframe { width: 100%; height: 700px; border-radius: 8px; border: 1px solid #222; background: #08080c; margin-top: 40px; }
+        :root {
+            --bg: #0b0b0b;
+            --card: #141414;
+            --primary: #00ffcc;
+            --text: #ffffff;
+            --muted: #a0a0a0;
+            --border: #222;
+        }
+        body { 
+            background: var(--bg); 
+            color: var(--text); 
+            font-family: 'Segoe UI', sans-serif; 
+            text-align: center; 
+            padding: 50px 20px; 
+            margin: 0; 
+        }
+        h1 { 
+            color: var(--primary); 
+            font-size: 3rem; 
+            font-weight: 800; 
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #00ffcc, #0077ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle { color: var(--muted); margin-bottom: 50px; font-size: 1.1rem; }
+        .pricing { 
+            display: flex; 
+            justify-content: center; 
+            gap: 25px; 
+            flex-wrap: wrap; 
+            margin-bottom: 50px; 
+        }
+        .card { 
+            background: var(--card); 
+            border: 1px solid var(--border); 
+            border-radius: 12px; 
+            padding: 35px 25px; 
+            width: 290px; 
+            text-align: left; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .price { font-size: 2.2rem; font-weight: bold; margin: 15px 0; color: #fff; }
+        .card p { color: var(--muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px; min-height: 90px; }
+        .btn { 
+            background: transparent; 
+            border: 2px solid var(--primary); 
+            color: var(--primary); 
+            padding: 12px; 
+            border-radius: 8px; 
+            font-weight: bold; 
+            width: 100%; 
+            text-align: center; 
+            cursor: pointer; 
+            text-decoration: none; 
+            display: block; 
+            box-sizing: border-box; 
+            transition: 0.3s;
+        }
+        .card:hover .btn { background: var(--primary); color: #000; }
     </style>
 </head>
 <body>
-    <h1>NexusAutomata AI (NAI)</h1>
-    <p style="color:var(--muted); margin-bottom:40px;">Intelligent 24/7 AI Automation Solutions for Real Estate</p>
+
+    <h1>NexusAutomata AI</h1>
+    <p class="subtitle">Next-Generation 24/7 AI Automation Solutions for Real Estate Ecosystems</p>
     
     <div class="pricing">
-        <div class="card" id="c-starter" onclick="tab('starter',599,'Starter Node')">
-            <h3>Starter Node</h3><div style="font-size:2rem;font-weight:bold;margin:15px 0;">$599<span style="font-size:1rem;color:var(--muted)">/mo</span></div>
-            <p style="color:var(--muted);font-size:0.9rem;min-height:70px;">Instant missed-call text-back via WhatsApp & SMS. Auto Lead Capture.</p>
-            <a href="#workspace" class="btn">Configure Node</a>
+        <!-- Card 1: Starter Node -->
+        <div class="card">
+            <h3>Starter Node</h3>
+            <div class="price">$599<span style="font-size:1rem; color:var(--muted)">/mo</span></div>
+            <p>Instant missed-call text-back via WhatsApp & SMS. Automatically captures critical client data and syncs directly to Google Sheets.</p>
+            <a href="checkout.html?plan=starter" class="btn">Configure Node</a>
         </div>
-        <div class="card" id="c-cortex" onclick="tab('cortex',1199,'Cortex Pro')">
-            <h3>Cortex Pro</h3><div style="font-size:2rem;font-weight:bold;margin:15px 0;">$1,199<span style="font-size:1rem;color:var(--muted)">/mo</span></div>
-            <p style="color:var(--muted);font-size:0.9rem;min-height:70px;">Bilingual Real Estate AI Assistant (Ar/En). Automated Calendar Booking.</p>
-            <a href="#workspace" class="btn">Configure Node</a>
+
+        <!-- Card 2: Cortex Pro -->
+        <div class="card" style="border-color: var(--primary);">
+            <h3>Cortex Pro</h3>
+            <div class="price">$1,199<span style="font-size:1rem; color:var(--muted)">/mo</span></div>
+            <p>Includes Starter Node features + complete interactive bilingual AI assistant (Ar/En) to answer pricing/locations + automated calendar booking.</p>
+            <a href="checkout.html?plan=cortex" class="btn">Configure Node</a>
         </div>
-        <div class="card" id="c-nexus" onclick="tab('nexus',2999,'Nexus Enterprise')">
-            <h3>Nexus Enterprise</h3><div style="font-size:2rem;font-weight:bold;margin:15px 0;">$2,999<span style="font-size:1rem;color:var(--muted)">/mo</span></div>
-            <p style="color:var(--muted);font-size:0.9rem;min-height:70px;">Deep CRM Sync (Salesforce/HubSpot). Multi-day Smart AI Follow-up loops.</p>
-            <a href="#workspace" class="btn">Configure Node</a>
+
+        <!-- Card 3: Nexus Enterprise -->
+        <div class="card">
+            <h3>Nexus Enterprise</h3>
+            <div class="price">$2,999<span style="font-size:1rem; color:var(--muted)">/mo</span></div>
+            <p>Custom infrastructure deep bridging to major enterprise CRMs (HubSpot/Salesforce) + automated multi-day smart AI follow-up loops.</p>
+            <a href="checkout.html?plan=nexus" class="btn">Configure Node</a>
         </div>
     </div>
 
-    <div class="workspace" id="workspace">
-        <h3 style="color:var(--primary);margin-top:0;" id="w-title">Starter Node Infrastructure</h3>
-        <div style="display:inline-block;background:rgba(0,255,204,0.1);color:var(--primary);padding:5px 10px;border-radius:4px;font-weight:bold;margin-bottom:20px;font-size:0.9rem;" id="w-cost">Retainer Balance: $599 / mo</div>
-        
-        <div class="f-grid">
-            <div class="f-item">✓ <span id="f1">24/7 Automated Intercept for Missed-Calls</span></div>
-            <div class="f-item">✓ <span id="f2">Instant Text-Back via WhatsApp Business API</span></div>
-            <div class="f-item">✓ <span id="f3">Backup SMS Failure Switching Engines</span></div>
-            <div class="f-item">✓ <span id="f4">Lead Extraction & Google Sheets Sync</span></div>
-        </div>
-
-        <form onsubmit="alert('Confirmed! We will WhatsApp you in minutes.');event.preventDefault();">
-            <div class="form-grid">
-                <div><label style="font-size:0.8rem;color:var(--muted)">Name</label><input type="text" required placeholder="Prime Realty Group"></div>
-                <div><label style="font-size:0.8rem;color:var(--muted)">Corporate Email</label><input type="email" required placeholder="info@company.com"></div>
-                <div><label style="font-size:0.8rem;color:var(--muted)">WhatsApp Phone</label><input type="tel" required placeholder="+1 234 567 8900"></div>
-            </div>
-            <div style="margin-bottom:15px;">
-                <label style="font-size:0.8rem;color:var(--muted)">Billing Model</label>
-                <select id="b-model" onchange="calc()">
-                    <option value="corp">Direct Corporate Link (Company card on system accounts)</option>
-                    <option value="all">All-Inclusive Bundled Invoice (+ $26 platform fees)</option>
-                </select>
-            </div>
-            <div class="infobox" id="b-desc">💡 <b>Corporate Link:</b> Tools setup on your domain email. Card attached inside accounts line.</div>
-            <div id="p-zone" style="display:none;margin-bottom:20px;border-top:1px dashed #333;padding-top:15px;">
-                <label style="font-size:0.8rem;color:var(--primary);font-weight:bold;">Founder Coupon (Cortex Pro Exclusive)</label>
-                <div style="display:flex;gap:10px;margin-top:5px;"><input type="text" id="p-in" placeholder="FOUNDER50"><button type="button" onclick="promo()" style="background:#222;color:var(--primary);border:1px solid #333;padding:10px;border-radius:6px;cursor:pointer;font-weight:bold;">Apply</button></div>
-                <div id="p-msg" style="font-size:0.85rem;margin-top:5px;font-weight:bold;"></div>
-            </div>
-            <button type="submit" class="btn-submit" id="s-btn">Initialize Starter Node ($599/mo)</button>
-        </form>
-    </div>
-    <iframe src="https://udify.app" frameborder="0" allow="microphone"></iframe>
-
-    <script>
-        const DB = {
-            starter: { t:"Starter Node", p:599, f1:"24/7 Automated Intercept for Missed-Calls", f2:"Instant Text-Back via WhatsApp Business API", f3:"Backup SMS Failure Switching Engines", f4:"Lead Extraction & Google Sheets Sync" },
-            cortex: { t:"Cortex Pro", p:1199, f1:"All Starter Node features included", f2:"Advanced Bilingual LLM Core Engine (Ar/En)", f3:"Instant Property Inquiries Resolution", f4:"Autonomous Calendar Booking for Viewings" },
-            nexus: { t:"Nexus Enterprise", p:2999, f1:"Tailored Infrastructure Fine-Tuning", f2:"Direct CRM Sync (Salesforce/HubSpot)", f3:"Multi-day Sequential AI Follow-up loops", f4:"Dedicated Analytical Dashboards" }
-        };
-        let pKey="starter", bPrice=599, pLabel="Starter Node", discount=false;
-        document.getElementById('c-starter').classList.add('active-card');
-
-        function tab(k, p, l) {
-            pKey=k; bPrice=p; pLabel=l; discount=false;
-            document.getElementById('c-starter').className='card'; document.getElementById('c-cortex').className='card'; document.getElementById('c-nexus').className='card';
-            document.getElementById('c-'+k).classList.add('active-card');
-            document.getElementById('w-title').innerText = DB[k].t + " Infrastructure";
-            document.getElementById('f1').innerText = DB[k].f1; document.getElementById('f2').innerText = DB[k].f2; document.getElementById('f3').innerText = DB[k].f3; document.getElementById('f4').innerText = DB[k].f4;
-            document.getElementById('p-zone').style.display = (k==='cortex')?'block':'none';
-            document.getElementById('p-in').value=""; document.getElementById('p-msg').style.display="none";
-            document.getElementById('b-model').value="corp"; calc();
-        }
-        function calc() {
-            let m=document.getElementById('b-model').value, box=document.getElementById('b-desc'), final=discount?599:bPrice;
-            if(m==="corp") {
-                box.innerHTML="💡 <b>Corporate Link:</b> Tools setup on your domain email. Card attached inside accounts line."; box.style.color="#a0a0a0";
-            } else {
-                final+=26; box.innerHTML="⚠️ <b>Unified Invoicing:</b> Platform overhead charges (+$26/mo fee) appended straight into your monthly bill."; box.style.color="#ffaa00";
-            }
-            document.getElementById('w-cost').innerText = "Retainer Balance: $" + final + " / mo";
-            document.getElementById('s-btn').innerText = "Initialize " + pLabel + " ($" + final + "/mo)";
-        }
-        function promo() {
-            let v=document.getElementById('p-in').value.trim().toUpperCase(), msg=document.getElementById('p-msg');
-            if(v==="FOUNDER50" && pKey==="cortex") {
-                discount=true; msg.innerText="✅ Verified! Lifetime rate set to $599/mo."; msg.style.color="#00ffcc";
-            } else {
-                msg.innerText="❌ Invalid coupon code."; msg.style.color="red";
-            }
-            msg.style.display="block"; calc();
-        }
-    </script>
 </body>
 </html>
